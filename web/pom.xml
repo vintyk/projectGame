@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>by.ecp</groupId>
+    <artifactId>projectGame</artifactId>
+    <version>${project.version}</version>
+  </parent>
+
+  <artifactId>web</artifactId>
+  <version>${project.version}</version>
+  <packaging>war</packaging>
+  <name>web Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>by.ecp</groupId>
+      <artifactId>service</artifactId>
+      <version>${project.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>by.ecp</groupId>
+          <artifactId>dao</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>web</finalName>
+  </build>
+
+</project>
