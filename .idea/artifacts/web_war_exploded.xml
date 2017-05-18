@@ -6,6 +6,12 @@
         <element id="directory" name="classes">
           <element id="module-output" name="web" />
         </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="service-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="service" />
+          </element>
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.0-b05" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/web/target/web/META-INF/MANIFEST.MF" />
