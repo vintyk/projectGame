@@ -6,5 +6,8 @@
 <body>
 <h1>Test</h1>
 <h3>Тестовая</h3>
+ПРИВЕТУЛИ!----------
+${requestScope.name}
+
 </body>
 </html>

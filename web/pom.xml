@@ -22,10 +22,10 @@
       <artifactId>service</artifactId>
       <version>${project.version}</version>
       <exclusions>
-        <exclusion>
-          <groupId>by.ecp</groupId>
-          <artifactId>dao</artifactId>
-        </exclusion>
+        <!--<exclusion>-->
+          <!--<groupId>by.ecp</groupId>-->
+          <!--<artifactId>dao</artifactId>-->
+        <!--</exclusion>-->
       </exclusions>
     </dependency>
 
