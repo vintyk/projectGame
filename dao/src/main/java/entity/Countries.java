@@ -3,12 +3,11 @@ package entity;
 /**
  * Created by User on 24.05.2017.
  */
-//Например, постапокалипчис, фантастика, фэнтези, наши дни, спорт.
-public class Setting {
+public class Countries {
     long id;
     String name;
 
-    public Setting(long id, String name) {
+    public Countries(long id, String name) {
         this.id = id;
         this.name = name;
     }

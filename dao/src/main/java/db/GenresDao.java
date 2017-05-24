@@ -40,7 +40,7 @@ public class GenresDao {
         List<Genres> genres = new ArrayList<>();
         try (Connection connection = ConnectionManager.getConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement(
-                    "SELECT * FROM genres ORDER BY name;")) {
+                    "SELECT * FROM genre ORDER BY name;")) {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
                         genres.add(createGenresFromResultSet(resultSet));

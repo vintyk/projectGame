@@ -6,12 +6,12 @@ import java.time.LocalDate;
  * Created by User on 24.05.2017.
  */
 //Например, отменена, в разработке, ранний доступ, запущена.
-public class Stage {
+public class Stages {
     long id;
     String name;
     LocalDate date;
 
-    public Stage(long id, String name, LocalDate date) {
+    public Stages(long id, String name, LocalDate date) {
         this.id = id;
         this.name = name;
         this.date = date;

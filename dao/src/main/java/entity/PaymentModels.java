@@ -3,11 +3,11 @@ package entity;
 /**
  * Created by User on 24.05.2017.
  */
-public class Country {
+public class PaymentModels {
     long id;
     String name;
 
-    public Country(long id, String name) {
+    public PaymentModels(long id, String name) {
         this.id = id;
         this.name = name;
     }

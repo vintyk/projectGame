@@ -3,11 +3,11 @@ package entity;
 /**
  * Created by User on 24.05.2017.
  */
-public class Rank {
+public class Ranks {
     long id;
     String name;
 
-    public Rank(long id, String name) {
+    public Ranks(long id, String name) {
         this.id = id;
         this.name = name;
     }

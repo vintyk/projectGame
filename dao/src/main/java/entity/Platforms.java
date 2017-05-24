@@ -3,11 +3,11 @@ package entity;
 /**
  * Created by User on 24.05.2017.
  */
-public class Platform {
+public class Platforms {
     long id;
     String name;
 
-    public Platform(long id, String name) {
+    public Platforms(long id, String name) {
         this.id = id;
         this.name = name;
     }
