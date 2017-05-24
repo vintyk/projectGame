@@ -1,12 +1,13 @@
 package entity;
-/**
- * Created by Vinty on 09.04.2017.
- */
-public class Genres {
-    private long id;
-    private String name;
 
-    public Genres(long id, String name) {
+/**
+ * Created by User on 24.05.2017.
+ */
+public class PaymentModel {
+    long id;
+    String name;
+
+    public PaymentModel(long id, String name) {
         this.id = id;
         this.name = name;
     }

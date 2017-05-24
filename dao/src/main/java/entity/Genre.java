@@ -1,13 +1,12 @@
 package entity;
-
 /**
- * Created by User on 24.05.2017.
+ * Created by Vinty on 09.04.2017.
  */
-public class Countries {
-    long id;
-    String name;
+public class Genre {
+    private long id;
+    private String name;
 
-    public Countries(long id, String name) {
+    public Genre(long id, String name) {
         this.id = id;
         this.name = name;
     }

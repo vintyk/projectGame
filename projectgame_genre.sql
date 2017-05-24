@@ -1,9 +1,0 @@
-INSERT INTO projectgame.genre (name) VALUES ('Любой');
-INSERT INTO projectgame.genre (name) VALUES ('MMORPG');
-INSERT INTO projectgame.genre (name) VALUES ('MOBA');
-INSERT INTO projectgame.genre (name) VALUES ('Гонки');
-INSERT INTO projectgame.genre (name) VALUES ('Песочница');
-INSERT INTO projectgame.genre (name) VALUES ('Симуляторы');
-INSERT INTO projectgame.genre (name) VALUES ('Стратегии');
-INSERT INTO projectgame.genre (name) VALUES ('Шутеры');
-INSERT INTO projectgame.genre (name) VALUES ('Экшены');
