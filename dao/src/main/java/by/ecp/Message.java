@@ -1,17 +1,16 @@
-package entity;
-
-import lombok.*;
-
-import javax.persistence.*;
+package by.ecp;
 
 /**
- * Created by Vinty on 24.05.2017.
+ * Created by User on 25.05.2017.
  */
+import lombok.*;
+import javax.persistence.*;
+
+@SuppressWarnings("ALL")
 @Entity
-@Table(name="messages")
+@Table(name="message")
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +18,8 @@ public class Message {
     @Setter
     private long id;
 
-    @Column(name="name")
+    @Column(name = "name")
     @Getter
     @Setter
     private String name;
-
-
 }

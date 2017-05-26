@@ -1,7 +1,7 @@
 package by.ecp;
 
-import entity.Message;
-import junit.framework.TestCase;
+import by.ecp.db.ToolsDataBase;
+import by.ecp.entity.Country;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,18 +18,29 @@ public class AppTest  {
   public   static void init(){
   SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
 }
+
   @Test
-  public void testSaveMessage(){
-    Session session = SESSION_FACTORY.openSession();
+  public void testSaveCountry(){
+  Session session = SESSION_FACTORY.openSession();
+    Country country = new Country();
+    country.setName("Test");
+    Long id = (Long) session.save(country);
 
-    Message message = new Message();
-    message.setName("Maxxx");
-    Long id = (Long) session.save(message);
-
-    Message savedMessage = session.find(Message.class, id);
-    Assert.assertEquals(savedMessage.getName(), "Maxxx");
+    Country saved = session.find(Country.class, id);
+    Assert.assertEquals(saved.getName(), "Test");
     session.close();
   }
+
+  @Test
+  public void testDeleteCountry(){
+    Session session = SESSION_FACTORY.openSession();
+    Country country = new Country();
+    country.setName("Test2");
+    Long id = (Long) session.save(country);
+    ToolsDataBase.getInstance().delStringFromDbById(Country.class, new Long(id));
+    session.find(Country.class, id);
+  }
+
   @AfterClass
   public static void finish(){
     SESSION_FACTORY.close();

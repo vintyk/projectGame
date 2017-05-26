@@ -21,12 +21,12 @@
       <groupId>by.ecp</groupId>
       <artifactId>service</artifactId>
       <version>${project.version}</version>
-      <exclusions>
+      <!--<exclusions>-->
         <!--<exclusion>-->
-          <!--<groupId>by.ecp</groupId>-->
-          <!--<artifactId>dao</artifactId>-->
+        <!--<groupId>by.ecp</groupId>-->
+        <!--<artifactId>dao</artifactId>-->
         <!--</exclusion>-->
-      </exclusions>
+      <!--</exclusions>-->
     </dependency>
 
     <dependency>

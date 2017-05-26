@@ -1,6 +1,6 @@
 package by.ecp.servlet;
 
-import by.ecp.Test002;
+import by.ecp.db.ToolsDataBase;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ public class ServletTest extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setAttribute("name", Test002.getInstance().getNameTest("211 Какая-то странная надпись..."));
+     //   req.setAttribute("name", Test002.getInstance().getNameTest("211 Какая-то странная надпись..."));
         RequestDispatcher requestDispatcher
                 = getServletContext().getRequestDispatcher("/WEB-INF/jsp/test.jsp");
         requestDispatcher.forward(req, resp);
