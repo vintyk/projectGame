@@ -38,7 +38,7 @@ public class AppTest  {
     country.setName("Test2");
     Long id = (Long) session.save(country);
     ToolsDataBase.getInstance().delStringFromDbById(Country.class, new Long(id));
-    session.find(Country.class, id);
+    session.get(Country.class, id);
   }
 
   @AfterClass

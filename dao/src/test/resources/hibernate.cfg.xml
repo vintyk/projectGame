@@ -14,5 +14,6 @@
         <property name="format_sql">true</property>
 
         <mapping class="by.ecp.entity.Country"/>
+        <mapping class="by.ecp.entity.Painting"/>
     </session-factory>
 </hibernate-configuration>
