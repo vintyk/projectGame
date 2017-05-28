@@ -20,7 +20,8 @@ public class ServletTest extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      showPage(req, resp);
+
+        showPage(req, resp);
     }
     private void showPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("listCountries", CountryDao.getInstance().getCountryList());
