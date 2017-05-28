@@ -1,22 +1,29 @@
 package by.ecp.entity;
-import lombok.*;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
+
 /**
- * Created by User on 24.05.2017.
+ * Created by Vinty on 09.04.2017.
  */
 @Entity
-@Table(name="countries")
+@Table(name="genres")
 @ToString
 @NoArgsConstructor
-public class Country {
+public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    long id;
+    private long id;
     @Column(name = "name")
     @Getter
     @Setter
-    String name;
+    private String name;
+
 
 }
