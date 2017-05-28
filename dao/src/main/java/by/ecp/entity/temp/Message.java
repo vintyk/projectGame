@@ -1,4 +1,4 @@
-package by.ecp;
+package by.ecp.entity.temp;
 
 /**
  * Created by User on 25.05.2017.

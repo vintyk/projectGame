@@ -1,7 +1,6 @@
 package by.ecp.servlet;
 
-import by.ecp.db.ToolsDataBase;
-
+import by.ecp.db.CountryDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,16 +16,14 @@ import java.io.IOException;
 public class ServletTest extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-     //   req.setAttribute("name", Test002.getInstance().getNameTest("211 Какая-то странная надпись..."));
-        RequestDispatcher requestDispatcher
-                = getServletContext().getRequestDispatcher("/WEB-INF/jsp/test.jsp");
-        requestDispatcher.forward(req, resp);
+      showPage(req, resp);
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher
-                = getServletContext().getRequestDispatcher("/WEB-INF/jsp/test.jsp");
-        requestDispatcher.forward(req, resp);
+      showPage(req, resp);
+    }
+    private void showPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("listCountries", CountryDao.getInstance().getCountryList());
+      getServletContext().getRequestDispatcher("/WEB-INF/jsp/country.jsp").forward(req, resp);
     }
 }

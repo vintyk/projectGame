@@ -14,9 +14,9 @@ public class Country {
     @Getter
     @Setter
     long id;
+
     @Column(name = "name")
     @Getter
     @Setter
     String name;
-
 }

@@ -1,5 +1,6 @@
-package by.ecp;
+package by.ecp.entity.temp;
 
+import by.ecp.db.CountryDao;
 import by.ecp.db.ToolsDataBase;
 import by.ecp.entity.Country;
 import org.hibernate.Session;
@@ -15,9 +16,9 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-        Session session = sessionFactory.openSession();
 
+        List<Country> list = CountryDao.getInstance().getCountryList();
+        list.forEach(System.out::println);
 //        Country country = new Country();
 //        country.setName("Нет такой страны");
 //        session.saveOrUpdate(country);
@@ -51,19 +52,15 @@ public class Main {
 //    }
 //        boolean result = deleteById(Country.class, new Long(13));
 
-        deleteById(Country.class, new Long(14));
+//        deleteById(Country.class, new Long(14));
 
-        List<Country> resultSetCountry = session.createQuery("from Country", Country.class).getResultList();
-        resultSetCountry.forEach(System.out::println);
-        session.close();
-        sessionFactory.close();
     }
     private static boolean deleteById(Class<?> type, Serializable id) {
         SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            Object persistentInstance = session.load(type, id);
+            Object persistentInstance = session.get(type, id);
             if (persistentInstance != null) {
                 session.delete(persistentInstance);
                 transaction.commit();

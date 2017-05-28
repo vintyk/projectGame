@@ -1,4 +1,4 @@
-package by.ecp;
+package by.ecp.entity.temp;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

@@ -1,11 +1,15 @@
 package by.ecp;
 
+import by.ecp.db.CountryDao;
 import by.ecp.db.ToolsDataBase;
 import by.ecp.entity.Country;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.*;
+
+import java.util.List;
 
 /**
  * Unit test for simple App.
@@ -40,7 +44,21 @@ public class AppTest  {
     ToolsDataBase.getInstance().delStringFromDbById(Country.class, new Long(id));
     session.get(Country.class, id);
   }
+  @Test
+  public void testListCountry(){
+    Session session = SESSION_FACTORY.openSession();
+    Transaction transaction = session.beginTransaction();
+    Country country = new Country();
+    country.setName("USA");
+    session.saveOrUpdate(country);
+    Country country2 = new Country();
+    country2.setName("Франция");
+    session.saveOrUpdate(country);
+    transaction.commit();
+    List<Country> listCountry =  CountryDao.getInstance().getCountryList();
+    System.out.println(listCountry.size());
 
+  }
   @AfterClass
   public static void finish(){
     SESSION_FACTORY.close();
