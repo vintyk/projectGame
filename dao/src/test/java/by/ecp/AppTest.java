@@ -14,53 +14,54 @@ import java.util.List;
 /**
  * Unit test for simple App.
  */
-public class AppTest  {
+public class AppTest {
 
-  private  static SessionFactory SESSION_FACTORY;
+    private static SessionFactory SESSION_FACTORY;
 
-  @BeforeClass
-  public   static void init(){
-  SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-}
+    @BeforeClass
+    public static void init() {
+        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
+    }
 
-  @Test
-  public void testSaveCountry(){
-  Session session = SESSION_FACTORY.openSession();
-    Country country = new Country();
-    country.setName("Test");
-    Long id = (Long) session.save(country);
+    @Test
+    public void testSaveCountry() {
+        Session session = SESSION_FACTORY.openSession();
+        Country country = new Country();
+        country.setName("Test");
+        Long id = (Long) session.save(country);
+        Country saved = session.find(Country.class, id);
+        Assert.assertEquals(saved.getName(), "Test");
+        session.close();
+    }
 
-    Country saved = session.find(Country.class, id);
-    Assert.assertEquals(saved.getName(), "Test");
-    session.close();
-  }
+    @Test
+    public void testDeleteCountry() {
+        Session session = SESSION_FACTORY.openSession();
+        Country country = new Country();
+        country.setName("Test2");
+        Long id = (Long) session.save(country);
+        ToolsDataBase.getInstance().delStringFromDbById(Country.class, new Long(id));
+        session.get(Country.class, id);
+    }
 
-  @Test
-  public void testDeleteCountry(){
-    Session session = SESSION_FACTORY.openSession();
-    Country country = new Country();
-    country.setName("Test2");
-    Long id = (Long) session.save(country);
-    ToolsDataBase.getInstance().delStringFromDbById(Country.class, new Long(id));
-    session.get(Country.class, id);
-  }
-  @Test
-  public void testListCountry(){
-    Session session = SESSION_FACTORY.openSession();
-    Transaction transaction = session.beginTransaction();
-    Country country = new Country();
-    country.setName("USA");
-    session.saveOrUpdate(country);
-    Country country2 = new Country();
-    country2.setName("Франция");
-    session.saveOrUpdate(country);
-    transaction.commit();
-    List<Country> listCountry =  CountryDao.getInstance().getCountryList();
-    System.out.println(listCountry.size());
+    @Test
+    public void testListCountry() {
+        Session session = SESSION_FACTORY.openSession();
+        Transaction transaction = session.beginTransaction();
+        Country country = new Country();
+        country.setName("USA");
+        session.saveOrUpdate(country);
+        Country country2 = new Country();
+        country2.setName("Франция");
+        session.saveOrUpdate(country);
+        transaction.commit();
+        List<Country> listCountry = CountryDao.getInstance().getCountryList();
+        System.out.println(listCountry.size());
 
-  }
-  @AfterClass
-  public static void finish(){
-    SESSION_FACTORY.close();
-  }
+    }
+
+    @AfterClass
+    public static void finish() {
+        SESSION_FACTORY.close();
+    }
 }

@@ -1,5 +1,6 @@
-package by.ecp.entity;
+package by.ecp.entity.tempPackage;
 
+import by.ecp.entity.Painting;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
