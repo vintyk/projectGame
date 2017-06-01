@@ -23,25 +23,18 @@ public class AppTest {
         SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
     }
 
-    @Test
-    public void testSaveCountry() {
-        Session session = SESSION_FACTORY.openSession();
-        Country country = new Country();
-        country.setName("Test");
-        Long id = (Long) session.save(country);
-        Country saved = session.find(Country.class, id);
-        Assert.assertEquals(saved.getName(), "Test");
-        session.close();
-    }
 
     @Test
     public void testDeleteCountry() {
         Session session = SESSION_FACTORY.openSession();
+        Transaction transaction = session.beginTransaction();
         Country country = new Country();
         country.setName("Test2");
         Long id = (Long) session.save(country);
         ToolsDataBase.getInstance().delStringFromDbById(Country.class, new Long(id));
         session.get(Country.class, id);
+        transaction.commit();
+        session.close();
     }
 
     @Test
@@ -57,6 +50,7 @@ public class AppTest {
         transaction.commit();
         List<Country> listCountry = CountryDao.getInstance().getCountryList();
         System.out.println(listCountry.size());
+        session.close();
 
     }
 

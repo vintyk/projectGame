@@ -14,6 +14,14 @@
         <property name="format_sql">true</property>
 
         <mapping class="by.ecp.entity.Country"/>
+        <mapping class="by.ecp.entity.Genre"/>
+        <mapping class="by.ecp.entity.PaymentModel"/>
+        <mapping class="by.ecp.entity.Platform"/>
+        <mapping class="by.ecp.entity.Privilege"/>
+        <mapping class="by.ecp.entity.Rank"/>
+        <mapping class="by.ecp.entity.Setting"/>
+        <mapping class="by.ecp.entity.Stage"/>
+        <mapping class="by.ecp.entity.User"/>
         <mapping class="by.ecp.entity.Painting"/>
     </session-factory>
 </hibernate-configuration>
