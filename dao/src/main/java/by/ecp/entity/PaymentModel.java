@@ -19,10 +19,11 @@ public class PaymentModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter
     @Getter
-    long id;
+    private Long id;
+
     @Column(name = "name")
     @Getter
     @Setter
-    String name;
+    private String name;
 
 }

@@ -19,10 +19,11 @@ public class Platform {
     @Getter
     @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private Long id;
+
     @Setter
     @Getter
     @Column(name = "name")
-    String name;
+    private String name;
 
 }

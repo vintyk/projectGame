@@ -43,9 +43,9 @@ public class ToolsDataBase {
             }
         } catch (Throwable throwable) {
             transaction.rollback();
-            System.out.println("Метод delStringFromDbById не нашел ни одной строки с Id = "+ id);
+            System.out.println("Метод delStringFromDbById не нашел ни одной строки с Id = " + id);
             throw throwable;
-        }finally {
+        } finally {
             session.close();
             sessionFactory.close();
         }

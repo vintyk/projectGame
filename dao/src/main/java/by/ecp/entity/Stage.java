@@ -21,15 +21,15 @@ public class Stage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    long id;
+    private Long id;
     @Column(name = "name")
     @Getter
     @Setter
-    String name;
+    private String name;
     @Getter
     @Setter
     @Column(name = "date_stage")
-    LocalDate date;
+    private LocalDate date;
 
 
 }

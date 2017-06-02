@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
 
 //        UserDao.getInstance().saveUser("Vitaliy", 1L,"Ushakov", "vinty@i.ua", Gender.MALE, "12345");
-        VacancyDao.getInstance().saveVacancy("Financial Controller", 1L);
+//        VacancyDao.getInstance().saveVacancy("Financial Controller", 1L);
 //        ToolsDataBase.getInstance().savePrivilege();
 
 //        List<Country> list = CountryDao.getInstance().getCountryList();

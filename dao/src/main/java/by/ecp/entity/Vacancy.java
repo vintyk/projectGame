@@ -19,7 +19,7 @@ public class Vacancy {
     @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Getter
     @Setter
@@ -28,7 +28,7 @@ public class Vacancy {
 
     @Getter
     @Setter
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "companies_id", nullable = false)
     private Company company;
 }

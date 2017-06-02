@@ -13,6 +13,7 @@
         <property name="format_sql">true</property>
 
         <mapping class="by.ecp.entity.Country"/>
+        <mapping class="by.ecp.entity.Company"/>
         <mapping class="by.ecp.entity.Genre"/>
         <mapping class="by.ecp.entity.PaymentModel"/>
         <mapping class="by.ecp.entity.Platform"/>
@@ -22,6 +23,6 @@
         <mapping class="by.ecp.entity.Stage"/>
         <mapping class="by.ecp.entity.User"/>
         <mapping class="by.ecp.entity.Vacancy"/>
-        <mapping class="by.ecp.entity.Company"/>
+        <mapping class="by.ecp.entity.Game"/>
     </session-factory>
 </hibernate-configuration>

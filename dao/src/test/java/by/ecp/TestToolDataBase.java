@@ -1,16 +1,17 @@
 package by.ecp;
 
-import by.ecp.entity.Gender;
+import by.ecp.db.CountryDao;
+import by.ecp.entity.Country;
 import by.ecp.entity.Privilege;
-import by.ecp.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Created by User on 02.06.2017.
@@ -35,6 +36,19 @@ public class TestToolDataBase {
         session.save(privilege1);
         session.save(privilege2);
         transaction.commit();
+        session.close();
+    }
+
+    @Test
+    public void testListCountry() {
+        Session session = SESSION_FACTORY.openSession();
+        Transaction transaction = session.beginTransaction();
+        Country country = new Country();
+        country.setName("USA");
+        session.save(country);
+        transaction.commit();
+        List<Country> listCountry = CountryDao.getInstance().getCountryList();
+        listCountry.forEach(System.out::println);
         session.close();
     }
 

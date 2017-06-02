@@ -13,10 +13,10 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    long id;
+    private Long id;
 
     @Column(name = "name")
     @Getter
     @Setter
-    String name;
+    private String name;
 }

@@ -19,10 +19,10 @@ public class Setting {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    long id;
+    private Long id;
     @Getter
     @Setter
     @Column(name = "name")
-    String name;
+    private String name;
 
 }
