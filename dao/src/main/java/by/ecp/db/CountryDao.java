@@ -27,7 +27,7 @@ public class CountryDao {
     }
 
     public List<Country> getCountryList() {
-        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         List<Country> resultSetCountry = session.createQuery("from Country", Country.class).getResultList();
 //        resultSetCountry.forEach(System.out::println);

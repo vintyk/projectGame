@@ -1,5 +1,8 @@
 package by.ecp.db;
 
+import by.ecp.entity.Gender;
+import by.ecp.entity.Privilege;
+import by.ecp.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -46,5 +49,21 @@ public class ToolsDataBase {
             session.close();
             sessionFactory.close();
         }
+    }
+    public void savePrivilege() {
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Privilege privilege1 = new Privilege();
+        privilege1.setName("Admin");
+        Privilege privilege2 = new Privilege();
+        privilege2.setName("User");
+        session.save(privilege1);
+        session.save(privilege2);
+
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
     }
 }

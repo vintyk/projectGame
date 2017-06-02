@@ -20,9 +20,8 @@ public class Privilege {
     @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Setter
     @Getter
-    @Column(name = "name")
     private String name;
-
 }

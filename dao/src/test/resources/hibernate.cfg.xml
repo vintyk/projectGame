@@ -22,6 +22,5 @@
         <mapping class="by.ecp.entity.Setting"/>
         <mapping class="by.ecp.entity.Stage"/>
         <mapping class="by.ecp.entity.User"/>
-        <mapping class="by.ecp.entity.Painting"/>
     </session-factory>
 </hibernate-configuration>

@@ -2,7 +2,10 @@ package by.ecp.entity.temp;
 
 import by.ecp.db.CountryDao;
 import by.ecp.db.ToolsDataBase;
+import by.ecp.db.UserDao;
 import by.ecp.entity.Country;
+import by.ecp.entity.Gender;
+import by.ecp.entity.Privilege;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,15 +20,19 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<Country> list = CountryDao.getInstance().getCountryList();
-        list.forEach(System.out::println);
+        UserDao.getInstance().saveUser("Vitaliy", 1L,"Ushakov", "vinty@i.ua", Gender.MALE, "12345");
+
+//        ToolsDataBase.getInstance().savePrivilege();
+
+//        List<Country> list = CountryDao.getInstance().getCountryList();
+//        list.forEach(System.out::println);
+
 //        Country country = new Country();
 //        country.setName("Нет такой страны");
 //        session.saveOrUpdate(country);
 
 //        Country retriveCountry = session.find(Country.class, 1L);
 //        System.out.println(retriveCountry);
-
 
 //        Transaction transaction = session.beginTransaction();
 //        try {
@@ -54,27 +61,5 @@ public class Main {
 
 //        deleteById(Country.class, new Long(14));
 
-    }
-    private static boolean deleteById(Class<?> type, Serializable id) {
-        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            Object persistentInstance = session.get(type, id);
-            if (persistentInstance != null) {
-                session.delete(persistentInstance);
-                transaction.commit();
-                return true;
-            } else {
-                return false;
-            }
-            } catch (Throwable throwable) {
-            transaction.rollback();
-            System.out.println("Не вернулось ни одной строки с Id= "+ id);
-            throw throwable;
-        }finally {
-            session.close();
-            sessionFactory.close();
-        }
     }
 }
