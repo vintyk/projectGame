@@ -2,10 +2,7 @@ package by.ecp;
 
 import by.ecp.db.CountryDao;
 
-import by.ecp.entity.Country;
-import by.ecp.entity.Gender;
-import by.ecp.entity.Privilege;
-import by.ecp.entity.User;
+import by.ecp.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -32,7 +29,7 @@ public class ManyToOneTest {
         Transaction transaction = session.beginTransaction();
 
         Privilege privilege = new Privilege();
-        privilege.setName("Admin");
+        privilege.setNamePrivilege("Admin");
         session.save(privilege);
         Privilege privilege2 = session.get(Privilege.class, 1L);
         System.out.println("------------------------------------------------");
@@ -41,15 +38,13 @@ public class ManyToOneTest {
         session.close();
     }
 
-
-
     @Test
     public void testSaveUser() {
         Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
         Privilege privilege = new Privilege();
-        privilege.setName("Admin");
+        privilege.setNamePrivilege("Admin");
         session.save(privilege);
         Privilege privilege2 = session.get(Privilege.class, 1L);
 
@@ -66,6 +61,29 @@ public class ManyToOneTest {
         System.out.println(privilege2);
         System.out.println("------------------------------------------------");
         System.out.println(user);
+
+        transaction.commit();
+        session.close();
+    }
+    @Test
+    public void saveVacancy() {
+        Session session = SESSION_FACTORY.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Company company = new Company();
+        company.setNameCompany("Wargaming");
+        session.save(company);
+        Company company2 = session.get(Company.class, 1L);
+
+        Vacancy vacancy = new Vacancy();
+        vacancy.setNameVacancy("Financial Controller");
+        vacancy.setCompany(company2);
+        session.save(vacancy);
+
+        System.out.println("------------------------------------------------");
+        System.out.println(company2);
+        System.out.println("------------------------------------------------");
+        System.out.println(vacancy);
 
         transaction.commit();
         session.close();

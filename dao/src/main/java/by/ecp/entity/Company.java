@@ -8,13 +8,13 @@ import lombok.ToString;
 import javax.persistence.*;
 
 /**
- * Created by User on 21.04.2017.
+ * Created by User on 02.06.2017.
  */
 @Entity
-@Table(name = "privileges")
+@Table(name = "companies")
 @ToString
 @NoArgsConstructor
-public class Privilege {
+public class Company {
     @Id
     @Getter
     @Setter
@@ -24,5 +24,5 @@ public class Privilege {
     @Setter
     @Getter
     @Column(name = "name")
-    private String namePrivilege;
+    private String nameCompany;
 }

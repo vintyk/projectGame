@@ -50,20 +50,4 @@ public class ToolsDataBase {
             sessionFactory.close();
         }
     }
-    public void savePrivilege() {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        Privilege privilege1 = new Privilege();
-        privilege1.setName("Admin");
-        Privilege privilege2 = new Privilege();
-        privilege2.setName("User");
-        session.save(privilege1);
-        session.save(privilege2);
-
-        transaction.commit();
-        session.close();
-        sessionFactory.close();
-    }
 }

@@ -29,9 +29,9 @@ public class TestToolDataBase {
         Transaction transaction = session.beginTransaction();
 
         Privilege privilege1 = new Privilege();
-        privilege1.setName("Admin");
+        privilege1.setNamePrivilege("Admin");
         Privilege privilege2 = new Privilege();
-        privilege2.setName("User");
+        privilege2.setNamePrivilege("User");
         session.save(privilege1);
         session.save(privilege2);
         transaction.commit();

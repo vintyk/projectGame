@@ -8,21 +8,27 @@ import lombok.ToString;
 import javax.persistence.*;
 
 /**
- * Created by User on 21.04.2017.
+ * Created by User on 02.06.2017.
  */
 @Entity
-@Table(name = "privileges")
-@ToString
+@Table(name = "vacancies")
 @NoArgsConstructor
-public class Privilege {
-    @Id
+@ToString
+public class Vacancy {
     @Getter
     @Setter
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Setter
     @Getter
+    @Setter
     @Column(name = "name")
-    private String namePrivilege;
+    private String nameVacancy;
+
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "companies_id", nullable = false)
+    private Company company;
 }

@@ -26,7 +26,7 @@ public class UserDao {
         return INSTANCE;
     }
 
-    public void saveUser(String userName,
+    public void saveUser(String nameUser,
                          Long privilege_id,
                          String family,
                          String eMail,
@@ -40,7 +40,7 @@ public class UserDao {
         privilege.setId(privilege_id);
 
         User user = new User();
-        user.setNameUser(userName);
+        user.setNameUser(nameUser);
         user.setPrivilege(privilege);
         user.setFamilyUser(family);
         user.setEMailUser(eMail);
