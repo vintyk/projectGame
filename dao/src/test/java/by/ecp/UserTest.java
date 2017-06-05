@@ -1,7 +1,8 @@
 package by.ecp;
 
-import by.ecp.entity.Company;
-import by.ecp.entity.Vacancy;
+import by.ecp.entity.Gender;
+import by.ecp.entity.Privilege;
+import by.ecp.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,9 +12,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * Created by User on 02.06.2017.
+ * Created by User on 05.06.2017.
  */
-public class OneToOneTest {
+public class UserTest {
     private static SessionFactory SESSION_FACTORY;
 
     @BeforeClass
@@ -22,25 +23,28 @@ public class OneToOneTest {
     }
 
     @Test
-    public void saveVacancy() {
+    public void testSaveUser() {
         Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Company company = new Company();
-        company.setNameCompany("Wargaming");
-        session.save(company);
-        Company company2 = session.get(Company.class, 1L);
+        Privilege privilege = new Privilege();
+        privilege.setNamePrivilege("Admin");
+        session.save(privilege);
+        Privilege privilege2 = session.get(Privilege.class, 1L);
 
-        Vacancy vacancy = new Vacancy();
-        vacancy.setNameVacancy("Financial Controller");
-        vacancy.setCompany(company2);
-        session.saveOrUpdate(vacancy);
+        User user = new User();
+        user.setNameUser("Vu");
+        user.setPrivilege(privilege2);
+        user.setFamilyUser("Lun");
+        user.setEMailUser("sss@hhhh.com");
+        user.setGender(Gender.MALE);
+        user.setPasswordUser("12345");
+        session.save(user);
 
         System.out.println("------------------------------------------------");
-        System.out.println(company2);
+        System.out.println(privilege2);
         System.out.println("------------------------------------------------");
-        System.out.println(vacancy);
-
+        System.out.println(user);
         transaction.commit();
         session.close();
     }

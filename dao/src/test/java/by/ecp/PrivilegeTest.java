@@ -14,9 +14,9 @@ import org.junit.Test;
 import java.util.List;
 
 /**
- * Created by User on 02.06.2017.
+ * Created by User on 05.06.2017.
  */
-public class TestToolDataBase {
+public class PrivilegeTest {
     private static SessionFactory SESSION_FACTORY;
 
     @BeforeClass
@@ -36,19 +36,6 @@ public class TestToolDataBase {
         session.save(privilege1);
         session.save(privilege2);
         transaction.commit();
-        session.close();
-    }
-
-    @Test
-    public void testListCountry() {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-        Country country = new Country();
-        country.setName("USA");
-        session.save(country);
-        transaction.commit();
-        List<Country> listCountry = CountryDao.getInstance().getCountryList();
-        listCountry.forEach(System.out::println);
         session.close();
     }
 
