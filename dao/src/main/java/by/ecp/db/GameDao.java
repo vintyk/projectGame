@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 /**
  * Created by User on 05.06.2017.
  */
@@ -24,6 +26,14 @@ public class GameDao {
         return INSTANCE;
     }
 
+    public List<Game> getGameList() {
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        List<Game> resultSetGame = session.createQuery("from Game ", Game.class).getResultList();
+        session.close();
+        sessionFactory.close();
+        return resultSetGame;
+    }
     public void saveGame(String nameGame,
                          Long companyId,
                          Long genreId,

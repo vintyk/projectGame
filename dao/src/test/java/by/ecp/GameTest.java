@@ -1,5 +1,6 @@
 package by.ecp;
 
+import by.ecp.db.CountryDao;
 import by.ecp.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,6 +9,8 @@ import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Created by User on 05.06.2017.
@@ -67,6 +70,14 @@ public class GameTest {
         System.out.println(setting2);
         System.out.println(stage2);
         transaction.commit();
+        session.close();
+    }
+
+    @Test
+    public void getGameList() {
+        Session session = SESSION_FACTORY.openSession();
+        List<Game> resultSetGame = session.createQuery("from Game ", Game.class).getResultList();
+        resultSetGame.forEach(System.out::println);
         session.close();
     }
     @AfterClass
