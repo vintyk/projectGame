@@ -1,9 +1,6 @@
 package by.ecp.entity.temp;
 
-import by.ecp.db.CountryDao;
-import by.ecp.db.ToolsDataBase;
-import by.ecp.db.UserDao;
-import by.ecp.db.VacancyDao;
+import by.ecp.db.*;
 import by.ecp.entity.Country;
 import by.ecp.entity.Gender;
 import by.ecp.entity.Privilege;
@@ -20,7 +17,7 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-
+//        GameDao.getInstance().saveGame("Герои адского пламени", 3L, 2L, 3L, 2L, 3L);
 //        UserDao.getInstance().saveUser("Vitaliy", 1L,"Ushakov", "vinty@i.ua", Gender.MALE, "12345");
 //        VacancyDao.getInstance().saveVacancy("Financial Controller", 1L);
 //        ToolsDataBase.getInstance().savePrivilege();

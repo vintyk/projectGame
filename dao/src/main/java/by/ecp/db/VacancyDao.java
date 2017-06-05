@@ -24,8 +24,7 @@ public class VacancyDao {
         return INSTANCE;
     }
 
-    public void saveVacancy(String nameVacancy,
-                            Long companies_id) {
+    public void saveVacancy(String nameVacancy, Long companies_id) {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
