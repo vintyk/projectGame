@@ -14,13 +14,7 @@ import javax.persistence.*;
 @Table(name = "privileges")
 @ToString
 @NoArgsConstructor
-public class Privilege {
-    @Id
-    @Getter
-    @Setter
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class Privilege extends IdMotherClass{
     @Setter
     @Getter
     @Column(name = "name")

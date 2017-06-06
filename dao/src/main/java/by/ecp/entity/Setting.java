@@ -14,12 +14,7 @@ import javax.persistence.*;
   @Table(name = "settings")
   @NoArgsConstructor
   @ToString
-public class Setting {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private Long id;
+public class Setting extends IdMotherClass{
     @Getter
     @Setter
     @Column(name = "name")

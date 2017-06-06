@@ -16,12 +16,7 @@ import java.time.LocalDate;
     @NoArgsConstructor
     @Table(name = "stages")
     @ToString
-public class Stage {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private Long id;
+public class Stage extends IdMotherClass{
     @Column(name = "name")
     @Getter
     @Setter

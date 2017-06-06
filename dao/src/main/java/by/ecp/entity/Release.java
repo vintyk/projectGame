@@ -13,6 +13,6 @@ import javax.persistence.Table;
 @Table(name = "releases")
 @NoArgsConstructor
 @ToString
-public class Release {
+public class Release extends IdMotherClass{
 
 }

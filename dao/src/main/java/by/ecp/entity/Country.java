@@ -8,13 +8,7 @@ import javax.persistence.*;
 @Table(name="countries")
 @ToString
 @NoArgsConstructor
-public class Country {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private Long id;
-
+public class Country extends IdMotherClass{
     @Column(name = "name")
     @Getter
     @Setter

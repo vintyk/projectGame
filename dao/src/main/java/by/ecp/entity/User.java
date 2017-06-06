@@ -16,14 +16,7 @@ import java.util.Set;
     @Table(name = "users")
     @NoArgsConstructor
     @ToString
-    public class User {
-
-    @Getter
-    @Setter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    public class User extends IdMotherClass{
     @Getter
     @Setter
     @Column(name = "name")
