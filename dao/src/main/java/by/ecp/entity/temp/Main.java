@@ -2,15 +2,8 @@ package by.ecp.entity.temp;
 
 import by.ecp.db.*;
 import by.ecp.entity.Country;
-import by.ecp.entity.Gender;
-import by.ecp.entity.Privilege;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import java.io.Serializable;
+import by.ecp.entity.Genre;
 import java.util.List;
-
 
 /**
  * Created by Vinty on 24.05.2017.
@@ -22,8 +15,12 @@ public class Main {
 //        VacancyDao.getInstance().saveVacancy("Financial Controller", 1L);
 //        ToolsDataBase.getInstance().savePrivilege();
 
-//        List<Country> list = CountryDao.getInstance().getCountryList();
-//        list.forEach(System.out::println);
+
+           List<Genre> listGenre = GenreDao.getInstance().getGenreList();
+           listGenre.forEach(System.out::println);
+
+           List<Country> list = CountryDao.getInstance().getCountryList();
+           list.forEach(System.out::println);
 
 //        Country country = new Country();
 //        country.setName("Нет такой страны");

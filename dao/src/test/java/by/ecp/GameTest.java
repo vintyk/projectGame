@@ -1,6 +1,5 @@
 package by.ecp;
 
-import by.ecp.db.CountryDao;
 import by.ecp.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
