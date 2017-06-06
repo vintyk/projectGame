@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by User on 02.06.2017.
@@ -49,5 +51,14 @@ public class Game extends IdMotherClass{
     @ManyToOne
     @JoinColumn(name = "stage_id", nullable = false)
     private Stage stage;
+
+    @Getter
+    @Setter
+    @ManyToMany
+    @JoinTable(name = "games_platforms",
+            joinColumns = @JoinColumn(name = "games_id"),
+            inverseJoinColumns = @JoinColumn(name = "platforms_id")
+    )
+    private Set<Platform> platforms = new HashSet<>();
 
 }
