@@ -14,9 +14,13 @@ import java.util.Set;
  */
 @Entity
 @Table(name="platforms")
-@ToString
 @NoArgsConstructor
-public class Platform extends IdMotherClass{
+public class Platform{
+    @Id
+    @Setter
+    @Getter
+    private Long id;
+
     @Setter
     @Getter
     @Column(name = "name")
@@ -27,4 +31,7 @@ public class Platform extends IdMotherClass{
     @Setter
     private Set<Game> games = new HashSet<>();
 
+    public Platform(String name) {
+        this.name = name;
+    }
 }

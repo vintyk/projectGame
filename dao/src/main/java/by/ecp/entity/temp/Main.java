@@ -3,14 +3,31 @@ package by.ecp.entity.temp;
 import by.ecp.db.*;
 import by.ecp.entity.Country;
 import by.ecp.entity.Genre;
+import by.ecp.entity.Platform;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Vinty on 24.05.2017.
  */
 public class Main {
     public static void main(String[] args) {
-//        GameDao.getInstance().saveGame("Герои адского пламени", 3L, 2L, 3L, 2L, 3L);
+
+        Set<Long> platformLongs = new HashSet<>();
+        platformLongs.add(1L);
+        platformLongs.add(2L);
+        GameDao.getInstance().saveGameToExistingPlatform(
+                "Герои адского пламени",
+                3L,
+                2L,
+                3L,
+                2L,
+                3L,
+                platformLongs);
+
+        //        GameDao.getInstance().saveGame("Герои адского пламени", 3L, 2L, 3L, 2L, 3L);
 //        UserDao.getInstance().saveUser("Vitaliy", 1L,"Ushakov", "vinty@i.ua", Gender.MALE, "12345");
 //        VacancyDao.getInstance().saveVacancy("Financial Controller", 1L);
 //        ToolsDataBase.getInstance().savePrivilege();
