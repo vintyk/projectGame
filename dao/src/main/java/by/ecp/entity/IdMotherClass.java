@@ -20,4 +20,5 @@ public class IdMotherClass {
     @Getter
     @Setter
     private Long id;
+
 }

@@ -54,6 +54,11 @@
     <artifactId>junit</artifactId>
     <version>4.12</version>
   </dependency>
+    <dependency>
+      <groupId>com.querydsl</groupId>
+      <artifactId>querydsl-jpa</artifactId>
+      <version>4.1.4</version>
+    </dependency>
   </dependencies>
 
   <reporting>

@@ -15,12 +15,7 @@ import java.util.Set;
 @Entity
 @Table(name="platforms")
 @NoArgsConstructor
-public class Platform{
-    @Id
-    @Setter
-    @Getter
-    private Long id;
-
+public class Platform extends IdMotherClass{
     @Setter
     @Getter
     @Column(name = "name")

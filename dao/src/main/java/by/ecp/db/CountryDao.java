@@ -1,6 +1,8 @@
 package by.ecp.db;
 
 import by.ecp.entity.Country;
+import by.ecp.entity.QCountry;
+import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -30,10 +32,16 @@ public class CountryDao {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         List<Country> resultSetCountry = session.createQuery("from Country", Country.class).getResultList();
-//        resultSetCountry.forEach(System.out::println);
         session.close();
         sessionFactory.close();
         return resultSetCountry;
         }
+
+        public List<Country> findAll(Session session) {
+        QCountry country = new QCountry("myCountry");
+        JPAQuery<Country> query = new JPAQuery<>(session);
+        query.select(country).from(country);
+        return query.fetchResults().getResults();
     }
+}
 

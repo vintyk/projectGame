@@ -111,8 +111,6 @@ public class GameDao {
             platformSet.add(platform);
             platformSet.forEach(System.out::println);
         }
-//        platformSet.forEach(System.out::println);
-
         Game game = new Game();
         game.setNameGame(nameGame);
         game.setCompany(company);
@@ -120,7 +118,6 @@ public class GameDao {
         game.setPaymentModel(paymentModel);
         game.setSetting(setting);
         game.setStage(stage);
-
         game.setPlatforms(platformSet);
         session.save(game);
 

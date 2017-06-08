@@ -105,14 +105,15 @@ public class GameTest {
         Stage stage2 = session.get(Stage.class, 1L);
 
         Platform platform1 = new Platform();
-        Platform platform2 = new Platform();
-        Platform platform3 = new Platform();
         platform1.setName("X-Box");
-        platform2.setName("PlayStation");
-        platform3.setName("PC");
         session.save(platform1);
+        Platform platform2 = new Platform();
+        platform2.setName("PlayStation");
         session.save(platform2);
+        Platform platform3 = new Platform();
+        platform3.setName("PC");
         session.save(platform3);
+
         Platform platform4 = session.get(Platform.class, 1L);
         Platform platform5 = session.get(Platform.class, 2L);
         Platform platform6 = session.get(Platform.class, 3L);

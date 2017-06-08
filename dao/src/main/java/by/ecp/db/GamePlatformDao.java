@@ -17,4 +17,7 @@ public class GamePlatformDao {
         }
         return INSTANCE;
     }
+
+
+
 }

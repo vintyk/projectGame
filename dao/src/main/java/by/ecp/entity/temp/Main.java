@@ -4,6 +4,10 @@ import by.ecp.db.*;
 import by.ecp.entity.Country;
 import by.ecp.entity.Genre;
 import by.ecp.entity.Platform;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.junit.BeforeClass;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,18 +18,24 @@ import java.util.Set;
  */
 public class Main {
     public static void main(String[] args) {
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
 
-        Set<Long> platformLongs = new HashSet<>();
-        platformLongs.add(1L);
-        platformLongs.add(2L);
-        GameDao.getInstance().saveGameToExistingPlatform(
-                "Герои адского пламени",
-                3L,
-                2L,
-                3L,
-                2L,
-                3L,
-                platformLongs);
+        List<Country> countries = CountryDao.getInstance().findAll(session);
+        countries.forEach(System.out::println);
+
+
+//        Set<Long> platformLongs = new HashSet<>();
+//        platformLongs.add(1L);
+//        platformLongs.add(2L);
+//        GameDao.getInstance().saveGameToExistingPlatform(
+//                "Герои адского пламени",
+//                3L,
+//                2L,
+//                3L,
+//                2L,
+//                3L,
+//                platformLongs);
 
         //        GameDao.getInstance().saveGame("Герои адского пламени", 3L, 2L, 3L, 2L, 3L);
 //        UserDao.getInstance().saveUser("Vitaliy", 1L,"Ushakov", "vinty@i.ua", Gender.MALE, "12345");
@@ -33,11 +43,11 @@ public class Main {
 //        ToolsDataBase.getInstance().savePrivilege();
 
 
-           List<Genre> listGenre = GenreDao.getInstance().getGenreList();
-           listGenre.forEach(System.out::println);
-
-           List<Country> list = CountryDao.getInstance().getCountryList();
-           list.forEach(System.out::println);
+//           List<Genre> listGenre = GenreDao.getInstance().getGenreList();
+//           listGenre.forEach(System.out::println);
+//
+//           List<Country> list = CountryDao.getInstance().getCountryList();
+//           list.forEach(System.out::println);
 
 //        Country country = new Country();
 //        country.setName("Нет такой страны");
