@@ -23,57 +23,13 @@ public class GameTest {
     }
 
     @Test
-    public void saveGame() {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        Company company = new Company();
-        company.setNameCompany("Blizzzzz");
-        session.save(company);
-        Company company2 = session.get(Company.class, 1L);
-
-        Genre genre = new Genre();
-        genre.setName("MMORPG");
-        session.save(genre);
-        Genre genre2 = session.get(Genre.class, 1L);
-
-        PaymentModel paymentModel = new PaymentModel();
-        paymentModel.setName("Бесплатная");
-        session.save(paymentModel);
-        PaymentModel paymentModel2 = session.get(PaymentModel.class, 1L);
-
-        Setting setting = new Setting();
-        setting.setName("Фэнтези");
-        session.save(setting);
-        Setting setting2 = session.get(Setting.class, 1L);
-
-        Stage stage = new Stage();
-        stage.setName("В разработке");
-        session.save(stage);
-        Stage stage2 = session.get(Stage.class, 1L);
-
-        Game game = new Game();
-        game.setNameGame("Эльфы на дереве");
-        game.setCompany(company2);
-        game.setGenre(genre2);
-        game.setPaymentModel(paymentModel2);
-        game.setSetting(setting2);
-        game.setStage(stage2);
-        session.save(game);
-        System.out.println("------------------------------------------------");
-        System.out.println(game);
-        System.out.println("------------------------------------------------");
-        transaction.commit();
-        session.close();
-    }
-
-    @Test
     public void getGameList() {
         Session session = SESSION_FACTORY.openSession();
         List<Game> resultSetGame = session.createQuery("from Game ", Game.class).getResultList();
         resultSetGame.forEach(System.out::println);
         session.close();
     }
+
     @Test
     public void addGamesToExistingPlatforms() {
         Session session = SESSION_FACTORY.openSession();
@@ -128,6 +84,50 @@ public class GameTest {
         game.getPlatforms().add(platform4);
         game.getPlatforms().add(platform5);
         game.getPlatforms().add(platform6);
+        session.save(game);
+        System.out.println("------------------------------------------------");
+        System.out.println(game);
+        System.out.println("------------------------------------------------");
+        transaction.commit();
+        session.close();
+    }
+    @Test
+    public void saveGame() {
+        Session session = SESSION_FACTORY.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Company company = new Company();
+        company.setNameCompany("Blizzzzz");
+        session.save(company);
+        Company company2 = session.get(Company.class, 1L);
+
+        Genre genre = new Genre();
+        genre.setName("MMORPG");
+        session.save(genre);
+        Genre genre2 = session.get(Genre.class, 1L);
+
+        PaymentModel paymentModel = new PaymentModel();
+        paymentModel.setName("Бесплатная");
+        session.save(paymentModel);
+        PaymentModel paymentModel2 = session.get(PaymentModel.class, 1L);
+
+        Setting setting = new Setting();
+        setting.setName("Фэнтези");
+        session.save(setting);
+        Setting setting2 = session.get(Setting.class, 1L);
+
+        Stage stage = new Stage();
+        stage.setName("В разработке");
+        session.save(stage);
+        Stage stage2 = session.get(Stage.class, 1L);
+
+        Game game = new Game();
+        game.setNameGame("Эльфы на дереве");
+        game.setCompany(company2);
+        game.setGenre(genre2);
+        game.setPaymentModel(paymentModel2);
+        game.setSetting(setting2);
+        game.setStage(stage2);
         session.save(game);
         System.out.println("------------------------------------------------");
         System.out.println(game);

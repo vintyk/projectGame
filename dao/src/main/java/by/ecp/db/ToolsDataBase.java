@@ -28,9 +28,7 @@ public class ToolsDataBase {
         return INSTANCE;
     }
 
-    public boolean delStringFromDbById(Class<?> type, Serializable id) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+    public boolean delStringFromDbById(Class<?> type, Serializable id, Session session) {
         Transaction transaction = session.beginTransaction();
         try {
             Object persistentInstance = session.get(type, id);
@@ -46,8 +44,6 @@ public class ToolsDataBase {
             System.out.println("Метод delStringFromDbById не нашел ни одной строки с Id = " + id);
             throw throwable;
         } finally {
-            session.close();
-            sessionFactory.close();
         }
     }
 }

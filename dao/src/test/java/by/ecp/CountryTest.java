@@ -44,23 +44,12 @@ public class CountryTest {
 
         List<Country> countryList = CountryDao.getInstance().findAll(session);
         assertThat(countryList, hasSize(2));
-        List<String> namesInBD
-                = countryList.stream().map(Country::getName).collect(toList());
+        List<String> namesInBD = countryList
+                .stream()
+                .map(Country::getName)
+                .collect(toList());
         assertThat(namesInBD, containsInAnyOrder("Russia", "Belarus"));
         transaction.commit();
-        session.close();
-    }
-
-    @Test
-    public void testListCountryFromDao() {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-        Country country = new Country();
-        country.setName("USA");
-        session.save(country);
-        transaction.commit();
-        List<Country> listCountry = CountryDao.getInstance().getCountryList();
-        listCountry.forEach(System.out::println);
         session.close();
     }
 

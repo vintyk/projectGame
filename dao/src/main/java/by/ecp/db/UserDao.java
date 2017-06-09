@@ -31,9 +31,8 @@ public class UserDao {
                          String family,
                          String eMail,
                          Gender gender,
-                         String pass) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+                         String pass,
+                         Session session) {
         Transaction transaction = session.beginTransaction();
 
         Privilege privilege = new Privilege();
@@ -49,7 +48,5 @@ public class UserDao {
         session.save(user);
 
         transaction.commit();
-        session.close();
-        sessionFactory.close();
     }
 }

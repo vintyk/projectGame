@@ -32,14 +32,11 @@ public class GameDao {
         return INSTANCE;
     }
 
-    public List<Game> getGameList() {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+    public List<Game> getGameList(Session session) {
         List<Game> resultSetGame = session.createQuery("from Game ", Game.class).getResultList();
-        session.close();
-        sessionFactory.close();
         return resultSetGame;
     }
+
     public void saveGame(String nameGame,
                          Long companyId,
                          Long genreId,
@@ -78,15 +75,15 @@ public class GameDao {
         session.close();
         sessionFactory.close();
     }
+
     public void saveGameToExistingPlatform(String nameGame,
                                            Long companyId,
                                            Long genreId,
                                            Long paymentModelId,
                                            Long settingId,
                                            Long stageId,
-                                           Set<Long> platformsIDs){
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+                                           Set<Long> platformsIDs,
+                                           Session session){
         Transaction transaction = session.beginTransaction();
 
         Company company = new Company();
@@ -122,7 +119,5 @@ public class GameDao {
         session.save(game);
 
         transaction.commit();
-        session.close();
-        sessionFactory.close();
     }
 }

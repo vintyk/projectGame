@@ -1,12 +1,9 @@
 package by.ecp.db;
 
-import by.ecp.entity.Country;
-import by.ecp.entity.Gender;
 import by.ecp.entity.Genre;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
 import java.util.List;
 
 /**
@@ -27,12 +24,8 @@ public class GenreDao {
         return INSTANCE;
     }
 
-    public List<Genre> getGenreList() {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+    public List<Genre> getGenreList(Session session) {
         List<Genre> resultSetGenre = session.createQuery("from Genre ", Genre.class).getResultList();
-        session.close();
-        sessionFactory.close();
         return resultSetGenre;
     }
 }

@@ -24,5 +24,6 @@
         <mapping class="by.ecp.entity.User"/>
         <mapping class="by.ecp.entity.Vacancy"/>
         <mapping class="by.ecp.entity.Game"/>
+        <mapping class="by.ecp.entity.Publication"/>
     </session-factory>
 </hibernate-configuration>

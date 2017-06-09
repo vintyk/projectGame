@@ -1,7 +1,7 @@
 package by.ecp;
 
-import by.ecp.entity.Company;
-import by.ecp.entity.Vacancy;
+import by.ecp.entity.*;
+import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -36,11 +36,10 @@ public class CompanyTest {
         vacancy.setCompany(company2);
         session.saveOrUpdate(vacancy);
 
-        System.out.println("------------------------------------------------");
-        System.out.println(company2);
-        System.out.println("------------------------------------------------");
-        System.out.println(vacancy);
-
+        QVacancy vacancy1 = new QVacancy("myVacancy");
+        JPAQuery<Vacancy> query = new JPAQuery<>(session);
+        query.select(vacancy1).from(vacancy1);
+        System.out.println(query.fetchResults().getResults());
         transaction.commit();
         session.close();
     }

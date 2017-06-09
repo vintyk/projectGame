@@ -31,9 +31,9 @@ public class PrivilegeTest {
 
         Privilege privilege1 = new Privilege();
         privilege1.setNamePrivilege("Admin");
+        session.save(privilege1);
         Privilege privilege2 = new Privilege();
         privilege2.setNamePrivilege("User");
-        session.save(privilege1);
         session.save(privilege2);
         transaction.commit();
         session.close();

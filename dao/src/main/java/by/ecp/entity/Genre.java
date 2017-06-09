@@ -19,6 +19,4 @@ public class Genre extends IdMotherClass{
     @Getter
     @Setter
     private String name;
-
-
 }

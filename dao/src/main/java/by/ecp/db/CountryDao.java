@@ -28,12 +28,8 @@ public class CountryDao {
         return INSTANCE;
     }
 
-    public List<Country> getCountryList() {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+    public List<Country> getCountryList(Session session) {
         List<Country> resultSetCountry = session.createQuery("from Country", Country.class).getResultList();
-        session.close();
-        sessionFactory.close();
         return resultSetCountry;
         }
 
