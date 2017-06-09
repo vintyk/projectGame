@@ -61,4 +61,5 @@ public class Game extends IdMotherClass{
     )
     private Set<Platform> platforms = new HashSet<>();
 
+//    TODO Сделать наследование для Игр. Дополнительная продажа маек и кружек.
 }

@@ -49,5 +49,6 @@ import java.util.Set;
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+//  TODO  довавить Embedded class. с 2 полями Страна-город.
 
 }

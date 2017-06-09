@@ -30,4 +30,7 @@ public class Publication extends IdMotherClass {
     @ManyToOne
     @JoinColumn(name = "game_id", nullable = false)
     private Game game;
+
+    //TODO: Дата создания публикации
+
 }

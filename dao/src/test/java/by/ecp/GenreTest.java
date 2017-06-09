@@ -41,11 +41,11 @@ public class GenreTest {
         genre.setName("постапокалиптика");
         session.save(genre);
         Genre genre2 = new Genre();
-        genre2.setName("постапокалиптика");
+        genre2.setName("постапокалиптика2");
         session.save(genre2);
 
         List<Genre> genreList = GenreDao.getInstance().getGenreList(session);
-        genreList.forEach(System.out::println);
+        assertThat(" Возвращается не то количество, что ожидалось!!! ",genreList, hasSize(2));
         transaction.commit();
         session.close();
     }
