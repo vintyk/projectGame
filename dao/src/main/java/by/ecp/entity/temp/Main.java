@@ -22,13 +22,13 @@ public class Main {
         Session session = sessionFactory.openSession();
 
 
-        List<Genre> genres = GenreDao.getInstance().getGenreList(session);
-        genres.forEach(System.out::println);
-
-        List<Country> countries2 = CountryDao.getInstance().getCountryList(session);
-        countries2.forEach(System.out::println);
-        List<Country> countries = CountryDao.getInstance().findAll(session);
-        countries.forEach(System.out::println);
+//        List<Genre> genres = GenreDao.getInstance().getGenreList(session);
+//        genres.forEach(System.out::println);
+//
+//        List<Country> countries2 = CountryDao.getInstance().getCountryList(session);
+//        countries2.forEach(System.out::println);
+//        List<Country> countries = CountryDao.getInstance().findAll(session);
+//        countries.forEach(System.out::println);
 
 
 //        Set<Long> platformLongs = new HashSet<>();

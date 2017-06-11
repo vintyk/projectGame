@@ -3,6 +3,9 @@ package by.ecp;
 import by.ecp.db.CountryDao;
 import by.ecp.entity.Country;
 import by.ecp.entity.Privilege;
+import by.ecp.entity.QCountry;
+import by.ecp.entity.QPrivilege;
+import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,10 +16,13 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertThat;
+
 /**
  * Created by User on 05.06.2017.
  */
-public class PrivilegeTest {
+public class PrivilegeDao {
     private static SessionFactory SESSION_FACTORY;
 
     @BeforeClass
@@ -35,6 +41,12 @@ public class PrivilegeTest {
         Privilege privilege2 = new Privilege();
         privilege2.setNamePrivilege("User");
         session.save(privilege2);
+
+        QPrivilege privilege = new QPrivilege("myPrivilege");
+        JPAQuery<Privilege> query = new JPAQuery<>(session);
+        query.select(privilege).from(privilege);
+        System.out.println(query.fetchResults().getResults());
+        assertThat(privilege, notNullValue());
         transaction.commit();
         session.close();
     }

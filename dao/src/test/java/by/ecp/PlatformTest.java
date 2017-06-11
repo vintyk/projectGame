@@ -1,9 +1,9 @@
 package by.ecp;
 
-import by.ecp.db.CountryDao;
-import by.ecp.db.GenreDao;
-import by.ecp.db.PublicationDao;
-import by.ecp.entity.*;
+import by.ecp.entity.Country;
+import by.ecp.entity.Platform;
+import by.ecp.entity.QCountry;
+import by.ecp.entity.QPlatform;
 import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,18 +13,13 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 
 /**
- * Created by Vinty on 06.06.2017.
+ * Created by Vinty on 11.06.2017.
  */
-public class GenreTest {
+public class PlatformTest {
     private static SessionFactory SESSION_FACTORY;
 
     @BeforeClass
@@ -33,22 +28,19 @@ public class GenreTest {
     }
 
     @Test
-    public void testListGenre() {
+    public void testListPlatformFromDaoQueryDSL() {
         Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Genre genre = new Genre();
-        genre.setName("постапокалиптика");
-        session.save(genre);
-        Genre genre2 = new Genre();
-        genre2.setName("постапокалиптика2");
-        session.save(genre2);
+        Platform platform = new Platform();
+        platform.setName("X-Box");
+        session.save(platform);
 
-        QGenre genre1 = new QGenre("myGenre");
-        JPAQuery<Genre> query = new JPAQuery<>(session);
-        query.select(genre1).from(genre1);
+        QPlatform platform1 = new QPlatform("myPlatform");
+        JPAQuery<Platform> query = new JPAQuery<>(session);
+        query.select(platform1).from(platform1);
         System.out.println(query.fetchResults().getResults());
-        assertThat(genre1, notNullValue());
+        assertThat(platform1, notNullValue());
         transaction.commit();
         session.close();
     }

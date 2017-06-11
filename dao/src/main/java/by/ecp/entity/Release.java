@@ -15,4 +15,5 @@ import javax.persistence.Table;
 @ToString
 public class Release extends IdMotherClass{
 
+
 }

@@ -1,31 +1,19 @@
 package by.ecp.db;
 
+import by.ecp.common.BaseDao;
 import by.ecp.entity.Country;
 import by.ecp.entity.QCountry;
 import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
 /**
  * Created by Vinty on 28.05.2017.
  */
-public class CountryDao {
-    private static final Object LOCK = new Object();
-    private static CountryDao INSTANCE = null;
-
-    public static CountryDao getInstance() {
-        if (INSTANCE == null) {
-            synchronized (LOCK) {
-                if (INSTANCE == null) {
-                    INSTANCE = new CountryDao();
-                }
-            }
-        }
-        return INSTANCE;
+public class CountryDao extends BaseDao<Country> {
+    public CountryDao() {
+        super(Country.class);
     }
 
     public List<Country> getCountryList(Session session) {

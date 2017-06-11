@@ -15,9 +15,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 public class Rank extends IdMotherClass{
-    @Column(name = "name")
+    @Column(name = "value")
     @Getter
     @Setter
-    private String name;
-
+    private int value;
 }

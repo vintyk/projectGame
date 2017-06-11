@@ -1,6 +1,7 @@
 package by.ecp;
 
 import by.ecp.entity.*;
+import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,6 +11,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.List;
+
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by User on 05.06.2017.
@@ -129,12 +133,17 @@ public class GameTest {
         game.setSetting(setting2);
         game.setStage(stage2);
         session.save(game);
-        System.out.println("------------------------------------------------");
-        System.out.println(game);
-        System.out.println("------------------------------------------------");
+
+        QGame game1 = new QGame("myGame");
+        JPAQuery<Company> query = new JPAQuery<>(session);
+        query.select(game1).from(game1);
+        System.out.println(query.fetchResults().getResults());
+        assertThat(game1, notNullValue());
+
         transaction.commit();
         session.close();
     }
+
 
 
     @AfterClass

@@ -4,16 +4,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Created by Vinty on 11.06.2017.
  */
 @Entity
-@Table(name = "stages")
+@Table(name = "stages_test")
 @NoArgsConstructor
 @ToString
-public class Stage extends IdMotherClass{
+public class StageTests extends IdMotherClass {
     @Getter
     @Setter
     @Column(name = "name")

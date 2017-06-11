@@ -26,5 +26,6 @@
         <mapping class="by.ecp.entity.Company"/>
         <mapping class="by.ecp.entity.Game"/>
         <mapping class="by.ecp.entity.Publication"/>
+        <mapping class="by.ecp.entity.StageTests"/>
     </session-factory>
 </hibernate-configuration>
