@@ -22,9 +22,7 @@ public class BaseDao<T> extends IdMotherClass {
 
     public T findOne(Long id) {
         Session session = SESSION_FACTORY.openSession();
-
         T result = session.get(entityClass, id);
-
         session.close();
         return result;
     }
