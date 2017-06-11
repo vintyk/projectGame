@@ -16,16 +16,16 @@ public class CountryDao extends BaseDao<Country> {
         super(Country.class);
     }
 
-    public List<Country> getCountryList(Session session) {
-        List<Country> resultSetCountry = session.createQuery("from Country", Country.class).getResultList();
-        return resultSetCountry;
-        }
-
-        public List<Country> findAll(Session session) {
-        QCountry country = new QCountry("myCountry");
-        JPAQuery<Country> query = new JPAQuery<>(session);
-        query.select(country).from(country);
-        return query.fetchResults().getResults();
-    }
+//    public List<Country> getCountryList(Session session) {
+//        List<Country> resultSetCountry = session.createQuery("from Country", Country.class).getResultList();
+//        return resultSetCountry;
+//        }
+//
+//        public List<Country> findAll(Session session) {
+//        QCountry country = new QCountry("myCountry");
+//        JPAQuery<Country> query = new JPAQuery<>(session);
+//        query.select(country).from(country);
+//        return query.fetchResults().getResults();
+//    }
 }
 

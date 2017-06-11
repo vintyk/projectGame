@@ -21,9 +21,9 @@ public class Main {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
 
-
-//        List<Genre> genres = GenreDao.getInstance().getGenreList(session);
-//        genres.forEach(System.out::println);
+        CountryDao countryDao = new CountryDao();
+        Country country = countryDao.findOne(1L);
+        System.out.println(country);
 //
 //        List<Country> countries2 = CountryDao.getInstance().getCountryList(session);
 //        countries2.forEach(System.out::println);

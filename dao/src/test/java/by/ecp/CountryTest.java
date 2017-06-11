@@ -49,38 +49,6 @@ public class CountryTest {
         transaction.commit();
         session.close();
     }
-
-//        List<Country> countryList = CountryDao.getInstance().findAll(session);
-//        assertThat(countryList, hasSize(2));
-//        List<String> namesInBD = countryList
-//                .stream()
-//                .map(Country::getName)
-//                .collect(toList());
-//        assertThat(namesInBD, containsInAnyOrder("Russia", "Belarus"));
-//        transaction.commit();
-//        session.close();
-//    }
-
-//    @Test
-//    public void testFindAllFromEntity() {
-//        Session session = SESSION_FACTORY.openSession();
-//        Transaction transaction = session.beginTransaction();
-//        Country country = new Country();
-//        country.setName("USA");
-//        session.save(country);
-//        Country country2 = new Country();
-//        country2.setName("GB");
-//        session.save(country2);
-//
-//        QCountry country3 = new QCountry("myCountry");
-//        JPAQuery<Country> query = new JPAQuery<>(session);
-//        query.select(country3).from(country3);
-//        System.out.println(query.fetchResults().getResults());
-//        transaction.commit();
-//        session.close();
-//
-
-
         @AfterClass
         public static void finish() {
             SESSION_FACTORY.close();
