@@ -27,9 +27,9 @@ public class ServletTest extends HttpServlet {
         showPage(req, resp);
     }
     private void showPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        CountryDao countryDao = new CountryDao();
-//        Country country = countryDao.findOne(1L);
-//        req.setAttribute("listCountries", country);
+        CountryDao countryDao = new CountryDao();
+        Country country = countryDao.findOne(1L);
+        req.setAttribute("listCountries", country);
 
       getServletContext().getRequestDispatcher("/WEB-INF/jsp/country.jsp").forward(req, resp);
     }
