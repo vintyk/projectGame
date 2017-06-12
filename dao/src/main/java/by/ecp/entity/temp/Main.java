@@ -21,14 +21,17 @@ public class Main {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
 
-        CountryDao countryDao = new CountryDao();
-        Country country = countryDao.findOne(1L);
-        System.out.println(country);
+//        CountryDao countryDao = new CountryDao();
+//        Country country = countryDao.findOne(1L);
+//        System.out.println(country);
+//        session.close();
+//        sessionFactory.close();
 
 //        CountryDao countryDao1 = new CountryDao();
 //        Country country1 = countryDao1.findAll();
 //        System.out.println(country1);
-
+//        session.close();
+//        sessionFactory.close();
 
 //          List<Country> countries2 = CountryDao.getInstance().getCountryList(session);
 //        countries2.forEach(System.out::println);

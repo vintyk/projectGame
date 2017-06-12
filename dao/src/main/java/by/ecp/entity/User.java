@@ -67,6 +67,4 @@ import java.util.Set;
     })
     private Address secondAddress;
 
-//  TODO  довавить Embedded class. с 2 полями Страна-город.
-
 }

@@ -1,6 +1,9 @@
 package by.ecp.servlet;
 
 import by.ecp.db.CountryDao;
+import by.ecp.db.PaymentModelDao;
+import by.ecp.entity.Country;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +27,10 @@ public class ServletTest extends HttpServlet {
         showPage(req, resp);
     }
     private void showPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        req.setAttribute("listCountries", CountryDao.getInstance().getCountryList());
+//        CountryDao countryDao = new CountryDao();
+//        Country country = countryDao.findOne(1L);
+//        req.setAttribute("listCountries", country);
+
       getServletContext().getRequestDispatcher("/WEB-INF/jsp/country.jsp").forward(req, resp);
     }
 }

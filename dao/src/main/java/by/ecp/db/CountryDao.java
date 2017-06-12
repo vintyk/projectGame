@@ -21,11 +21,11 @@ public class CountryDao extends BaseDao<Country> {
 //        return resultSetCountry;
 //        }
 //
-//        public List<Country> findAll(Session session) {
-//        QCountry country = new QCountry("myCountry");
-//        JPAQuery<Country> query = new JPAQuery<>(session);
-//        query.select(country).from(country);
-//        return query.fetchResults().getResults();
-//    }
+        public List<Country> findAll(Session session) {
+        QCountry country = new QCountry("myCountry");
+        JPAQuery<Country> query = new JPAQuery<>(session);
+        query.select(country).from(country);
+        return query.fetchResults().getResults();
+    }
 }
 
