@@ -53,8 +53,8 @@ import java.util.Set;
     @Setter
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "country", column = @Column(name = "first_country")),
-            @AttributeOverride(name = "city", column = @Column(name = "first_City"))
+            @AttributeOverride(name = "country", column = @Column(name = "home_region_country")),
+            @AttributeOverride(name = "city", column = @Column(name = "home_region_City"))
     })
     private Address firstAddress;
 
@@ -62,8 +62,8 @@ import java.util.Set;
     @Setter
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "country", column = @Column(name = "second_country")),
-            @AttributeOverride(name = "city", column = @Column(name = "second_city"))
+            @AttributeOverride(name = "country", column = @Column(name = "payment_country")),
+            @AttributeOverride(name = "city", column = @Column(name = "payment_city"))
     })
     private Address secondAddress;
 

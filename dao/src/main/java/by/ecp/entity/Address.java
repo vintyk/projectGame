@@ -12,11 +12,11 @@ import javax.persistence.*;
 @ToString
 @AllArgsConstructor
 public class Address {
-    @Column(name = "current_county")
+    @Column(name = "country")
     @Getter
     @Setter
     private String country;
-    @Column(name = "current_city")
+    @Column(name = "city")
     @Getter
     @Setter
     private String city;
