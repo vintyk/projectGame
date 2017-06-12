@@ -3,6 +3,7 @@ package by.ecp;
 import by.ecp.db.CountryDao;
 import by.ecp.db.PublicationDao;
 import by.ecp.entity.*;
+import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,6 +15,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
@@ -85,13 +87,11 @@ public class PublicationTest {
         publication2.setGame(game);
         session.save(publication2);
 
-        List<Publication> publicationList = PublicationDao.getInstance().findAll(session);
-        assertThat(publicationList, hasSize(2));
-        List<String> namesInBD = publicationList
-                .stream()
-                .map(Publication::getNamePublication)
-                .collect(toList());
-        assertThat(namesInBD, containsInAnyOrder("Это же звиздец, дорогая редакция!", "Встречаем!"));
+        QPublication publication1 = new QPublication("myCompany");
+        JPAQuery<Publication> query = new JPAQuery<>(session);
+        query.select(publication1).from(publication1);
+        System.out.println(query.fetchResults().getResults());
+        assertThat(publication1, notNullValue());
         transaction.commit();
         session.close();
     }

@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 /**
  * Created by Vinty on 09.06.2017.
  */
@@ -26,4 +28,17 @@ public class BaseDao<T> extends IdMotherClass {
         session.close();
         return result;
     }
+
+//    public List<T> findAll() {
+//        Session session = SESSION_FACTORY.openSession();
+//        List<T> result = session.createQuery("from " +entityClass, entityClass.class).list();
+//        return result;
+//    }
+
+    public void addEntity(T t) {
+        Session session = SESSION_FACTORY.openSession();
+        session.persist(entityClass);
+    }
+
+
 }

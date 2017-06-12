@@ -34,6 +34,10 @@ public class UserTest {
         session.save(privilege);
         Privilege privilege2 = session.get(Privilege.class, 1L);
 
+        Address address = new Address();
+        address.setCity("Minsk");
+        address.setCountry("RB");
+
         User user = new User();
         user.setNameUser("Vu");
         user.setPrivilege(privilege2);
@@ -41,6 +45,7 @@ public class UserTest {
         user.setEMailUser("sss@hhhh.com");
         user.setGender(Gender.MALE);
         user.setPasswordUser("12345");
+        user.setFirstAddress(address);
         session.save(user);
 
         QUser user1 = new QUser("myUser");

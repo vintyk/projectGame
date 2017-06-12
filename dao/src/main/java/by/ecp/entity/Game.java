@@ -15,7 +15,8 @@ import java.util.Set;
 @Entity
 @Table(name = "games")
 @NoArgsConstructor
-@ToString
+@ToString(callSuper = true)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Game extends IdMotherClass{
     @Getter
     @Setter

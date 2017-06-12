@@ -49,6 +49,24 @@ import java.util.Set;
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    @Getter
+    @Setter
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "country", column = @Column(name = "first_country")),
+            @AttributeOverride(name = "city", column = @Column(name = "first_City"))
+    })
+    private Address firstAddress;
+
+    @Getter
+    @Setter
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "country", column = @Column(name = "second_country")),
+            @AttributeOverride(name = "city", column = @Column(name = "second_city"))
+    })
+    private Address secondAddress;
+
 //  TODO  довавить Embedded class. с 2 полями Страна-город.
 
 }

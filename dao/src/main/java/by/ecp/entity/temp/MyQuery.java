@@ -11,11 +11,6 @@ public class MyQuery {
     public static void main(String[] args) {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        Session session2 = sessionFactory.openSession();
-        Transaction transaction2 = session2.beginTransaction();
 
 
 //        Test001 test1 = new Test001();

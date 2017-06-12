@@ -24,8 +24,13 @@ public class Main {
         CountryDao countryDao = new CountryDao();
         Country country = countryDao.findOne(1L);
         System.out.println(country);
-//
-//        List<Country> countries2 = CountryDao.getInstance().getCountryList(session);
+
+//        CountryDao countryDao1 = new CountryDao();
+//        Country country1 = countryDao1.findAll();
+//        System.out.println(country1);
+
+
+//          List<Country> countries2 = CountryDao.getInstance().getCountryList(session);
 //        countries2.forEach(System.out::println);
 //        List<Country> countries = CountryDao.getInstance().findAll(session);
 //        countries.forEach(System.out::println);
