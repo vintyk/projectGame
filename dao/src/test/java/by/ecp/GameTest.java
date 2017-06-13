@@ -95,7 +95,8 @@ public class GameTest {
         transaction.commit();
         session.close();
     }
-    @Test
+
+        @Test
     public void saveGame() {
         Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();

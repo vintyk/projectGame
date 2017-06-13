@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +18,7 @@ import javax.persistence.Table;
 @Table(name = "stages_test")
 @NoArgsConstructor
 @ToString
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
 public class StageTests extends IdMotherClass {
     @Getter
     @Setter

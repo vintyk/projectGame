@@ -33,21 +33,27 @@ public class CountryTest {
     @Test
     public void testListCountryFromDaoQueryDSL() {
         Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
+        session.beginTransaction();
         Country country = new Country();
         country.setName("Russia");
         session.save(country);
+        session.getTransaction().commit();
+        session.close();
+
+        Session session2 = SESSION_FACTORY.openSession();
+        session2.beginTransaction();
         Country country2 = new Country();
         country2.setName("Belarus");
-        session.save(country2);
+        session2.save(country2);
+        session2.getTransaction().commit();
+        session2.close();
+        System.out.println(SESSION_FACTORY.getStatistics());
+//        QCountry country1 = new QCountry("myCountry");
+//        JPAQuery<Country> query = new JPAQuery<>(session);
+//        query.select(country1).from(country1);
+//        System.out.println(query.fetchResults().getResults());
+//        assertThat(country1, notNullValue());
 
-        QCountry country1 = new QCountry("myCountry");
-        JPAQuery<Country> query = new JPAQuery<>(session);
-        query.select(country1).from(country1);
-        System.out.println(query.fetchResults().getResults());
-        assertThat(country1, notNullValue());
-        transaction.commit();
-        session.close();
     }
         @AfterClass
         public static void finish() {

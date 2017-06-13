@@ -2,6 +2,8 @@ package by.ecp.entity;
 
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -13,6 +15,7 @@ import javax.persistence.Table;
 @Table(name = "releases")
 @NoArgsConstructor
 @ToString
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "You_are_a_liar")
 public class Release extends IdMotherClass{
 
 

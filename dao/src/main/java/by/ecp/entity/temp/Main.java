@@ -21,11 +21,27 @@ public class Main {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
 
-        CountryDao countryDao = new CountryDao();
-        Country country = countryDao.findOne(2L);
-        System.out.println(country);
-        session.close();
-        sessionFactory.close();
+//        CountryDao countryDao = new CountryDao();
+//        Country country = countryDao.findOne(25L);
+//        System.out.println(country);
+//        session.close();
+//        sessionFactory.close();
+
+//        CountryDao countryDao = new CountryDao();
+//        Country country = new Country();
+//        country.setName("ghjcghjc");
+//        countryDao.save(country);
+//        session.close();
+
+
+        CountryDao countryDao1 = new CountryDao();
+        List<Country> country1 = countryDao1.findAll();
+        country1.forEach(System.out::println);
+
+
+
+//        CountryDao countryDao1 = new CountryDao();
+//        Country country1 = countryDao1.delete(25L);
 
 //        CountryDao countryDao1 = new CountryDao();
 //        Country country1 = countryDao1.findAll();

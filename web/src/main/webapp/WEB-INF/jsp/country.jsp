@@ -9,13 +9,13 @@
 <h3>Страны</h3>
 <form method="post">
 
-    ${listCountries.name}
+    ${Countries.name}
 
-    <%--<select name="listCountries" id="listCountries">--%>
-        <%--<c:forEach items="${requestScope.listCountries}" var="listCountries">--%>
-            <%--<option value="${listCountries.id}">${listCountries.name} </option>--%>
-        <%--</c:forEach>--%>
-    <%--</select>--%>
+    <select name="listCountries" id="listCountries">
+        <c:forEach items="${requestScope.listCountries}" var="listCountries">
+            <option value="${listCountries.id}">${listCountries.name} </option>
+        </c:forEach>
+    </select>
 </form>
 </body>
 </html>

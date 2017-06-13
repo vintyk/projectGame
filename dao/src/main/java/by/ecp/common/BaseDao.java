@@ -3,6 +3,7 @@ package by.ecp.common;
 import by.ecp.entity.IdMotherClass;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.util.List;
@@ -28,17 +29,28 @@ public class BaseDao<T> extends IdMotherClass {
         session.close();
         return result;
     }
-
-//    public List<T> findAll() {
-//        Session session = SESSION_FACTORY.openSession();
-//        List<T> result = session.createQuery("from " +entityClass, entityClass.class).list();
-//        return result;
-//    }
-
-    public void addEntity(T t) {
+    public void delete(Long id) {
         Session session = SESSION_FACTORY.openSession();
-        session.persist(entityClass);
+        T entityClass = findOne(id);
+        session.delete(entityClass);
+        session.close();
     }
+    public List<T> findAll() {
+        Session session = SESSION_FACTORY.openSession();
+        return session.createQuery("FROM " + entityClass.getSimpleName(), entityClass).list();
+    }
+    public void save(T o){
+        Session session = SESSION_FACTORY.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(o);
+        transaction.commit();
+        session.close();
+    }
+
+//    public void addEntity(T t) {
+//        Session session = SESSION_FACTORY.openSession();
+//        session.persist(entityClass);
+//    }
 
 
 }

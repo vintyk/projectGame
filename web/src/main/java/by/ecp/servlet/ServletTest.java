@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Vinty.
@@ -29,8 +30,10 @@ public class ServletTest extends HttpServlet {
     private void showPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CountryDao countryDao = new CountryDao();
         Country country = countryDao.findOne(1L);
-        req.setAttribute("listCountries", country);
-
+        req.setAttribute("Countries", country);
+        CountryDao countryDao1 = new CountryDao();
+        List<Country> country1 = countryDao1.findAll();
+        req.setAttribute("listCountries", country1);
       getServletContext().getRequestDispatcher("/WEB-INF/jsp/country.jsp").forward(req, resp);
     }
 }

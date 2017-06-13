@@ -4,8 +4,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +19,7 @@ import java.util.Set;
 @Entity
 @Table(name="platforms")
 @NoArgsConstructor
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
 public class Platform extends IdMotherClass{
     @Setter
     @Getter
