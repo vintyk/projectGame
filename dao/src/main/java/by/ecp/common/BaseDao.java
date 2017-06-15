@@ -3,7 +3,6 @@ package by.ecp.common;
 import by.ecp.entity.IdMotherClass;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.util.List;
@@ -29,28 +28,41 @@ public class BaseDao<T> extends IdMotherClass {
         session.close();
         return result;
     }
-    public void delete(Long id) {
-        Session session = SESSION_FACTORY.openSession();
-        T entityClass = findOne(id);
-        session.delete(entityClass);
-        session.close();
-    }
     public List<T> findAll() {
         Session session = SESSION_FACTORY.openSession();
         return session.createQuery("FROM " + entityClass.getSimpleName(), entityClass).list();
     }
-    public void save(T o){
+    public void  save(T o){
         Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
+        session.beginTransaction();
         session.save(o);
-        transaction.commit();
+        session.getTransaction().commit();
         session.close();
     }
+    public void  delete(T o){
+        Session session = SESSION_FACTORY.openSession();
+        session.beginTransaction();
+        session.delete(o);
+        session.getTransaction().commit();
+        session.close();
+    }
+    public void  update(T o){
+        Session session = SESSION_FACTORY.openSession();
+        session.beginTransaction();
+        session.update(o);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+//    public void delete(Long id) {
+//        Session session = SESSION_FACTORY.openSession();
+//        T entityClass = findOne(id);
+//        session.delete(entityClass);
+//        session.close();
+//    }
 
 //    public void addEntity(T t) {
 //        Session session = SESSION_FACTORY.openSession();
 //        session.persist(entityClass);
 //    }
-
-
 }
