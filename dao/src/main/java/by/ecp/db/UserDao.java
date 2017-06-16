@@ -1,17 +1,18 @@
 package by.ecp.db;
 
-import by.ecp.entity.Gender;
-import by.ecp.entity.Privilege;
-import by.ecp.entity.User;
+import by.ecp.common.BaseDao;
+import by.ecp.entity.*;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 /**
  * Created by User on 02.06.2017.
  */
-public class UserDao {
+public class UserDao extends BaseDao<User>{
+    public UserDao() {
+        super(User.class);
+    }
+
     private static final Object LOCK = new Object();
     private static UserDao INSTANCE = null;
 
