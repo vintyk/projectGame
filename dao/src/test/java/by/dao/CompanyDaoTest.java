@@ -3,16 +3,7 @@ package by.dao;
 import by.ecp.common.BaseDao;
 import by.ecp.db.CompanyDao;
 import by.ecp.entity.Company;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
 
 /**
  * Created by Vinty on 11.06.2017.
@@ -31,8 +22,6 @@ public class CompanyDaoTest extends BaseDaoTest<Company>{
     protected Company getModel() {
         return new Company();
     }
-
-
 //    @BeforeClass
 //    public static void init() {
 //        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();

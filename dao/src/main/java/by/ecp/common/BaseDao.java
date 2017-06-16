@@ -46,23 +46,11 @@ public class BaseDao<T> extends IdMotherClass {
         session.getTransaction().commit();
         session.close();
     }
-    public void  update(T o){
+    public void update (T entity) {
         Session session = SESSION_FACTORY.openSession();
         session.beginTransaction();
-        session.update(o);
+        session.update(entityClass.getSimpleName(), entity);
         session.getTransaction().commit();
         session.close();
     }
-
-//    public void delete(Long id) {
-//        Session session = SESSION_FACTORY.openSession();
-//        T entityClass = findOne(id);
-//        session.delete(entityClass);
-//        session.close();
-//    }
-
-//    public void addEntity(T t) {
-//        Session session = SESSION_FACTORY.openSession();
-//        session.persist(entityClass);
-//    }
 }

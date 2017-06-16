@@ -1,5 +1,6 @@
 package by.ecp.db;
 
+import by.ecp.common.BaseDao;
 import by.ecp.entity.*;
 import lombok.EqualsAndHashCode;
 import org.hibernate.Session;
@@ -17,7 +18,11 @@ import java.util.Set;
  * Created by User on 05.06.2017.
  */
 @EqualsAndHashCode
-public class GameDao {
+public class GameDao extends BaseDao{
+    public GameDao() {
+        super(Game.class);
+    }
+
     private static final Object LOCK = new Object();
     private static GameDao INSTANCE = null;
 

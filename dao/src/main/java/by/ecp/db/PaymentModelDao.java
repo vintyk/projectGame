@@ -1,9 +1,7 @@
 package by.ecp.db;
 
-import by.ecp.entity.PaymentModel;
-import by.ecp.entity.Publication;
-import by.ecp.entity.QPaymentModel;
-import by.ecp.entity.QPublication;
+import by.ecp.common.BaseDao;
+import by.ecp.entity.*;
 import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 
@@ -12,7 +10,11 @@ import java.util.List;
 /**
  * Created by User on 09.06.2017.
  */
-public class PaymentModelDao {
+public class PaymentModelDao extends BaseDao<PaymentModel>{
+    public PaymentModelDao() {
+        super(PaymentModel.class);
+    }
+
     private static final Object LOCK = new Object();
     private static PaymentModelDao INSTANCE = null;
 

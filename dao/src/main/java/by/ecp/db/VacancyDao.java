@@ -2,9 +2,7 @@ package by.ecp.db;
 
 import by.ecp.entity.*;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 /**
  * Created by User on 02.06.2017.

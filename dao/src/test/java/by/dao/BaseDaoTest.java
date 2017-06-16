@@ -4,6 +4,10 @@ import by.ecp.common.BaseDao;
 import by.ecp.entity.IdMotherClass;
 import org.junit.Test;
 
+import java.util.List;
+
+import static junit.framework.Assert.assertNotSame;
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
 /**
@@ -22,6 +26,7 @@ public abstract class BaseDaoTest<T extends IdMotherClass> {
         T entity = getDao().findOne(1L);
         assertNotNull(entity);
     }
+
     @Test
     public void testDelete(){
         T model = getModel();
@@ -31,6 +36,27 @@ public abstract class BaseDaoTest<T extends IdMotherClass> {
 
         T entity = getDao().findOne(1L);
         assertNotNull(entity);
+    }
 
+    @Test
+    public void testSave(){
+        T model = getModel();
+        getDao().save(model);
+
+        List<T> entity = getDao().findAll();
+        assertNotNull(entity);
+    }
+
+    @Test
+    public void testUpdate(){
+        T model = getModel();
+        getDao().save(model);
+
+        T model2 = getModel();
+        getDao().update(model);
+
+        List<T> entity = getDao().findAll();
+        assertNotNull(entity);
+        assertNotSame(model, model2);
     }
 }
