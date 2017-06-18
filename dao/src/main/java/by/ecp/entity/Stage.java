@@ -20,7 +20,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @ToString
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
-@Repository
 public class Stage extends IdMotherClass{
     @Getter
     @Setter

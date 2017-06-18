@@ -16,7 +16,6 @@ import javax.persistence.*;
 @Table(name = "vacancies")
 @NoArgsConstructor
 @ToString
-@Service
 public class Vacancy extends IdMotherClass{
     @Getter
     @Setter
@@ -27,10 +26,4 @@ public class Vacancy extends IdMotherClass{
     @OneToOne
     @JoinColumn(name = "companies_id", nullable = false)
     private Company company;
-
-    @Autowired
-    public Vacancy(Company nameCompany){
-        this.nameVacancy = nameVacancy;
-        this.company = nameCompany;
-    }
 }

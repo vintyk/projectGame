@@ -19,7 +19,6 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @Inheritance(strategy = InheritanceType.JOINED)
-@Service
 public class Game extends IdMotherClass{
     @Getter
     @Setter

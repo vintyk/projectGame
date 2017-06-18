@@ -20,7 +20,6 @@ import javax.persistence.Table;
 @ToString
 @NoArgsConstructor
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
-@Repository
 public class Privilege extends IdMotherClass{
     @Setter
     @Getter

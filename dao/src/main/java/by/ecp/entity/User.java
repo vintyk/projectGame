@@ -15,7 +15,6 @@ import javax.persistence.*;
     @Table(name = "users")
     @NoArgsConstructor
     @ToString
-    @Service
     public class User extends IdMotherClass{
     @Getter
     @Setter

@@ -23,17 +23,9 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "game_id")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "You_are_a_liar")
-//@Component
 public class GameAdditionGoods extends Game{
     @Column(name = "name")
     @Getter
     @Setter
     private String nameGoods;
-
-//@Autowired
-//    TODO непонятно как присоединить. Ибо будет у Game 2 Bean а надо 1
-    public GameAdditionGoods(String nameGoods){
-        this.nameGoods = nameGoods;
     }
-
-}

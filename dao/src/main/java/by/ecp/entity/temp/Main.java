@@ -27,10 +27,7 @@ public class Main {
         session.close();
         sessionFactory.close();
     }
-
-
 }
-
 
 //        CountryDao countryDao = new CountryDao();
 //        Country country = countryDao.findOne(25L);

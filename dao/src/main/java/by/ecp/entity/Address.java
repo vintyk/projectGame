@@ -15,7 +15,6 @@ import javax.persistence.*;
 @ToString
 @AllArgsConstructor
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "Long_happy_life")
-@Repository
 public class Address {
     @Column(name = "country")
     @Getter

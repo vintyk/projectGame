@@ -20,7 +20,6 @@ import javax.persistence.Table;
 @ToString
 @NoArgsConstructor
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "Long_happy_life")
-@Repository
 public class Genre extends IdMotherClass{
     @Column(name = "name")
     @Getter
