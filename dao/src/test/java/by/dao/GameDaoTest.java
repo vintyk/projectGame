@@ -3,14 +3,16 @@ package by.dao;
 import by.ecp.db.*;
 import by.ecp.entity.*;
 import org.hibernate.SessionFactory;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by User on 16.06.2017.
@@ -61,10 +63,16 @@ public class GameDaoTest
             1L,
             1L,
             platformLongs);
-
+    gameDao.saveGame("Вторая офигенная Игра кросс-платформенная",
+            1L,
+            1L,
+            1L,
+            1L,
+            1L);
     List<Game> result = gameDao.getGameList();
     System.out.println(result);
     assertNotNull(result);
+    assertThat(result, hasSize(2));
 
     }
 
