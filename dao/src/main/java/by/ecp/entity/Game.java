@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -17,6 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @Inheritance(strategy = InheritanceType.JOINED)
+@Service
 public class Game extends IdMotherClass{
     @Getter
     @Setter

@@ -1,17 +1,10 @@
 package by.ecp.entity.temp;
 
-import by.ecp.db.*;
-import by.ecp.entity.Country;
-import by.ecp.entity.Genre;
-import by.ecp.entity.Platform;
+import by.ecp.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.junit.BeforeClass;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by Vinty on 24.05.2017.
@@ -20,6 +13,24 @@ public class Main {
     public static void main(String[] args) {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
+
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("application_content.xml");
+        Vacancy vacancy = context.getBean(Vacancy.class);
+        User user  = context.getBean(User.class);
+        Game game = context.getBean(Game.class);
+//        GameAdditionGoods gameAdditionGoods = context.getBean(GameAdditionGoods.class);
+        System.out.println(vacancy.toString());
+        System.out.println(user.toString());
+        System.out.println(game.toString());
+//        System.out.println(gameAdditionGoods);
+        session.close();
+        sessionFactory.close();
+    }
+
+
+}
+
 
 //        CountryDao countryDao = new CountryDao();
 //        Country country = countryDao.findOne(25L);
@@ -34,9 +45,9 @@ public class Main {
 //        session.close();
 
 
-        CountryDao countryDao1 = new CountryDao();
-        List<Country> country1 = countryDao1.findAll();
-        country1.forEach(System.out::println);
+//        CountryDao countryDao1 = new CountryDao();
+//        List<Country> country1 = countryDao1.findAll();
+//        country1.forEach(System.out::println);
 
 
 
@@ -113,5 +124,5 @@ public class Main {
 
 //        deleteById(Country.class, new Long(14));
 
-    }
-}
+
+

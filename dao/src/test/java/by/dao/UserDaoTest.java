@@ -21,4 +21,5 @@ public class UserDaoTest extends BaseDaoTest<User>{
     protected User getModel() {
         return new User();
     }
+
 }

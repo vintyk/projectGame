@@ -3,6 +3,7 @@ package by.ecp.entity;
 import lombok.*;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.Cache;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 
@@ -14,6 +15,7 @@ import javax.persistence.*;
 @ToString
 @AllArgsConstructor
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "Long_happy_life")
+@Repository
 public class Address {
     @Column(name = "country")
     @Getter

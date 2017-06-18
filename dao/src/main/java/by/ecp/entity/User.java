@@ -4,10 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Vinty on 07.04.2017.
@@ -16,6 +15,7 @@ import java.util.Set;
     @Table(name = "users")
     @NoArgsConstructor
     @ToString
+    @Service
     public class User extends IdMotherClass{
     @Getter
     @Setter
