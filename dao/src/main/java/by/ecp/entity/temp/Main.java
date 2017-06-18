@@ -14,15 +14,15 @@ public class Main {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
 
-        ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("application_content.xml");
-        Vacancy vacancy = context.getBean(Vacancy.class);
-        User user  = context.getBean(User.class);
-        Game game = context.getBean(Game.class);
+//        ClassPathXmlApplicationContext context =
+//                new ClassPathXmlApplicationContext("application_content.xml");
+//        Vacancy vacancy = context.getBean(Vacancy.class);
+//        User user  = context.getBean(User.class);
+//        Game game = context.getBean(Game.class);
 //        GameAdditionGoods gameAdditionGoods = context.getBean(GameAdditionGoods.class);
-        System.out.println(vacancy.toString());
-        System.out.println(user.toString());
-        System.out.println(game.toString());
+//        System.out.println(vacancy.toString());
+//        System.out.println(user.toString());
+//        System.out.println(game.toString());
 //        System.out.println(gameAdditionGoods);
         session.close();
         sessionFactory.close();

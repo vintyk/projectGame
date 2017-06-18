@@ -2,6 +2,8 @@ package by.ecp.db;
 
 import by.ecp.common.BaseDao;
 import by.ecp.entity.*;
+import com.querydsl.jpa.impl.JPAQuery;
+import org.hibernate.Session;
 
 /**
  * Created by User on 02.06.2017.
@@ -9,6 +11,17 @@ import by.ecp.entity.*;
 public class UserDao extends BaseDao<User>{
     public UserDao() {
         super(User.class);
+    }
+    public User findByEmail(String name){
+        Session session = SESSION_FACTORY.openSession();
+        session.beginTransaction();
+        QUser user = new QUser("myNewUser");
+        JPAQuery<User> query = new JPAQuery<>(session);
+        query.select(user).from(user).where(user.eMailUser.eq(name));
+        User result = query.fetchOne();
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 
 //    private static final Object LOCK = new Object();

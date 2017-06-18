@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class BaseDao<T> extends IdMotherClass {
 
-    private static SessionFactory SESSION_FACTORY =
+    protected static SessionFactory SESSION_FACTORY =
             new Configuration().configure().buildSessionFactory();
 
     private Class<T> entityClass;

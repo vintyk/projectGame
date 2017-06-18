@@ -1,6 +1,7 @@
 package by.dao;
 
 
+import by.ecp.common.BaseDao;
 import by.ecp.db.CompanyDao;
 import by.ecp.db.VacancyDao;
 import by.ecp.entity.Company;
@@ -15,37 +16,16 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
+import static org.hamcrest.Matchers.hasSize;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Vinty on 18.06.2017.
  */
 public class VacancyDaoTest {
-//    private static SessionFactory SESSION_FACTORY;
-//     @BeforeClass
-//    public static void init() {
-//        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-//    }
 
-//    @Test
-//    public void testGetCompany() {
-//        Session session = SESSION_FACTORY.openSession();
-//        Transaction transaction = session.beginTransaction();
-//
-//        Company company = new Company();
-//        company.setNameCompany("США");
-//        session.save(company);
-//
-//        VacancyDao vacancyDao = new VacancyDao();
-//
-//        vacancyDao.saveVacancy("TestVacancy", 1L, session);
-//        System.out.println();
-//        transaction.commit();
-//        session.close();
-//    }
     @Test
     public void getByNameTest(){
-//        Session session = SESSION_FACTORY.openSession();
-//        Transaction transaction = session.beginTransaction();
         VacancyDao vacancyDao = new VacancyDao();
         CompanyDao companyDao = new CompanyDao();
         Vacancy vacancy = new Vacancy();
@@ -56,13 +36,8 @@ public class VacancyDaoTest {
         vacancy.setCompany(company);
         vacancyDao.save(vacancy);
 
-        Vacancy result = vacancyDao.findByName("vac", session);
+        Vacancy result = vacancyDao.findByName("vac");
         System.out.println(result);
-//        transaction.commit();
-//        session.close();
+        assertEquals(vacancy.getNameVacancy(), "vac");
     }
-//    @AfterClass
-//    public static void finish() {
-//        SESSION_FACTORY.close();
-//    }
 }

@@ -53,7 +53,8 @@ public class VacancyDao extends BaseDao<Vacancy>{
         return query.fetchResults().getResults();
     }
 
-    public Vacancy findByName(String name, Session session){
+    public Vacancy findByName(String name){
+        Session session = SESSION_FACTORY.openSession();
         session.beginTransaction();
         QVacancy vacancy = new QVacancy("myNewVacancy");
         JPAQuery<Vacancy> query = new JPAQuery<>(session);
