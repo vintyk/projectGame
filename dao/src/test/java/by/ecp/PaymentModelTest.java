@@ -32,29 +32,29 @@ public class PaymentModelTest {
         SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
     }
 
-    @Test
-    public void testListPaymentModel() {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        PaymentModel paymentModel = new PaymentModel();
-        paymentModel.setName("разовая покупка");
-        session.save(paymentModel);
-
-        PaymentModel paymentModel2 = new PaymentModel();
-        paymentModel2.setName("подписка");
-        session.save(paymentModel2);
-
-        List<PaymentModel> paymentModelsList = PaymentModelDao.getInstance().findAll(session);
-        assertThat(paymentModelsList, hasSize(2));
-        List<String> namesInBD = paymentModelsList
-                .stream()
-                .map(PaymentModel::getName)
-                .collect(toList());
-        assertThat(namesInBD, containsInAnyOrder("разовая покупка", "подписка"));
-        transaction.commit();
-        session.close();
-    }
+//    @Test
+//    public void testListPaymentModel() {
+//        Session session = SESSION_FACTORY.openSession();
+//        Transaction transaction = session.beginTransaction();
+//
+//        PaymentModel paymentModel = new PaymentModel();
+//        paymentModel.setName("разовая покупка");
+//        session.save(paymentModel);
+//
+//        PaymentModel paymentModel2 = new PaymentModel();
+//        paymentModel2.setName("подписка");
+//        session.save(paymentModel2);
+//
+//        List<PaymentModel> paymentModelsList = PaymentModelDao.getInstance().findAll(session);
+//        assertThat(paymentModelsList, hasSize(2));
+//        List<String> namesInBD = paymentModelsList
+//                .stream()
+//                .map(PaymentModel::getName)
+//                .collect(toList());
+//        assertThat(namesInBD, containsInAnyOrder("разовая покупка", "подписка"));
+//        transaction.commit();
+//        session.close();
+//    }
 
     @AfterClass
     public static void finish() {

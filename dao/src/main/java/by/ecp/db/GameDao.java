@@ -2,6 +2,7 @@ package by.ecp.db;
 
 import by.ecp.common.BaseDao;
 import by.ecp.entity.*;
+import com.querydsl.jpa.impl.JPAQuery;
 import lombok.EqualsAndHashCode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,7 +24,8 @@ public class GameDao extends BaseDao{
         super(Game.class);
     }
 
-    public List<Game> getGameList(Session session) {
+    public List<Game> getGameList() {
+        Session session = SESSION_FACTORY.openSession();
         List<Game> resultSetGame = session.createQuery("from Game ", Game.class).getResultList();
         return resultSetGame;
     }
@@ -34,8 +36,7 @@ public class GameDao extends BaseDao{
                          Long paymentModelId,
                          Long settingId,
                          Long stageId) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+        Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
         Company company = new Company();
@@ -64,7 +65,6 @@ public class GameDao extends BaseDao{
 
         transaction.commit();
         session.close();
-        sessionFactory.close();
     }
 
     public void saveGameToExistingPlatform(String nameGame,
@@ -73,8 +73,9 @@ public class GameDao extends BaseDao{
                                            Long paymentModelId,
                                            Long settingId,
                                            Long stageId,
-                                           Set<Long> platformsIDs,
-                                           Session session){
+                                           Set<Long> platformsIDs
+                                           ){
+        Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
         Company company = new Company();
@@ -110,5 +111,6 @@ public class GameDao extends BaseDao{
         session.save(game);
 
         transaction.commit();
+        session.close();
     }
 }

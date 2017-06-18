@@ -12,6 +12,7 @@ public class UserDao extends BaseDao<User>{
     public UserDao() {
         super(User.class);
     }
+
     public User findByEmail(String name){
         Session session = SESSION_FACTORY.openSession();
         session.beginTransaction();
