@@ -15,20 +15,6 @@ public class PaymentModelDao extends BaseDao<PaymentModel>{
         super(PaymentModel.class);
     }
 
-    private static final Object LOCK = new Object();
-    private static PaymentModelDao INSTANCE = null;
-
-    public static PaymentModelDao getInstance() {
-        if (INSTANCE == null) {
-            synchronized (LOCK) {
-                if (INSTANCE == null) {
-                    INSTANCE = new PaymentModelDao();
-                }
-            }
-        }
-        return INSTANCE;
-    }
-
     public List<PaymentModel> findAll(Session session) {
         QPaymentModel paymentModel = new QPaymentModel("myPayment");
         JPAQuery<PaymentModel> query = new JPAQuery<>(session);

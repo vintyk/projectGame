@@ -23,20 +23,6 @@ public class GameDao extends BaseDao{
         super(Game.class);
     }
 
-    private static final Object LOCK = new Object();
-    private static GameDao INSTANCE = null;
-
-    public static GameDao getInstance() {
-        if (INSTANCE == null) {
-            synchronized (LOCK) {
-                if (INSTANCE == null) {
-                    INSTANCE = new GameDao();
-                }
-            }
-        }
-        return INSTANCE;
-    }
-
     public List<Game> getGameList(Session session) {
         List<Game> resultSetGame = session.createQuery("from Game ", Game.class).getResultList();
         return resultSetGame;

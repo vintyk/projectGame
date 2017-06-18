@@ -17,21 +17,6 @@ public class VacancyDao extends BaseDao<Vacancy>{
         super(Vacancy.class);
     }
 
-
-    private static final Object LOCK = new Object();
-    private static VacancyDao INSTANCE = null;
-
-    public static VacancyDao getInstance() {
-        if (INSTANCE == null) {
-            synchronized (LOCK) {
-                if (INSTANCE == null) {
-                    INSTANCE = new VacancyDao();
-                }
-            }
-        }
-        return INSTANCE;
-    }
-
     public void saveVacancy(String nameVacancy, Long companies_id, Session session) {
         Transaction transaction = session.beginTransaction();
 
