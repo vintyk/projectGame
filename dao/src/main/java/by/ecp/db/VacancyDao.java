@@ -17,11 +17,12 @@ public class VacancyDao extends BaseDao<Vacancy>{
         super(Vacancy.class);
     }
 
-    public void saveVacancy(String nameVacancy, Long companies_id, Session session) {
+    public void saveVacancy(String nameVacancy, Long companieId) {
+        Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
         Company company = new Company();
-        company.setId(companies_id);
+        company.setId(companieId);
 
         Vacancy vacancy = new Vacancy();
         vacancy.setNameVacancy(nameVacancy);
@@ -29,6 +30,7 @@ public class VacancyDao extends BaseDao<Vacancy>{
         session.save(vacancy);
 
         transaction.commit();
+        session.close();
     }
 
     public List<Vacancy> findAll(Session session) {

@@ -11,7 +11,7 @@ import org.hibernate.SessionFactory;
  * Created by User on 16.06.2017.
  */
 public class PlatformDaoTest extends BaseDaoTest<Platform> {
-    private static SessionFactory SESSION_FACTORY;
+
     private BaseDao<Platform> dao = new PlatformDao();
 
     @Override

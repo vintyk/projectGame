@@ -10,6 +10,7 @@ import org.hibernate.annotations.Cache;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 /**
  * Created by User on 09.06.2017.
@@ -36,6 +37,8 @@ public class Publication extends IdMotherClass {
     @JoinColumn(name = "game_id", nullable = false)
     private Game game;
 
-    //TODO: Дата создания публикации
-
+    @Getter
+    @Setter
+    @Column(name = "date_publication")
+    private LocalDate datePublication;
 }

@@ -11,7 +11,6 @@ import org.hibernate.SessionFactory;
  * Created by User on 16.06.2017.
  */
 public class PaymentModelDaoTest extends BaseDaoTest<PaymentModel> {
-    private static SessionFactory SESSION_FACTORY;
 
     private BaseDao<PaymentModel> dao = new PaymentModelDao();
 

@@ -11,7 +11,7 @@ import org.hibernate.SessionFactory;
  * Created by User on 16.06.2017.
  */
 public class PrivilegeDaoTest extends BaseDaoTest<Privilege> {
-    private static SessionFactory SESSION_FACTORY;
+
     private BaseDao<Privilege> dao = new PrivilegeDao();
 
     @Override

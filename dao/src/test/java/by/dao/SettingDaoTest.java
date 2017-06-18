@@ -11,7 +11,7 @@ import org.hibernate.SessionFactory;
  * Created by User on 16.06.2017.
  */
 public class SettingDaoTest extends BaseDaoTest<Setting> {
-    private static SessionFactory SESSION_FACTORY;
+
     private BaseDao<Setting> dao = new SettingDao();
 
     @Override

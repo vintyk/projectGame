@@ -27,7 +27,7 @@ public class UserDao extends BaseDao<User>{
     }
 
     public void saveUser(String nameUser,
-                         Long privilege_id,
+                         Long privilegeId,
                          String family,
                          String eMail,
                          Gender gender,
@@ -37,7 +37,7 @@ public class UserDao extends BaseDao<User>{
         Transaction transaction = session.beginTransaction();
 
         Privilege privilege = new Privilege();
-        privilege.setId(privilege_id);
+        privilege.setId(privilegeId);
 
         User user = new User();
         user.setNameUser(nameUser);

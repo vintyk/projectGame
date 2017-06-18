@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
  * Created by User on 16.06.2017.
  */
 public class RankDaoTest extends BaseDaoTest<Rank> {
-    private static SessionFactory SESSION_FACTORY;
+
     private BaseDao<Rank> dao = new RankDao();
 
     @Override

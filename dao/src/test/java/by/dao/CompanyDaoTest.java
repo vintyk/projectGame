@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
  */
 public class CompanyDaoTest extends BaseDaoTest<Company>{
 
-    private static SessionFactory SESSION_FACTORY;
     private BaseDao<Company> dao = new CompanyDao();
 
     @Override
