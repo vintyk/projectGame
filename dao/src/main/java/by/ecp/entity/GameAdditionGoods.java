@@ -31,6 +31,7 @@ public class GameAdditionGoods extends Game{
     private String nameGoods;
 
 //@Autowired
+//    TODO непонятно как присоединить. Ибо будет у Game 2 Bean а надо 1
     public GameAdditionGoods(String nameGoods){
         this.nameGoods = nameGoods;
     }
