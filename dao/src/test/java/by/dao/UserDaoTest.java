@@ -5,7 +5,10 @@ import by.ecp.db.UserDao;
 import by.ecp.entity.*;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by Vinty on 18.06.2017.
@@ -36,6 +39,31 @@ public class UserDaoTest {
         User result = userDao.findByEmail("vee@gmail.com");
         System.out.println(result);
         assertEquals(user.getEMailUser(), "vee@gmail.com");
+    }
+
+    @Test
+    public void saveUserTest() {
+        PrivilegeDao privilegeDao = new PrivilegeDao();
+        UserDao userDao = new UserDao();
+        Privilege privilege = new Privilege();
+        User user = new User();
+        Address address = new Address();
+        address.setCity("Minsk");
+        address.setCountry("RB");
+
+        privilege.setNamePrivilege("Админко");
+        privilegeDao.save(privilege);
+
+        userDao.saveUser(
+                "MeeMo",
+                1L,
+                "Loo_Lee",
+                "MeeMo@gmail.com",
+                Gender.MALE,
+                "qwerty2");
+        List<User> result = userDao.findAll();
+        System.out.println(result);
+        assertNotNull(result);
     }
 }
 
