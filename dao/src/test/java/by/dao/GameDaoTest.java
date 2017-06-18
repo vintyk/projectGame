@@ -1,10 +1,5 @@
 package by.dao;
 
-import by.ecp.common.BaseDao;
-import by.ecp.db.CountryDao;
-import by.ecp.db.GameDao;
-import by.ecp.entity.Country;
-import by.ecp.entity.Game;
 import org.hibernate.SessionFactory;
 
 /**
