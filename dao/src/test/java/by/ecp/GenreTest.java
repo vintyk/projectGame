@@ -1,8 +1,5 @@
 package by.ecp;
 
-import by.ecp.db.CountryDao;
-import by.ecp.db.GenreDao;
-import by.ecp.db.PublicationDao;
 import by.ecp.entity.*;
 import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
@@ -13,9 +10,6 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.hasSize;

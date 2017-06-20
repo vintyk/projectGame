@@ -3,10 +3,8 @@ package by.ecp.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.Cache;
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -21,7 +19,7 @@ import java.util.Set;
 @Table(name="platforms")
 @NoArgsConstructor
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
-public class Platform extends IdMotherClass{
+public class Platform extends BaseEntity {
     @Setter
     @Getter
     @Column(name = "name")

@@ -14,11 +14,11 @@ import javax.persistence.MappedSuperclass;
  */
 @MappedSuperclass
 @ToString
-public class IdMotherClass {
+public abstract class BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
     private Long id;
-
 }

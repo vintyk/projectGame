@@ -20,7 +20,7 @@ import javax.persistence.Table;
   @NoArgsConstructor
   @ToString
   @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
-public class Setting extends IdMotherClass{
+public class Setting extends BaseEntity {
     @Getter
     @Setter
     @Column(name = "name")

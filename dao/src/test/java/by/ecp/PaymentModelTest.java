@@ -1,22 +1,10 @@
 package by.ecp;
 
-import by.ecp.db.GenreDao;
-import by.ecp.db.PaymentModelDao;
-import by.ecp.db.PublicationDao;
-import by.ecp.entity.Genre;
-import by.ecp.entity.PaymentModel;
-import by.ecp.entity.Publication;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
@@ -45,7 +33,7 @@ public class PaymentModelTest {
 //        paymentModel2.setName("подписка");
 //        session.save(paymentModel2);
 //
-//        List<PaymentModel> paymentModelsList = PaymentModelDao.getInstance().findAll(session);
+//        List<PaymentModel> paymentModelsList = PaymentModelDaoImpl.getInstance().findAll(session);
 //        assertThat(paymentModelsList, hasSize(2));
 //        List<String> namesInBD = paymentModelsList
 //                .stream()

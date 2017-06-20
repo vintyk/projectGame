@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 
@@ -16,7 +14,7 @@ import javax.persistence.*;
 @Table(name = "vacancies")
 @NoArgsConstructor
 @ToString
-public class Vacancy extends IdMotherClass{
+public class Vacancy extends BaseEntity {
     @Getter
     @Setter
     @Column(name = "name")

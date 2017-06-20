@@ -1,7 +1,7 @@
 package by.dao;
 
-import by.ecp.db.PrivilegeDao;
-import by.ecp.db.UserDao;
+import by.ecp.db.PrivilegeDaoImpl;
+import by.ecp.db.UserDaoImpl;
 import by.ecp.entity.*;
 import org.junit.Test;
 
@@ -16,8 +16,8 @@ import static org.junit.Assert.assertNotNull;
 public class UserDaoTest {
     @Test
     public void getByEmailTest() {
-        PrivilegeDao privilegeDao = new PrivilegeDao();
-        UserDao userDao = new UserDao();
+        PrivilegeDaoImpl privilegeDao = new PrivilegeDaoImpl();
+        UserDaoImpl userDao = new UserDaoImpl();
         Privilege privilege = new Privilege();
         User user = new User();
         Address address = new Address();
@@ -43,8 +43,8 @@ public class UserDaoTest {
 
     @Test
     public void saveUserTest() {
-        PrivilegeDao privilegeDao = new PrivilegeDao();
-        UserDao userDao = new UserDao();
+        PrivilegeDaoImpl privilegeDao = new PrivilegeDaoImpl();
+        UserDaoImpl userDao = new UserDaoImpl();
         Privilege privilege = new Privilege();
         User user = new User();
         Address address = new Address();

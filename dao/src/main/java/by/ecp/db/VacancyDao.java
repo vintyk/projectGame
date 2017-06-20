@@ -1,54 +1,19 @@
 package by.ecp.db;
 
 import by.ecp.common.BaseDao;
-import by.ecp.entity.*;
-import com.querydsl.jpa.impl.JPAQuery;
+import by.ecp.entity.Vacancy;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.util.List;
 
 /**
- * Created by User on 02.06.2017.
+ * Created by User on 20.06.2017.
  */
-public class VacancyDao extends BaseDao<Vacancy>{
+public interface VacancyDao extends BaseDao<Vacancy> {
 
-    public VacancyDao() {
-        super(Vacancy.class);
-    }
+    void saveVacancy(String nameVacancy, Long companiesId);
 
-    public void saveVacancy(String nameVacancy, Long companieId) {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
+    List<Vacancy> ListAll();
 
-        Company company = new Company();
-        company.setId(companieId);
-
-        Vacancy vacancy = new Vacancy();
-        vacancy.setNameVacancy(nameVacancy);
-        vacancy.setCompany(company);
-        session.save(vacancy);
-
-        transaction.commit();
-        session.close();
-    }
-
-    public List<Vacancy> findAll(Session session) {
-        QVacancy vacancy = new QVacancy("myVacancy");
-        JPAQuery<Vacancy> query = new JPAQuery<>(session);
-        query.select(vacancy).from(vacancy);
-        return query.fetchResults().getResults();
-    }
-
-    public Vacancy findByName(String name){
-        Session session = SESSION_FACTORY.openSession();
-        session.beginTransaction();
-        QVacancy vacancy = new QVacancy("myNewVacancy");
-        JPAQuery<Vacancy> query = new JPAQuery<>(session);
-        query.select(vacancy).from(vacancy).where(vacancy.nameVacancy.eq(name));
-        Vacancy result = query.fetchOne();
-        session.getTransaction().commit();
-        session.close();
-        return result;
-    }
+    Vacancy findByName(String name);
 }

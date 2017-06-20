@@ -4,11 +4,7 @@ import by.ecp.common.BaseDao;
 import by.ecp.entity.Company;
 
 /**
- * Created by Vinty on 11.06.2017.
+ * Created by User on 20.06.2017.
  */
-public class CompanyDao extends BaseDao<Company> {
-    public CompanyDao() {
-        super(Company.class);
-    }
-
+public interface CompanyDao extends BaseDao<Company> {
 }

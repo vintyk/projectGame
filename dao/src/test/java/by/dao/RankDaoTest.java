@@ -1,19 +1,18 @@
 package by.dao;
 
-import by.ecp.common.BaseDao;
-import by.ecp.db.RankDao;
+import by.ecp.common.BaseDaoImpl;
+import by.ecp.db.RankDaoImpl;
 import by.ecp.entity.Rank;
-import org.hibernate.SessionFactory;
 
 /**
  * Created by User on 16.06.2017.
  */
 public class RankDaoTest extends BaseDaoTest<Rank> {
 
-    private BaseDao<Rank> dao = new RankDao();
+    private BaseDaoImpl<Rank> dao = new RankDaoImpl();
 
     @Override
-    protected BaseDao<Rank> getDao() {
+    protected BaseDaoImpl<Rank> getDao() {
         return dao;
     }
     @Override

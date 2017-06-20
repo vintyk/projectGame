@@ -20,7 +20,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "You_are_a_liar")
-public class Publication extends IdMotherClass {
+public class Publication extends BaseEntity {
     @Getter
     @Setter
     @Column(name = "name")

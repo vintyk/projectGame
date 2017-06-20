@@ -1,7 +1,7 @@
 package by.dao;
 
-import by.ecp.common.BaseDao;
-import by.ecp.entity.IdMotherClass;
+import by.ecp.common.BaseDaoImpl;
+import by.ecp.entity.BaseEntity;
 import org.junit.Test;
 
 import java.util.List;
@@ -12,9 +12,9 @@ import static junit.framework.TestCase.assertNotNull;
 /**
  * Created by User on 15.06.2017.
  */
-public abstract class BaseDaoTest<T extends IdMotherClass> {
+public abstract class BaseDaoTest<T extends BaseEntity> {
 
-    protected abstract BaseDao<T> getDao();
+    protected abstract BaseDaoImpl<T> getDao();
     protected abstract T getModel();
 
     @Test

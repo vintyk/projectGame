@@ -2,8 +2,6 @@ package by.dao;
 
 import by.ecp.db.*;
 import by.ecp.entity.*;
-import org.hibernate.SessionFactory;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -21,13 +19,13 @@ public class GameDaoTest
 {
 @Test
     public void saveByExistPlatformsTest(){
-    CompanyDao companyDao = new CompanyDao();
-    GenreDao genreDao = new GenreDao();
-    PaymentModelDao paymentModelDao = new PaymentModelDao();
-    SettingDao settingDao = new SettingDao();
-    StageDao stageDao = new StageDao();
-    PlatformDao platformDao = new PlatformDao();
-    GameDao gameDao = new GameDao();
+    CompanyDaoImpl companyDao = new CompanyDaoImpl();
+    GenreDaoImpl genreDao = new GenreDaoImpl();
+    PaymentModelDaoImpl paymentModelDao = new PaymentModelDaoImpl();
+    SettingDaoImpl settingDao = new SettingDaoImpl();
+    StageDaoImpl stageDao = new StageDaoImpl();
+    PlatformDaoImpl platformDao = new PlatformDaoImpl();
+    GameDaoImpl gameDao = new GameDaoImpl();
 
     Company company = new Company();
     company.setNameCompany("Valve");

@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Table(name = "ranks")
 @NoArgsConstructor
 @ToString
-public class Rank extends IdMotherClass{
+public class Rank extends BaseEntity {
     @Column(name = "value")
     @Getter
     @Setter

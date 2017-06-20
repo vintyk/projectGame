@@ -1,19 +1,18 @@
 package by.dao;
 
-import by.ecp.common.BaseDao;
-import by.ecp.db.CompanyDao;
+import by.ecp.common.BaseDaoImpl;
+import by.ecp.db.CompanyDaoImpl;
 import by.ecp.entity.Company;
-import org.hibernate.SessionFactory;
 
 /**
  * Created by Vinty on 11.06.2017.
  */
 public class CompanyDaoTest extends BaseDaoTest<Company>{
 
-    private BaseDao<Company> dao = new CompanyDao();
+    private BaseDaoImpl<Company> dao = new CompanyDaoImpl();
 
     @Override
-    protected BaseDao<Company> getDao() {
+    protected BaseDaoImpl<Company> getDao() {
         return dao;
     }
 
@@ -35,7 +34,7 @@ public class CompanyDaoTest extends BaseDaoTest<Company>{
 //        company.setNameCompany("США");
 //        session.save(company);
 //
-//        CompanyDao companyDao = new CompanyDao();
+//        CompanyDaoImpl companyDao = new CompanyDaoImpl();
 //        Company company1 = companyDao.findOne(1L);
 //        assertThat(company1, notNullValue());
 //        transaction.commit();

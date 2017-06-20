@@ -19,13 +19,13 @@ public class PublicationDaoTest {
     @Test
     public void findAllOrderDateDescTest(){
 
-        CompanyDao companyDao = new CompanyDao();
-        GenreDao genreDao = new GenreDao();
-        PaymentModelDao paymentModelDao = new PaymentModelDao();
-        SettingDao settingDao = new SettingDao();
-        StageDao stageDao = new StageDao();
-        PlatformDao platformDao = new PlatformDao();
-        GameDao gameDao = new GameDao();
+        CompanyDaoImpl companyDao = new CompanyDaoImpl();
+        GenreDaoImpl genreDao = new GenreDaoImpl();
+        PaymentModelDaoImpl paymentModelDao = new PaymentModelDaoImpl();
+        SettingDaoImpl settingDao = new SettingDaoImpl();
+        StageDaoImpl stageDao = new StageDaoImpl();
+        PlatformDaoImpl platformDao = new PlatformDaoImpl();
+        GameDaoImpl gameDao = new GameDaoImpl();
 
         Company company = new Company();
         company.setNameCompany("Valve");
@@ -78,7 +78,7 @@ public class PublicationDaoTest {
         List<Game> result = gameDao.getGameList();
         System.out.println(result);
 
-        PublicationDao publicationDao = new PublicationDao();
+        PublicationDaoImpl publicationDao = new PublicationDaoImpl();
         LocalDate localDate1 = LocalDate.now();
         publicationDao.savePublication(
                 "Состоялся софт-запуск Star Wars",

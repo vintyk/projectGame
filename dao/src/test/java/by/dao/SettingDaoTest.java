@@ -1,21 +1,18 @@
 package by.dao;
 
-import by.ecp.common.BaseDao;
-import by.ecp.db.CompanyDao;
-import by.ecp.db.SettingDao;
-import by.ecp.entity.Company;
+import by.ecp.common.BaseDaoImpl;
+import by.ecp.db.SettingDaoImpl;
 import by.ecp.entity.Setting;
-import org.hibernate.SessionFactory;
 
 /**
  * Created by User on 16.06.2017.
  */
 public class SettingDaoTest extends BaseDaoTest<Setting> {
 
-    private BaseDao<Setting> dao = new SettingDao();
+    private BaseDaoImpl<Setting> dao = new SettingDaoImpl();
 
     @Override
-    protected BaseDao<Setting> getDao() {
+    protected BaseDaoImpl<Setting> getDao() {
         return dao;
     }
 

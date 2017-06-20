@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @ToString
 @NoArgsConstructor
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
-public class Country extends IdMotherClass{
+public class Country extends BaseEntity {
     @Column(name = "name")
     @Getter
     @Setter

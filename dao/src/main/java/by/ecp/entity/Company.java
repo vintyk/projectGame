@@ -6,7 +6,6 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.Cache;
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -20,7 +19,7 @@ import javax.persistence.Table;
 @ToString
 @NoArgsConstructor
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
-public class Company extends IdMotherClass{
+public class Company extends BaseEntity {
     @Setter
     @Getter
     @Column(name = "name")

@@ -1,21 +1,18 @@
 package by.dao;
 
-import by.ecp.common.BaseDao;
-import by.ecp.db.CompanyDao;
-import by.ecp.db.PrivilegeDao;
-import by.ecp.entity.Company;
+import by.ecp.common.BaseDaoImpl;
+import by.ecp.db.PrivilegeDaoImpl;
 import by.ecp.entity.Privilege;
-import org.hibernate.SessionFactory;
 
 /**
  * Created by User on 16.06.2017.
  */
 public class PrivilegeDaoTest extends BaseDaoTest<Privilege> {
 
-    private BaseDao<Privilege> dao = new PrivilegeDao();
+    private BaseDaoImpl<Privilege> dao = new PrivilegeDaoImpl();
 
     @Override
-    protected BaseDao<Privilege> getDao() {
+    protected BaseDaoImpl<Privilege> getDao() {
         return dao;
     }
 

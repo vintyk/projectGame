@@ -1,53 +1,21 @@
 package by.ecp.db;
 
 import by.ecp.common.BaseDao;
-import by.ecp.entity.*;
-import com.querydsl.jpa.impl.JPAQuery;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import by.ecp.entity.Gender;
+import by.ecp.entity.User;
 
 /**
- * Created by User on 02.06.2017.
+ * Created by User on 20.06.2017.
  */
-public class UserDao extends BaseDao<User>{
-    public UserDao() {
-        super(User.class);
-    }
+public interface UserDao extends BaseDao<User> {
 
-    public User findByEmail(String name){
-        Session session = SESSION_FACTORY.openSession();
-        session.beginTransaction();
-        QUser user = new QUser("myNewUser");
-        JPAQuery<User> query = new JPAQuery<>(session);
-        query.select(user).from(user).where(user.eMailUser.eq(name));
-        User result = query.fetchOne();
-        session.getTransaction().commit();
-        session.close();
-        return result;
-    }
+    User findByEmail(String name);
 
-    public void saveUser(String nameUser,
-                         Long privilegeId,
-                         String family,
-                         String eMail,
-                         Gender gender,
-                         String pass
-                         ) {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        Privilege privilege = new Privilege();
-        privilege.setId(privilegeId);
-
-        User user = new User();
-        user.setNameUser(nameUser);
-        user.setPrivilege(privilege);
-        user.setFamilyUser(family);
-        user.setEMailUser(eMail);
-        user.setGender(gender);
-        user.setPasswordUser(pass);
-        session.save(user);
-
-        transaction.commit();
-    }
+    void saveUser(String nameUser,
+                  Long privilegeId,
+                  String family,
+                  String eMail,
+                  Gender gender,
+                  String pass
+    );
 }
