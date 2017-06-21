@@ -1,5 +1,6 @@
 package by.dao;
 
+import by.ecp.common.BaseDao;
 import by.ecp.common.BaseDaoImpl;
 import by.ecp.entity.BaseEntity;
 import org.junit.Test;
@@ -12,10 +13,20 @@ import static junit.framework.TestCase.assertNotNull;
 /**
  * Created by User on 15.06.2017.
  */
+
 public abstract class BaseDaoTest<T extends BaseEntity> {
 
-    protected abstract BaseDaoImpl<T> getDao();
+    protected abstract BaseDao<T> getDao();
     protected abstract T getModel();
+
+    @Test
+    public void testSave(){
+        T model = getModel();
+        getDao().save(model);
+
+        List<T> entity = getDao().findAll();
+        assertNotNull(entity);
+    }
 
     @Test
     public  void testFindById(){
@@ -34,15 +45,6 @@ public abstract class BaseDaoTest<T extends BaseEntity> {
         getDao().delete(model);
 
         T entity = getDao().findOne(1L);
-        assertNotNull(entity);
-    }
-
-    @Test
-    public void testSave(){
-        T model = getModel();
-        getDao().save(model);
-
-        List<T> entity = getDao().findAll();
         assertNotNull(entity);
     }
 

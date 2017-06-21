@@ -1,5 +1,7 @@
 package by.ecp;
 
+import by.ecp.common.BaseDaoImpl;
+import by.ecp.db.CountryDao;
 import by.ecp.entity.Country;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,6 +9,11 @@ import org.hibernate.cfg.Configuration;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -14,41 +21,31 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by User on 05.06.2017.
  */
-public class CountryTest {
-    private static SessionFactory SESSION_FACTORY;
+@RunWith(SpringRunner.class)
+@ContextConfiguration(locations = {"classpath:application_content.xml"})
+@Transactional
+public class CountryTest extends BaseDaoImpl<Country> implements CountryDao{
+
+    @Autowired
+    private CountryDao countryDao;
 
     @BeforeClass
-    public static void init() {
-        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-    }
+    public static void init(){}
 
     @Test
     public void testListCountryFromDaoQueryDSL() {
-        Session session = SESSION_FACTORY.openSession();
-        session.beginTransaction();
+        Session session = getSessionFactory().getCurrentSession();
         Country country = new Country();
         country.setName("Russia");
         session.save(country);
-        session.getTransaction().commit();
-        session.close();
 
-        Session session2 = SESSION_FACTORY.openSession();
-        session2.beginTransaction();
+        Session session2 = getSessionFactory().openSession();
         Country country2 = new Country();
         country2.setName("Belarus");
         session2.save(country2);
-        session2.getTransaction().commit();
-        session2.close();
-        System.out.println(SESSION_FACTORY.getStatistics());
-//        QCountry country1 = new QCountry("myCountry");
-//        JPAQuery<Country> query = new JPAQuery<>(session);
-//        query.select(country1).from(country1);
-//        System.out.println(query.fetchResults().getResults());
-//        assertThat(country1, notNullValue());
-
+        System.out.println(session.getStatistics());
+        System.out.println(session2.getStatistics());
     }
         @AfterClass
-        public static void finish() {
-            SESSION_FACTORY.close();
-        }
+        public static void finish(){}
 }

@@ -1,18 +1,30 @@
 package by.dao;
 
+import by.ecp.common.BaseDao;
 import by.ecp.common.BaseDaoImpl;
 import by.ecp.db.CompanyDaoImpl;
 import by.ecp.entity.Company;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by Vinty on 11.06.2017.
  */
+@RunWith(SpringRunner.class)
+@ContextConfiguration(locations = {"classpath:application_content.xml"})
+@Transactional
+// @EnableTransactionManagement (не актуально, есть <tx:annotation-driven> в .xml)
 public class CompanyDaoTest extends BaseDaoTest<Company>{
 
-    private BaseDaoImpl<Company> dao = new CompanyDaoImpl();
+    @Autowired
+    private BaseDao<Company> dao = new CompanyDaoImpl();
 
     @Override
-    protected BaseDaoImpl<Company> getDao() {
+    protected BaseDao<Company> getDao() {
         return dao;
     }
 
