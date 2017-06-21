@@ -4,7 +4,11 @@ import by.ecp.common.BaseDao;
 import by.ecp.common.BaseDaoImpl;
 import by.ecp.entity.BaseEntity;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static junit.framework.Assert.assertNotSame;
@@ -13,7 +17,9 @@ import static junit.framework.TestCase.assertNotNull;
 /**
  * Created by User on 15.06.2017.
  */
-
+@RunWith(SpringRunner.class)
+@ContextConfiguration(locations = {"classpath:application_content.xml"})
+@Transactional
 public abstract class BaseDaoTest<T extends BaseEntity> {
 
     protected abstract BaseDao<T> getDao();

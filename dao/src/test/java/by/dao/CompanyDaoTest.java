@@ -14,10 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by Vinty on 11.06.2017.
  */
-@RunWith(SpringRunner.class)
-@ContextConfiguration(locations = {"classpath:application_content.xml"})
-@Transactional
-// @EnableTransactionManagement (не актуально, есть <tx:annotation-driven> в .xml)
 public class CompanyDaoTest extends BaseDaoTest<Company>{
 
     @Autowired
