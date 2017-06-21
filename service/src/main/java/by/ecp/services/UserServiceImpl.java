@@ -36,10 +36,11 @@ public class UserServiceImpl implements UserService {
             String pass) {
     userDao.saveUser(
             nameUser,
-            privilegeId,
             family,
             eMail,
+            pass,
             gender,
-            pass);
+            privilegeId
+    );
     }
 }

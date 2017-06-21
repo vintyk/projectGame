@@ -12,10 +12,10 @@ public interface UserDao extends BaseDao<User> {
     User findByEmail(String name);
 
     void saveUser(String nameUser,
-                  Long privilegeId,
                   String family,
                   String eMail,
+                  String pass,
                   Gender gender,
-                  String pass
-    );
+                  Long privilegeId
+                  );
 }

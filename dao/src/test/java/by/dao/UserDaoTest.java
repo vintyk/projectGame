@@ -56,11 +56,12 @@ public class UserDaoTest {
 
         userDao.saveUser(
                 "MeeMo",
-                1L,
                 "Loo_Lee",
                 "MeeMo@gmail.com",
+                "qwerty2",
                 Gender.MALE,
-                "qwerty2");
+                1L
+        );
         List<User> result = userDao.findAll();
         System.out.println(result);
         assertNotNull(result);

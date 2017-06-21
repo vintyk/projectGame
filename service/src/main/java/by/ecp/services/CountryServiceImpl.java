@@ -1,9 +1,12 @@
 package by.ecp.services;
 
 import by.ecp.db.CountryDao;
+import by.ecp.entity.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by User on 20.06.2017.
@@ -17,5 +20,20 @@ public class CountryServiceImpl implements CountryService {
     @Autowired
     public CountryServiceImpl (CountryDao countryDao){
         this.countryDao = countryDao;
+    }
+
+    @Override
+    public void save(Country country) {
+        countryDao.save(country);
+    }
+
+    @Override
+    public Country findOne(Long id) {
+        return countryDao.findOne(id);
+    }
+
+    @Override
+    public List<Country> findAll() {
+        return countryDao.findAll();
     }
 }

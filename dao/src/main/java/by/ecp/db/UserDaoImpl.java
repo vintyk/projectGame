@@ -23,11 +23,11 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
     }
     @Override
     public void saveUser(String nameUser,
-                         Long privilegeId,
                          String family,
                          String eMail,
+                         String pass,
                          Gender gender,
-                         String pass
+                         Long privilegeId
                          ) {
         Session session = getSessionFactory().getCurrentSession();
 
