@@ -1,8 +1,8 @@
 package by.dao;
 
+import by.ecp.Config;
 import by.ecp.TestConfig;
 import by.ecp.common.BaseDao;
-import by.ecp.common.BaseDaoImpl;
 import by.ecp.entity.BaseEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,11 +1,9 @@
 package by.dao;
 
 
-import by.ecp.TestConfig;
+import by.ecp.Config;
 import by.ecp.db.CompanyDao;
-import by.ecp.db.CompanyDaoImpl;
 import by.ecp.db.VacancyDao;
-import by.ecp.db.VacancyDaoImpl;
 import by.ecp.entity.Company;
 import by.ecp.entity.Vacancy;
 import org.junit.Test;
@@ -25,7 +23,7 @@ import static org.junit.Assert.assertEquals;
  * Created by Vinty on 18.06.2017.
  */
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = TestConfig.class)
+@ContextConfiguration(classes = Config.class)
 @Transactional
 public class VacancyDaoTest {
 
