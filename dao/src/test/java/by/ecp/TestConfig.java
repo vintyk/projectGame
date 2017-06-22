@@ -1,29 +1,33 @@
 package by.ecp;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
  * Created by Vinty on 21.06.2017.
  */
 @Configuration
-@EnableCaching
+//@EnableCaching
 @ComponentScan(basePackages = "by.ecp")
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 public class TestConfig {
+
+    @Autowired
+    private Environment env;
+
     @Value("${jdbc.url}")
     private String dbUrl;
 
@@ -48,20 +52,20 @@ public class TestConfig {
     @Value("${hibernate.creation_policy}")
     private String creationPolicy;
 
-    @Value("${hibernate.cache.use_second_level_cache}")
-    private  String useSecondLevelCache;
-
-    @Value("{hibernate.cache.use_query_cache}")
-    private  String useQueryCache;
-
-    @Value("{hibernate.cache.region.factory_class}")
-    private String factoryClass;
-
-    @Value("{net.sf.ehcache.configurationResourceName}")
-    private String configurationResourceName;
+//    @Value("${hibernate.cache.use_second_level_cache}")
+//    private  String useSecondLevelCache;
+//
+//    @Value("{hibernate.cache.use_query_cache}")
+//    private  String useQueryCache;
+//
+//    @Value("{hibernate.cache.region.factory_class}")
+//    private String factoryClass;
+//
+//    @Value("{net.sf.ehcache.configurationResourceName}")
+//    private String configurationResourceName;
 
     @Bean
-    public DataSource dataSource() {
+    public DriverManagerDataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUrl(dbUrl);
         dataSource.setDriverClassName(driver);
@@ -88,18 +92,30 @@ public class TestConfig {
         properties.setProperty("hibernate.format_sql", formatSql);
         properties.setProperty("hibernate.hbm2ddl.auto", creationPolicy);
 
-        properties.setProperty("hibernate.cache.use_second_level_cache", useSecondLevelCache);
-        properties.setProperty("hibernate.cache.use_query_cache", useQueryCache);
-        properties.setProperty("hibernate.cache.region.factory_class", factoryClass);
-        properties.setProperty("net.sf.ehcache.configurationResourceName", configurationResourceName);
-
+        properties.setProperty("hibernate.cache.use_second_level_cache", "true");
+        properties.setProperty("hibernate.cache.use_query_cache", "true");
+        properties.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
+//        properties.setProperty("hibernate.cache.region.factory_class", "net.sf.ehcache.hibernate.EhCacheRegionFactory");
+//        properties.setProperty("cache.provider_class", "org.hibernate.cache.EhCacheProvider");
+        properties.setProperty("net.sf.ehcache.configurationResourceName", "/ehcache-config.xml");
         return properties;
     }
 
+//    @Bean
+//    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+//        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+//        transactionManager.setSessionFactory(sessionFactory);
+//        return transactionManager;
+//    }
     @Bean
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(sessionFactory);
-        return transactionManager;
+    @Autowired
+    public HibernateTransactionManager transactionManager(
+            SessionFactory sessionFactory) {
+
+        HibernateTransactionManager txManager
+                = new HibernateTransactionManager();
+        txManager.setSessionFactory(sessionFactory);
+
+        return txManager;
     }
 }
