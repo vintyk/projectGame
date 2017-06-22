@@ -98,22 +98,19 @@ public class Config {
         properties.setProperty("net.sf.ehcache.configurationResourceName", "/ehcache-config.xml");
         return properties;
     }
-
-    //    @Bean
-//    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-//        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-//        transactionManager.setSessionFactory(sessionFactory);
-//        return transactionManager;
-//    }
     @Bean
-    @Autowired
-    public HibernateTransactionManager transactionManager(
-            SessionFactory sessionFactory) {
-
-        HibernateTransactionManager txManager
-                = new HibernateTransactionManager();
-        txManager.setSessionFactory(sessionFactory);
-
-        return txManager;
+    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+        transactionManager.setSessionFactory(sessionFactory);
+        return transactionManager;
     }
+//    @Bean
+//    @Autowired
+//    public HibernateTransactionManager transactionManager(
+//            SessionFactory sessionFactory) {
+//        HibernateTransactionManager txManager
+//                = new HibernateTransactionManager();
+//        txManager.setSessionFactory(sessionFactory);
+//        return txManager;
+//    }
 }
