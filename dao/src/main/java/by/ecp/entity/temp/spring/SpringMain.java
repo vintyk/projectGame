@@ -1,14 +1,14 @@
 package by.ecp.entity.temp.spring;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import by.ecp.Config;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * Created by Vinty on 14.06.2017.
  */
 public class SpringMain{
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context
-                = new ClassPathXmlApplicationContext("application_content.xml");
-
+        AnnotationConfigApplicationContext context
+                = new AnnotationConfigApplicationContext(Config.class);
     }
 }
