@@ -1,9 +1,10 @@
-package by.dao;
+package by.ecp.tests;
 
-import by.ecp.db.PrivilegeDaoImpl;
-import by.ecp.db.UserDaoImpl;
+import by.ecp.db.PrivilegeDao;
+import by.ecp.db.UserDao;
 import by.ecp.entity.*;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -13,11 +14,17 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by Vinty on 18.06.2017.
  */
-public class UserDaoTest {
+public class UserDaoTest extends BaseTest {
+
+    @Autowired
+    private PrivilegeDao privilegeDao;
+    @Autowired
+    private UserDao userDao;
+
     @Test
     public void getByEmailTest() {
-        PrivilegeDaoImpl privilegeDao = new PrivilegeDaoImpl();
-        UserDaoImpl userDao = new UserDaoImpl();
+//        PrivilegeDaoImpl privilegeDao = new PrivilegeDaoImpl();
+//        UserDaoImpl userDao = new UserDaoImpl();
         Privilege privilege = new Privilege();
         User user = new User();
         Address address = new Address();
@@ -43,8 +50,6 @@ public class UserDaoTest {
 
     @Test
     public void saveUserTest() {
-        PrivilegeDaoImpl privilegeDao = new PrivilegeDaoImpl();
-        UserDaoImpl userDao = new UserDaoImpl();
         Privilege privilege = new Privilege();
         User user = new User();
         Address address = new Address();

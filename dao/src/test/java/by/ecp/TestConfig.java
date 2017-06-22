@@ -1,13 +1,11 @@
 package by.ecp;
 
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -19,14 +17,10 @@ import java.util.Properties;
  * Created by Vinty on 21.06.2017.
  */
 @Configuration
-//@EnableCaching
 @ComponentScan(basePackages = "by.ecp")
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 public class TestConfig {
-
-    @Autowired
-    private Environment env;
 
     @Value("${jdbc.url}")
     private String dbUrl;
@@ -98,20 +92,10 @@ public class TestConfig {
         properties.setProperty("net.sf.ehcache.configurationResourceName", "/ehcache-config.xml");
         return properties;
     }
-
     @Bean
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(sessionFactory);
         return transactionManager;
     }
-//    @Bean
-//    @Autowired
-//    public HibernateTransactionManager transactionManager(
-//            SessionFactory sessionFactory) {
-//        HibernateTransactionManager txManager
-//                = new HibernateTransactionManager();
-//        txManager.setSessionFactory(sessionFactory);
-//        return txManager;
-//    }
 }

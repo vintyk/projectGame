@@ -1,8 +1,9 @@
-package by.dao;
+package by.ecp.tests;
 
 import by.ecp.db.*;
 import by.ecp.entity.*;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -15,18 +16,26 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by Vinty on 18.06.2017.
  */
-public class PublicationDaoTest {
+public class PublicationDaoTest extends BaseTest{
+    @Autowired
+    private GameDao gameDao;
+    @Autowired
+    private CompanyDao companyDao;
+    @Autowired
+    private GenreDao genreDao;
+    @Autowired
+    private PaymentModelDao paymentModelDao;
+    @Autowired
+    private SettingDao settingDao;
+    @Autowired
+    private StageDao stageDao;
+    @Autowired
+    private PlatformDao platformDao;
+    @Autowired
+    private PublicationDao publicationDao;
+
     @Test
     public void findAllOrderDateDescTest(){
-
-        CompanyDaoImpl companyDao = new CompanyDaoImpl();
-        GenreDaoImpl genreDao = new GenreDaoImpl();
-        PaymentModelDaoImpl paymentModelDao = new PaymentModelDaoImpl();
-        SettingDaoImpl settingDao = new SettingDaoImpl();
-        StageDaoImpl stageDao = new StageDaoImpl();
-        PlatformDaoImpl platformDao = new PlatformDaoImpl();
-        GameDaoImpl gameDao = new GameDaoImpl();
-
         Company company = new Company();
         company.setNameCompany("Valve");
         companyDao.save(company);
@@ -78,7 +87,6 @@ public class PublicationDaoTest {
         List<Game> result = gameDao.getGameList();
         System.out.println(result);
 
-        PublicationDaoImpl publicationDao = new PublicationDaoImpl();
         LocalDate localDate1 = LocalDate.now();
         publicationDao.savePublication(
                 "Состоялся софт-запуск Star Wars",
@@ -87,7 +95,6 @@ public class PublicationDaoTest {
                 1L,
                 localDate1);
 
-
         LocalDate localDate2 = LocalDate.now();
         publicationDao.savePublication(
                 "Фанаты полностью перевели дополнение Morrowind",
@@ -95,7 +102,6 @@ public class PublicationDaoTest {
                         "что существует частичная локализация от фанатов. Проект называется RuESO.",
                 2L,
                 localDate2);
-
         List<Publication> result2 = publicationDao.findAllOrderDateDesc();
         System.out.println(result2);
         assertNotNull(result2);

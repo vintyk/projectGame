@@ -1,18 +1,19 @@
-package by.dao;
+package by.ecp.tests;
 
-import by.ecp.common.BaseDaoImpl;
+import by.ecp.common.BaseDao;
 import by.ecp.db.PlatformDaoImpl;
 import by.ecp.entity.Platform;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by User on 16.06.2017.
  */
 public class PlatformDaoTest extends BaseDaoTest<Platform> {
-
-    private BaseDaoImpl<Platform> dao = new PlatformDaoImpl();
+    @Autowired
+    private BaseDao<Platform> dao = new PlatformDaoImpl();
 
     @Override
-    protected BaseDaoImpl<Platform> getDao() {
+    protected BaseDao<Platform> getDao() {
         return dao;
     }
 

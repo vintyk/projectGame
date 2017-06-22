@@ -4,6 +4,7 @@ import by.ecp.entity.*;
 import by.ecp.services.CountryService;
 import by.ecp.services.PrivilegeService;
 import by.ecp.services.UserService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -13,8 +14,7 @@ import java.util.List;
  */
 public class Starter {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context
-                =new ClassPathXmlApplicationContext("application_content.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
         UserService userService = context.getBean(UserService.class);
         userService.saveUser(

@@ -1,18 +1,20 @@
-package by.dao;
+package by.ecp.tests;
 
+import by.ecp.common.BaseDao;
 import by.ecp.common.BaseDaoImpl;
 import by.ecp.db.PrivilegeDaoImpl;
 import by.ecp.entity.Privilege;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by User on 16.06.2017.
  */
 public class PrivilegeDaoTest extends BaseDaoTest<Privilege> {
-
-    private BaseDaoImpl<Privilege> dao = new PrivilegeDaoImpl();
+    @Autowired
+    private BaseDao<Privilege> dao = new PrivilegeDaoImpl();
 
     @Override
-    protected BaseDaoImpl<Privilege> getDao() {
+    protected BaseDao<Privilege> getDao() {
         return dao;
     }
 

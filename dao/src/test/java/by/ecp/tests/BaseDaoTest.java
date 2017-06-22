@@ -1,6 +1,5 @@
-package by.dao;
+package by.ecp.tests;
 
-import by.ecp.Config;
 import by.ecp.TestConfig;
 import by.ecp.common.BaseDao;
 import by.ecp.entity.BaseEntity;
@@ -12,8 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.transaction.Transactional;
 import java.util.List;
 
-import static junit.framework.Assert.assertNotSame;
-import static junit.framework.TestCase.assertNotNull;
+import static org.junit.Assert.*;
 
 /**
  * Created by User on 15.06.2017.
@@ -30,31 +28,9 @@ public abstract class BaseDaoTest<T extends BaseEntity> {
     public void testSave(){
         T model = getModel();
         getDao().save(model);
-
-        List<T> entity = getDao().findAll();
-        assertNotNull(entity);
-    }
-
-    @Test
-    public  void testFindById(){
-        T model = getModel();
-        getDao().save(model);
-
         T entity = getDao().findOne(1L);
         assertNotNull(entity);
     }
-
-    @Test
-    public void testDelete(){
-        T model = getModel();
-        getDao().save(model);
-
-        getDao().delete(model);
-
-        T entity = getDao().findOne(1L);
-        assertNotNull(entity);
-    }
-
     @Test
     public void testUpdate(){
         T model = getModel();
@@ -66,5 +42,14 @@ public abstract class BaseDaoTest<T extends BaseEntity> {
         List<T> entity = getDao().findAll();
         assertNotNull(entity);
         assertNotSame(model, model2);
+    }
+
+    @Test
+    public void testDelete(){
+        T model = getModel();
+        getDao().save(model);
+        getDao().delete(model);
+        T entity = getDao().findOne(1L);
+        assertNull(entity);
     }
 }

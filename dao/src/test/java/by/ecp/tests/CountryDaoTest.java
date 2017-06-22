@@ -1,18 +1,21 @@
-package by.dao;
+package by.ecp.tests;
 
-import by.ecp.common.BaseDaoImpl;
+
+import by.ecp.common.BaseDao;
 import by.ecp.db.CountryDaoImpl;
 import by.ecp.entity.Country;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Vinty on 10.06.2017.
  */
 public class CountryDaoTest extends BaseDaoTest<Country> {
 
-    private BaseDaoImpl<Country> dao = new CountryDaoImpl();
+    @Autowired
+    private BaseDao<Country> dao = new CountryDaoImpl();
 
     @Override
-    protected BaseDaoImpl<Country> getDao() {
+    protected BaseDao<Country> getDao() {
         return dao;
     }
 

@@ -1,5 +1,6 @@
-package by.dao;
+package by.ecp.tests;
 
+import by.ecp.TestConfig;
 import by.ecp.common.BaseDaoImpl;
 import by.ecp.db.*;
 import by.ecp.entity.*;
@@ -21,24 +22,24 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by User on 16.06.2017.
  */
-@RunWith(SpringRunner.class)
-@ContextConfiguration(locations = {"classpath:application_content.xml"})
-@Transactional
-public class GameDaoTest extends BaseDaoImpl<Game> implements GameDao{
-
+public class GameDaoTest extends BaseTest{
     @Autowired
     private GameDao gameDao;
+    @Autowired
+    private CompanyDao companyDao;
+    @Autowired
+    private GenreDao genreDao;
+    @Autowired
+    private PaymentModelDao paymentModelDao;
+    @Autowired
+    private SettingDao settingDao;
+    @Autowired
+    private StageDao stageDao;
+    @Autowired
+    private PlatformDao platformDao;
 
     @Test
     public void saveByExistPlatformsTest() {
-        CompanyDaoImpl companyDao = new CompanyDaoImpl();
-        GenreDaoImpl genreDao = new GenreDaoImpl();
-        PaymentModelDaoImpl paymentModelDao = new PaymentModelDaoImpl();
-        SettingDaoImpl settingDao = new SettingDaoImpl();
-        StageDaoImpl stageDao = new StageDaoImpl();
-        PlatformDaoImpl platformDao = new PlatformDaoImpl();
-        GameDaoImpl gameDao = new GameDaoImpl();
-
         Company company = new Company();
         company.setNameCompany("Valve");
         companyDao.save(company);
@@ -83,22 +84,6 @@ public class GameDaoTest extends BaseDaoImpl<Game> implements GameDao{
         System.out.println(result);
         assertNotNull(result);
         assertThat(result, hasSize(2));
-
-    }
-
-    @Override
-    public List<Game> getGameList() {
-        return null;
-    }
-
-    @Override
-    public void saveGame(String nameGame, Long companyId, Long genreId, Long paymentModelId, Long settingId, Long stageId) {
-
-    }
-
-    @Override
-    public void saveGameToExistingPlatform(String nameGame, Long companyId, Long genreId, Long paymentModelId, Long settingId, Long stageId, Set<Long> platformsIDs) {
-
     }
 }
 

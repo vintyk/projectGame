@@ -19,14 +19,10 @@ import java.util.Properties;
  * Created by Vinty on 21.06.2017.
  */
 @Configuration
-//@EnableCaching
 @ComponentScan(basePackages = "by.ecp")
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 public class Config {
-
-    @Autowired
-    private Environment env;
 
     @Value("${jdbc.url}")
     private String dbUrl;
@@ -104,13 +100,4 @@ public class Config {
         transactionManager.setSessionFactory(sessionFactory);
         return transactionManager;
     }
-//    @Bean
-//    @Autowired
-//    public HibernateTransactionManager transactionManager(
-//            SessionFactory sessionFactory) {
-//        HibernateTransactionManager txManager
-//                = new HibernateTransactionManager();
-//        txManager.setSessionFactory(sessionFactory);
-//        return txManager;
-//    }
 }

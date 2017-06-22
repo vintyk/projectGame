@@ -1,18 +1,15 @@
-package by.dao;
+package by.ecp.tests;
 
 
-import by.ecp.Config;
+import by.ecp.common.BaseDaoImpl;
 import by.ecp.db.CompanyDao;
 import by.ecp.db.VacancyDao;
 import by.ecp.entity.Company;
 import by.ecp.entity.Vacancy;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -22,14 +19,9 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Vinty on 18.06.2017.
  */
-@RunWith(SpringRunner.class)
-@ContextConfiguration(classes = Config.class)
-@Transactional
-public class VacancyDaoTest {
-
+public class VacancyDaoTest extends BaseTest{
     @Autowired
     private VacancyDao vacancyDao;
-
     @Autowired
     private CompanyDao companyDao;
 

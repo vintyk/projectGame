@@ -1,18 +1,21 @@
-package by.dao;
+package by.ecp.tests;
 
+import by.ecp.common.BaseDao;
 import by.ecp.common.BaseDaoImpl;
 import by.ecp.db.RankDaoImpl;
 import by.ecp.entity.Rank;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by User on 16.06.2017.
  */
 public class RankDaoTest extends BaseDaoTest<Rank> {
 
-    private BaseDaoImpl<Rank> dao = new RankDaoImpl();
+    @Autowired
+    private BaseDao<Rank> dao = new RankDaoImpl();
 
     @Override
-    protected BaseDaoImpl<Rank> getDao() {
+    protected BaseDao<Rank> getDao() {
         return dao;
     }
     @Override
