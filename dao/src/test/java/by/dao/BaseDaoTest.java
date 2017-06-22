@@ -1,5 +1,6 @@
 package by.dao;
 
+import by.ecp.TestConfig;
 import by.ecp.common.BaseDao;
 import by.ecp.common.BaseDaoImpl;
 import by.ecp.entity.BaseEntity;
@@ -18,7 +19,7 @@ import static junit.framework.TestCase.assertNotNull;
  * Created by User on 15.06.2017.
  */
 @RunWith(SpringRunner.class)
-@ContextConfiguration(locations = {"classpath:application_content.xml"})
+@ContextConfiguration(classes = TestConfig.class)
 @Transactional
 public abstract class BaseDaoTest<T extends BaseEntity> {
 
