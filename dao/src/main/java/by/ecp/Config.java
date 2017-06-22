@@ -88,13 +88,8 @@ public class Config {
         properties.setProperty("hibernate.format_sql", formatSql);
         properties.setProperty("hibernate.hbm2ddl.auto", creationPolicy);
 
-//        properties.setProperty("hibernate.cache.use_second_level_cache", useSecondLevelCache);
-//        properties.setProperty("hibernate.cache.use_query_cache", useQueryCache);
-//        properties.setProperty("hibernate.cache.region.factory_class", factoryClass);
-//        properties.setProperty("net.sf.ehcache.configurationResourceName", configurationResourceName);
-
-        properties.setProperty("hibernate.cache.use_second_level_cache", "false");
-        properties.setProperty("hibernate.cache.use_query_cache", "false");
+        properties.setProperty("hibernate.cache.use_second_level_cache", useSecondLevelCache);
+        properties.setProperty("hibernate.cache.use_query_cache", useQueryCache);
         properties.setProperty("hibernate.cache.region.factory_class", factoryClass);
         properties.setProperty("net.sf.ehcache.configurationResourceName", configurationResourceName);
 
