@@ -16,19 +16,24 @@ public class Starter {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
+//        UserService userService = context.getBean(UserService.class);
+//        userService.saveUser(
+//                "Valera",
+//                2L,
+//                "Nechay",
+//                "vn@ecp.by",
+//                Gender.MALE,
+//                "12345");
+//
+//        CountryService countryService = context.getBean(CountryService.class);
+//        List<Country> countryList = countryService.findAll();
+//        System.out.println(countryList);
+//
         UserService userService = context.getBean(UserService.class);
-        userService.saveUser(
-                "Valera",
-                2L,
-                "Nechay",
-                "vn@ecp.by",
-                Gender.MALE,
-                "12345");
+//        List<User> users = userService.findAll();
+//        users.forEach(System.out::println);
 
-        CountryService countryService = context.getBean(CountryService.class);
-        List<Country> countryList = countryService.findAll();
-        System.out.println(countryList);
-
+        System.out.println(userService.findById(1L));
 
 
 //        Address address = new Address();

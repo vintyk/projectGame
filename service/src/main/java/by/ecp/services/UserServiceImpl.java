@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by User on 20.06.2017.
  */
@@ -42,5 +44,15 @@ public class UserServiceImpl implements UserService {
             gender,
             privilegeId
     );
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
+
+    @Override
+    public User findById(Long id) {
+        return userDao.findOne(id);
     }
 }

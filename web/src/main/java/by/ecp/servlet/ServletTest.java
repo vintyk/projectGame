@@ -1,7 +1,12 @@
 package by.ecp.servlet;
 
+import by.ecp.Config;
 import by.ecp.db.CountryDaoImpl;
 import by.ecp.entity.Country;
+import by.ecp.services.CountryService;
+import by.ecp.services.PrivilegeService;
+import by.ecp.services.UserService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,20 +23,29 @@ import java.util.List;
 public class ServletTest extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      showPage(req, resp);
+        showPage(req, resp);
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         showPage(req, resp);
     }
+
     private void showPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CountryDaoImpl countryDao = new CountryDaoImpl();
-        Country country = countryDao.findOne(1L);
-        req.setAttribute("Countries", country);
-        CountryDaoImpl countryDao1 = new CountryDaoImpl();
-        List<Country> country1 = countryDao1.findAll();
-        req.setAttribute("listCountries", country1);
-      getServletContext().getRequestDispatcher("/WEB-INF/jsp/country.jsp").forward(req, resp);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+
+        CountryService countryService = context.getBean(CountryService.class);
+        req.setAttribute("listCountries", countryService.findAll());
+        req.setAttribute("country_name", countryService.findOne(1L));
+        System.out.println("ВОЗВРАЩАЕМ ОДНОГО "+countryService.findOne(1L));
+        PrivilegeService privilegeService = context.getBean(PrivilegeService.class);
+        req.setAttribute("listPrivilege", privilegeService.findAll());
+
+        UserService userService = context.getBean(UserService.class);
+        req.setAttribute("listUser", userService.findAll());
+        req.setAttribute("email", userService.findById(1L));
+        System.out.println("ВОЗВРАЩАЕМ ОДНОГО "+userService.findById(1L));
+        getServletContext().getRequestDispatcher("/WEB-INF/country.jsp").forward(req, resp);
     }
 }

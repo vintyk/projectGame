@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by User on 20.06.2017.
  */
@@ -28,6 +30,11 @@ public class PrivilegeServiceImpl implements PrivilegeService {
     @Override
     public Privilege findOne(Long id) {
         return privilegeDao.findOne(id);
+    }
+
+    @Override
+    public List<Privilege> findAll() {
+        return privilegeDao.findAll();
     }
 
 
