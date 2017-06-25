@@ -28,7 +28,7 @@ import javax.persistence.*;
     @Getter
     @Setter
     @Column(name = "e_mail")
-    private String eMailUser;
+    private String email;
 
     @Getter
     @Setter

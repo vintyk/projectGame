@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>--%>
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 <head>
@@ -9,11 +11,11 @@
     <title>GAME Analitic</title>
     <style type="text/css">
         div {
-            background: url(pic/backgrnd3.jpg)
+            background: url(${pageContext.request.contextPath}/resources/pic/backgrnd3.jpg)
         }
     </style>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/foundation.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/app.css">
 </head>
 <body>
 <div class="row">
@@ -26,7 +28,7 @@
 <div class="row">
     <div class="large-8 columns">
         <div class="callout">
-            <img src= "pic/003_wot.jpg">
+            <img src= "${pageContext.request.contextPath}/resources/pic/003_wot.jpg">
 <h1>Countries</h1>
 <h3>Страны</h3>
 <form method="post">
@@ -57,7 +59,7 @@
         <p>
             <c:forEach items="${requestScope.listUser}" var="listUser">
             <li>
-        <p> Имя: ${listUser.nameUser} ${listUser.familyUser} </p>
+        <p> Имя: ${listUser.nameUser} ${listUser.familyUser}  ${listUser.email}</p>
         <p> Привилегии: ${listUser.privilege.namePrivilege}  </p>
         <p> Пол: <c:if test="${requestScope.email.gender eq 'MALE'}"> Мужчина </c:if>
             <c:if test="${requestScope.email.gender eq 'FEMALE'}"> Женщина </c:if></p>

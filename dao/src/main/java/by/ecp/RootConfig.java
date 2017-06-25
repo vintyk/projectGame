@@ -22,7 +22,7 @@ import java.util.Properties;
 @ComponentScan(basePackages = "by.ecp")
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
-public class Config {
+public class RootConfig {
 
     @Value("${jdbc.url}")
     private String dbUrl;

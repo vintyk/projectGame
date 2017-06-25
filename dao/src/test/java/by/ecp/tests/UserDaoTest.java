@@ -35,7 +35,7 @@ public class UserDaoTest extends BaseTest {
         privilegeDao.save(privilege);
 
         user.setNameUser("Vee");
-        user.setEMailUser("vee@gmail.com");
+        user.setEmail("vee@gmail.com");
         user.setFamilyUser("Loo");
         user.setFirstAddress(address);
         user.setGender(Gender.FEMALE);
@@ -45,7 +45,7 @@ public class UserDaoTest extends BaseTest {
 
         User result = userDao.findByEmail("vee@gmail.com");
         System.out.println(result);
-        assertEquals(user.getEMailUser(), "vee@gmail.com");
+        assertEquals(user.getEmail(), "vee@gmail.com");
     }
 
     @Test

@@ -1,6 +1,6 @@
 package by.ecp.entity.temp.spring;
 
-import by.ecp.Config;
+import by.ecp.RootConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -9,6 +9,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class SpringMain{
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context
-                = new AnnotationConfigApplicationContext(Config.class);
+                = new AnnotationConfigApplicationContext(RootConfig.class);
     }
 }

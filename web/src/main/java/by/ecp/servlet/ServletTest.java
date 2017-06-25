@@ -1,8 +1,6 @@
 package by.ecp.servlet;
 
-import by.ecp.Config;
-import by.ecp.db.CountryDaoImpl;
-import by.ecp.entity.Country;
+import by.ecp.RootConfig;
 import by.ecp.services.CountryService;
 import by.ecp.services.PrivilegeService;
 import by.ecp.services.UserService;
@@ -14,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by Vinty.
@@ -33,7 +30,7 @@ public class ServletTest extends HttpServlet {
     }
 
     private void showPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(RootConfig.class);
 
         CountryService countryService = context.getBean(CountryService.class);
         req.setAttribute("listCountries", countryService.findAll());
@@ -46,6 +43,6 @@ public class ServletTest extends HttpServlet {
         req.setAttribute("listUser", userService.findAll());
         req.setAttribute("email", userService.findById(1L));
         System.out.println("ВОЗВРАЩАЕМ ОДНОГО "+userService.findById(1L));
-        getServletContext().getRequestDispatcher("/WEB-INF/country.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/jsp/country.jsp").forward(req, resp);
     }
 }

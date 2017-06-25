@@ -17,7 +17,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
         Session session = getSessionFactory().getCurrentSession();
         QUser user = new QUser("myNewUser");
         JPAQuery<User> query = new JPAQuery<>(session);
-        query.select(user).from(user).where(user.eMailUser.eq(name));
+        query.select(user).from(user).where(user.email.eq(name));
         User result = query.fetchOne();
         return result;
     }
@@ -38,7 +38,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
         user.setNameUser(nameUser);
         user.setPrivilege(privilege);
         user.setFamilyUser(family);
-        user.setEMailUser(eMail);
+        user.setEmail(eMail);
         user.setGender(gender);
         user.setPasswordUser(pass);
         session.save(user);

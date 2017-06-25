@@ -1,20 +1,14 @@
 package by.ecp;
 
-import by.ecp.entity.*;
-import by.ecp.services.CountryService;
-import by.ecp.services.PrivilegeService;
 import by.ecp.services.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.List;
 
 /**
  * Created by User on 20.06.2017.
  */
 public class Starter {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(RootConfig.class);
 
 //        UserService userService = context.getBean(UserService.class);
 //        userService.saveUser(
@@ -50,7 +44,7 @@ public class Starter {
 //        user.setSecondAddress(address1);
 //        user.setPasswordUser("12345");
 //        user.setGender(Gender.MALE);
-//        user.setEMailUser("vn@ecp.by");
+//        user.setemail("vn@ecp.by");
     }
 
 }
