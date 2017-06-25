@@ -1,8 +1,8 @@
-package springmvc;
+package webApplication;
 
 
 import by.ecp.RootConfig;
-import by.ecp.WebConfig;
+import by.ecp.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**

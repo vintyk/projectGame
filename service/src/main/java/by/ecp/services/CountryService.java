@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface CountryService  {
 
-    void save(Country country);
+    Long save(Country country);
 
     Country findOne(Long id);
 

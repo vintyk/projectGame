@@ -23,8 +23,9 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public void save(Country country) {
+    public Long save(Country country) {
         countryDao.save(country);
+        return country.getId();
     }
 
     @Override
