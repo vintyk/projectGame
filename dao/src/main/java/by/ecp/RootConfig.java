@@ -88,10 +88,10 @@ public class RootConfig {
         properties.setProperty("hibernate.format_sql", formatSql);
         properties.setProperty("hibernate.hbm2ddl.auto", creationPolicy);
 
-        properties.setProperty("hibernate.cache.use_second_level_cache", useSecondLevelCache);
-        properties.setProperty("hibernate.cache.use_query_cache", useQueryCache);
-        properties.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
-        properties.setProperty("net.sf.ehcache.configurationResourceName", "/ehcache-config.xml");
+//        properties.setProperty("hibernate.cache.use_second_level_cache", useSecondLevelCache);
+//        properties.setProperty("hibernate.cache.use_query_cache", useQueryCache);
+//        properties.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
+//        properties.setProperty("net.sf.ehcache.configurationResourceName", "/ehcache-config.xml");
         return properties;
     }
     @Bean

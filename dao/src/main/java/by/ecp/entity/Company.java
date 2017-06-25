@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "companies")
 @ToString
 @NoArgsConstructor
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
+//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
 public class Company extends BaseEntity {
     @Setter
     @Getter
