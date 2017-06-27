@@ -1,16 +1,21 @@
 package by.ecp;
 
+import by.ecp.entity.Country;
+import by.ecp.services.CountryService;
 import by.ecp.services.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.List;
 
 /**
  * Created by User on 20.06.2017.
  */
 public class Starter {
-    public static void main(String[] args) {
+      public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(RootConfig.class);
 
-//        UserService userService = context.getBean(UserService.class);
+
+        //        UserService userService = context.getBean(UserService.class);
 //        userService.saveUser(
 //                "Valera",
 //                2L,
@@ -23,11 +28,17 @@ public class Starter {
 //        List<Country> countryList = countryService.findAll();
 //        System.out.println(countryList);
 //
-        UserService userService = context.getBean(UserService.class);
+
+
+//        UserService userService = context.getBean(UserService.class);
 //        List<User> users = userService.findAll();
 //        users.forEach(System.out::println);
+//        System.out.println(userService.findById(1L));
 
-        System.out.println(userService.findById(1L));
+
+
+
+
 
 
 //        Address address = new Address();

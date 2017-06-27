@@ -1,7 +1,5 @@
 package by.ecp.entity;
 import lombok.*;
-import org.hibernate.annotations.*;
-import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
 import javax.persistence.Entity;

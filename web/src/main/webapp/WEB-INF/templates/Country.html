@@ -16,6 +16,26 @@
 <body>
     Приветули!
 
+    <label> Введите название страны:</label>
+    <ul style="list-style-type: none">
+        <li th:each="countryName : ${countries}">
+            <input th:field="*{name}" th:value="${countryName}" type="checkbox"/>
+            <label th:text="${#strings.capitalize(#strings.toLowerCase(countryName))}"></label>
+        </li>
+    </ul>
+
+    <!--<form th:action="@{/Country.html}" method="post" th:object="${country}">-->
+    <!--<label th:for="countryInput" th:text="${country.name}">Страна</label>-->
+    <!--<input type="text" th:field="*{countryInput}"><br>-->
+    <!--</form>-->
+
+    <!--<select th:field="*{name}" >-->
+        <!--<option th:each="name : ${countries}"-->
+                <!--th:text="${#strings.capitalize(#strings.toLowerCase(name))}"-->
+                <!--th:value="${name}">-->
+        <!--</option>-->
+    <!--</select>-->
+
     <script src="/resources/js/vendor/jquery.js"></script>
     <script src="/resources/js/vendor/what-input.js"></script>
     <script src="/resources/js/vendor/foundation.js"></script>

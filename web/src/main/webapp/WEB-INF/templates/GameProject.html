@@ -1,6 +1,8 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+
   <head>
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,8 +54,7 @@
       <div class="large-12 columns">
         <div class="callout">
           <h3>В центре внимания </h3>
-          <img src= "../resources/pic/003_wot.jpg">
-          
+          <img src= "/resources/pic/003_wot.jpg">
           <h5>Вышло обновление 9.19 для World of Tanks</h5>
           <p>Вскоре после гранд-финала Wargaming League состоялся выход долгожданной версии 9.19 для World of Tanks. Разработчики много и активно рассказали о нововведениях, ожидающих игроков, а теперь пришло время нам самим их опробовать.</p>
           <p>Самыми ожидаемыми, пожалуй, были ранговые бои, которые давно пора было добавить. Это новый режим, который может быть многим знаком по другим соревновательным играм. В нём примут участие танки исключительно X уровня, формат боёв 15 на 15. Союзники и противники будут подбираться по рангам. Сезоны длятся месяц, первый начнётся 5 июня.</p>
@@ -136,18 +137,19 @@
         <hr />
 
         <h5>Открытие программы в помощи трудоустройства</h5>
-        <img src= "../resources/pic/0022_bliz.jpg">
+        <img src= "/resources/pic/0022_bliz.jpg">
         <br>
         <br>
         <form>
           <div class="row">
             <div class="large-12 columns">
               <label> Введите название компании в которой хотели бы попробовать свои силы:</label>
-              <!--<select th:field="*{ingredients}">-->
-              <!--<option th:each="ingredientsTypes : ${allIngredientTypes}"-->
-              <!--th:value="${ingredientsTypes}"-->
-              <!--th:text="${#strings.capitalize(#strings.toLowerCase(ingredientsTypes))}"></option>-->
-              <!--</select>-->
+                <select th:field="*{nameCompany}" >
+                    <option th:each="nameCompany : ${companies}"
+                            th:text="${#strings.capitalize(#strings.toLowerCase(nameCompany))}"
+                            th:value="${nameCompany}">
+                    </option>
+                </select>
               <label> введите данные о вакансии</label>
               <input type="text" placeholder="желаемая вакансия" />
             </div>
@@ -212,7 +214,7 @@
         <div class="callout">
           <h5>Создавай миры!</h5>
           
-          <img src= "../resources/pic/0021_bliz.jpg">
+          <img src= "/resources/pic/0021_bliz.jpg">
           <p>We’re on a quest: bring our dreams to life and craft the most epic entertainment experiences, ever. Hard work, iteration and polish go into the Blizzard “secret recipe,” but the most important ingredients come from talented people who share our vision. If that sounds like you, join us.</p>
           <a href="http://foundation.zurb.com/sites/docs/" class="small button">Go to official Site</a>
         </div>
@@ -221,7 +223,7 @@
         <div class="callout">
           <h5>Пиши гейм-историю!</h5>
           
-          <img src= "../resources/pic/001_war.jpg">
+          <img src= "/resources/pic/001_war.jpg">
           <p>Работа в Wargaming
 Жизнь в Wargaming — калейдоскоп событий, эмоций и переживаний, связанных в одно целое. Наше преимущество — в многообразии, искренней любви к работе и постоянном самосовершенствовании. Мы хотим видеть в своих рядах таких же помешанных на результате. Присоединяйся!</p>
           <a href="http://wargaming.com/ru/careers/" class="small button">Go to official Site</a>
@@ -229,9 +231,9 @@
       </div>
     </div>
 
-    <script src="../resources/js/vendor/jquery.js"></script>
-    <script src="../resources/js/vendor/what-input.js"></script>
-    <script src="../resources/js/vendor/foundation.js"></script>
-    <script src="../resources/js/app.js"></script>
+    <script src="/resources/js/vendor/jquery.js"></script>
+    <script src="/resources/js/vendor/what-input.js"></script>
+    <script src="/resources/js/vendor/foundation.js"></script>
+    <script src="/resources/js/app.js"></script>
   </body>
 </html>

@@ -1,14 +1,11 @@
 package by.ecp.controller;
 
-import by.ecp.db.CompanyDao;
 import by.ecp.entity.Company;
 import by.ecp.services.CompanyService;
-import by.ecp.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -25,8 +22,8 @@ public class CompanyController {
     public Company company() {
         return new Company();
     }
-    @ModelAttribute("allCompanies")
-    public List<Company> listCompany() {
+    @ModelAttribute("companies")
+    public List<Company> companies() {
         return companyService.findAll();
     }
 
