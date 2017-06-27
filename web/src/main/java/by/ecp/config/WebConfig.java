@@ -22,7 +22,7 @@ public class WebConfig {
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/html/");
+        viewResolver.setPrefix("/WEB-INF/templates/");
         viewResolver.setSuffix(".html");
         viewResolver.setExposeContextBeansAsAttributes(true);
         return viewResolver;
