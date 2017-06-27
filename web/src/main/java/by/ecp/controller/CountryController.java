@@ -23,21 +23,23 @@ public class CountryController {
     }
 
     @GetMapping(path = "/country")
-    public  String showCountryForm(){
-        return "country-form";
+    public  String showCountryForm()
+    {
+        return "Country";
     }
 
-    @PostMapping(path = "/country")
-    public String saveCountry(Country country, Model model){
-        Long id = countryService.save(country);
-        model.addAttribute("countryId", id);
-        return "redirect:/country-info/{countryId}";
-    }
+//    @PostMapping(path = "/country")
+//    public String saveCountry(Country country, Model model){
+//        Long id = countryService.save(country);
+//        model.addAttribute("countryId", id);
+//        return "redirect:/country-info/{countryId}";
+//    }
+//
+//    @GetMapping(path = "/country-info/{countryId}")
+//    public String showCountryInfo(@PathVariable("countryId") Long countryId, Model model){
+//        Country country = countryService.findOne(countryId);
+//        model.addAttribute("country", country);
+//        return "country-info";
+//    }
 
-    @GetMapping(path = "/country-info/{countryId}")
-    public String showCountryInfo(@PathVariable("countryId") Long countryId, Model model){
-        Country country = countryService.findOne(countryId);
-        model.addAttribute("country", country);
-        return "country-info";
-    }
 }
