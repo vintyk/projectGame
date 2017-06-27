@@ -1,0 +1,31 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+  </head>
+<body>
+   <h3>Введи страну</h3>
+    <!--<form th:action=country.htmlhtml}" method="post" th:object="${country}">-->
+    <!--<label> Введите название страны:</label>-->
+    <!--<ul style="list-style-type: none">-->
+        <!--<li th:each="countryName : ${countries}">-->
+            <!--<input th:field="*{name}" th:value="${countryName}" type="checkbox"/>-->
+            <!--<label th:text="${#strings.capitalize(#strings.toLowerCase(countryName))}"></label>-->
+        <!--</li>-->
+    <!--</ul>-->
+    <!--</form>-->
+
+    <form th:action="@{/country.html}" method="post" th:object="${country}">
+    <label th:for="name" th:text="${country.name}">Страна</label><br>
+    <input type="text" th:field="*{name}"><br>
+    <button type="submit">Сохранить страну</button>
+    </form>
+
+    <!--<select th:field="*{name}" >-->
+        <!--<option th:each="name : ${countries}"-->
+                <!--th:text="${#strings.capitalize(#strings.toLowerCase(name))}"-->
+                <!--th:value="${name}">-->
+        <!--</option>-->
+    <!--</select>-->
+
+  </body>
+</html>

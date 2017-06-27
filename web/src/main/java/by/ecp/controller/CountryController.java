@@ -1,6 +1,5 @@
 package by.ecp.controller;
 
-import by.ecp.entity.Company;
 import by.ecp.entity.Country;
 import by.ecp.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,24 +34,31 @@ public class CountryController {
     public List<Country> countries() {
         return countryService.findAll();
     }
+
     @GetMapping(path = "/country")
     public  String showCountryForm()
     {
         return "country";
     }
 
-    @GetMapping(path = "/country/{countryId}")
-    public String showCountryInfo(@PathVariable("countryId") Long countryId, Model model){
-        Country country = countryService.findOne(countryId);
-        model.addAttribute("country", country);
-        return "country";
+    @PostMapping(path = "/country")
+    public String saveCountry(Country country){
+        countryService.save(country);
+        return "redirect:/country/";
     }
 
-    @PostMapping(path = "/country")
-    public String saveCountry(Country country, Model model){
-        Long id = countryService.save(country);
-        model.addAttribute("countryId", id);
-        return "redirect:/country/{countryId}";
-    }
+//    @GetMapping(path = "/country/{countryId}")
+//    public String showCountryInfo(@PathVariable("countryId") Long countryId, Model model){
+//        Country country = countryService.findOne(countryId);
+//        model.addAttribute("country", country);
+//        return "country";
+//    }
+//
+//    @PostMapping(path = "/country")
+//    public String saveCountry(Country country, Model model){
+//        Long id = countryService.save(country);
+//        model.addAttribute("countryId", id);
+//        return "redirect:/country/{countryId}";
+//    }
 
 }
