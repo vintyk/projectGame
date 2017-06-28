@@ -20,8 +20,9 @@ import javax.persistence.Table;
 @NoArgsConstructor
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "we_trust_you")
 public class Company extends BaseEntity {
-    @Setter
+
     @Getter
+    @Setter
     @Column(name = "name")
-    private String nameCompany;
+    private String name;
 }

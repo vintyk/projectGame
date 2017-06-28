@@ -37,7 +37,7 @@ public class PublicationDaoTest extends BaseTest{
     @Test
     public void findAllOrderDateDescTest(){
         Company company = new Company();
-        company.setNameCompany("Valve");
+        company.setName("Valve");
         companyDao.save(company);
         Genre genre = new Genre();
         genre.setName("Гонки");

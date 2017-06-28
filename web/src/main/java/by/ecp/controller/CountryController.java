@@ -1,6 +1,7 @@
 package by.ecp.controller;
 
 import by.ecp.entity.Country;
+import by.ecp.services.CompanyService;
 import by.ecp.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,8 @@ public class CountryController {
     }
 
     @ModelAttribute("countries")
-    public List<Country> countries() {
+    public List<Country> countries()
+    {
         return countryService.findAll();
     }
 
@@ -44,7 +46,7 @@ public class CountryController {
     @PostMapping(path = "/country")
     public String saveCountry(Country country){
         countryService.save(country);
-        return "redirect:/country/";
+        return "/country";
     }
 
 //    @GetMapping(path = "/country/{countryId}")

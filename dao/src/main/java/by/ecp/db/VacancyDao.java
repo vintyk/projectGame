@@ -13,7 +13,7 @@ public interface VacancyDao extends BaseDao<Vacancy> {
 
     void saveVacancy(String nameVacancy, Long companiesId);
 
-    List<Vacancy> ListAll();
+//    List<Vacancy> ListAll();
 
     Vacancy findByName(String name);
 }

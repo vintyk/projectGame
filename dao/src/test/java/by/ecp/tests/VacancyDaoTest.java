@@ -28,7 +28,7 @@ public class VacancyDaoTest extends BaseTest{
     @Test
     public void testFindByName(){
         Company company = new Company();
-        company.setNameCompany("My-new-Company");
+        company.setName("My-new-Company");
         companyDao.save(company);
 
         Vacancy vacancy = new Vacancy();

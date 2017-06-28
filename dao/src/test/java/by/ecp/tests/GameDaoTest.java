@@ -41,7 +41,7 @@ public class GameDaoTest extends BaseTest{
     @Test
     public void saveByExistPlatformsTest() {
         Company company = new Company();
-        company.setNameCompany("Valve");
+        company.setName("Valve");
         companyDao.save(company);
         Genre genre = new Genre();
         genre.setName("Гонки");
