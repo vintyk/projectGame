@@ -4,18 +4,21 @@ import by.ecp.common.BaseDao;
 import by.ecp.entity.Gender;
 import by.ecp.entity.SystemUser;
 
+import java.util.Set;
+
 /**
  * Created by SystemUser on 20.06.2017.
  */
 public interface SystemUserDao extends BaseDao<SystemUser> {
 
     SystemUser findByEmail(String name);
+    SystemUser findByName(String name);
 
     void saveUser(String nameUser,
                   String family,
                   String eMail,
                   String pass,
                   Gender gender,
-                  Long privilegeId
+                  Set<Long> privilegeId
                   );
 }

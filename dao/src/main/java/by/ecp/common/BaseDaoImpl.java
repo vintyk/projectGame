@@ -28,6 +28,7 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     protected SessionFactory getSessionFactory(){
         return sessionFactory;
     }
+    protected Session getCurrentSession() {return sessionFactory.getCurrentSession();}
 
     @Override
     public void  save(T entity){

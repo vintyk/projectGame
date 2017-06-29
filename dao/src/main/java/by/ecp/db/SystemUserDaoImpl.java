@@ -6,6 +6,12 @@ import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 /**
  * Created by SystemUser on 02.06.2017.
  */
@@ -22,21 +28,33 @@ public class SystemUserDaoImpl extends BaseDaoImpl<SystemUser> implements System
         return result;
     }
     @Override
+    public SystemUser findByName(String name) {
+        List<SystemUser> systemUserList = getCurrentSession()
+                .createQuery("select u from SystemUser u where u.nameUser=:name", SystemUser.class)
+                .setParameter("name", name)
+                .getResultList();
+        return systemUserList.size() > 0 ? systemUserList.get(0) : null;
+    }
+
+    @Override
     public void saveUser(String nameUser,
                          String family,
                          String eMail,
                          String pass,
                          Gender gender,
-                         Long privilegeId
+                         Set<Long> privilegeId
                          ) {
         Session session = getSessionFactory().getCurrentSession();
-
-        Privilege privilege = new Privilege();
-        privilege.setId(privilegeId);
-
+        Set<Privilege> privilegeSet = new HashSet<>();
+        Iterator iter = privilegeId.iterator();
+        while (iter.hasNext()){
+            Privilege privilege = session.get(Privilege.class, (Serializable) iter.next());
+            privilegeSet.add(privilege);
+            privilegeSet.forEach(System.out::println);
+        }
         SystemUser systemUser = new SystemUser();
         systemUser.setNameUser(nameUser);
-        systemUser.setPrivilege(privilege);
+        systemUser.setPrivilege(privilegeSet);
         systemUser.setFamilyUser(family);
         systemUser.setEmail(eMail);
         systemUser.setGender(gender);

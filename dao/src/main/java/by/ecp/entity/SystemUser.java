@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Vinty on 07.04.2017.
@@ -35,11 +37,14 @@ import javax.persistence.*;
     @Column(name = "password")
     private String passwordUser;
 
+    //    @JoinColumn(name = "privilege_id", nullable = false)
     @Getter
     @Setter
-    @ManyToOne
-    @JoinColumn(name = "privilege_id", nullable = false)
-    private Privilege privilege;
+    @JoinTable(name = "users_privileges",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "privilege_id"))
+    @ManyToMany
+    private Set<Privilege> privilege = new HashSet<>();
 
     @Getter
     @Setter
