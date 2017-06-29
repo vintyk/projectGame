@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by User on 24.05.2017.
+ * Created by SystemUser on 24.05.2017.
  */
 @Entity
 @Table(name="platforms")

@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by User on 28.06.2017.
+ * Created by SystemUser on 28.06.2017.
  */
 public class JobDaoTest extends BaseTest {
 

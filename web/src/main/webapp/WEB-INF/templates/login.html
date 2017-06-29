@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style type="text/css">
+        div {
+            background: url(/resources/pic/backgrnd3.jpg)
+        }
+    </style>
+    <link rel="stylesheet" href="/resources/css/foundation.css">
+    <link rel="stylesheet" href="/resources/css/app.css">
+</head>
+<body>
+<div class="row">
+    <div class="large-12 columns">
+        <h1>LOGIN</h1>
+        <label> Введите название Вакансии в которой хотели бы попробовать свои силы:</label>
+
+        <form th:action="@{/JobTest.html}" method="post" th:object="${job}">
+
+            <div class="row">
+                <div class="large-4 medium-4 columns">
+                    <label th:for="nameUser">Имя</label>
+                    <input type="text" th:field="*{nameUser}" placeholder="John"/>
+                </div>
+                <div class="large-4 medium-4 columns">
+                    <label th:for="familyUser">Фамилия</label>
+                    <input type="text" th:field="*{familyUser}" placeholder="Dorian"><br>
+                </div>
+                <div class="large-4 medium-4 columns">
+                    <label th:for="email">E-mail</label>
+                    <input type="text" th:field="*{email}" placeholder="JonD@gmail"><br>
+                </div>
+            </div>
+    </div>
+</div>
+
+    </form>
+
+    <script src="/resources/js/vendor/jquery.js"></script>
+    <script src="/resources/js/vendor/what-input.js"></script>
+    <script src="/resources/js/vendor/foundation.js"></script>
+    <script src="/resources/js/app.js"></script>
+</body>
+</html>

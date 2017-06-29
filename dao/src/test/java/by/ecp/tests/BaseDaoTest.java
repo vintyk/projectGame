@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * Created by User on 15.06.2017.
+ * Created by SystemUser on 15.06.2017.
  */
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = TestConfig.class)

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by User on 28.06.2017.
+ * Created by SystemUser on 28.06.2017.
  */
 @Service
 @Transactional

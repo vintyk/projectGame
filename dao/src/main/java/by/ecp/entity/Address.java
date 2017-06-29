@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.*;
 
 /**
- * Created by User on 12.06.2017.
+ * Created by SystemUser on 12.06.2017.
  */
 @Embeddable
 @NoArgsConstructor

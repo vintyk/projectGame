@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.List;
 
 /**
- * Created by User on 20.06.2017.
+ * Created by SystemUser on 20.06.2017.
  */
 public class Starter {
       public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class Starter {
 
 
 //        UserService userService = context.getBean(UserService.class);
-//        List<User> users = userService.findAll();
+//        List<SystemUser> users = userService.findAll();
 //        users.forEach(System.out::println);
 //        System.out.println(userService.findById(1L));
 
@@ -47,7 +47,7 @@ public class Starter {
 //        Address address1 = new Address();
 //        address1.setCountry("Великобритания");
 //        address1.setCity("Лондон");
-//        User user = new User();
+//        SystemUser user = new SystemUser();
 //        user.setNameUser("Valera");
 //        user.setFamilyUser("Nechay");
 //        user.setPrivilege(privilege);

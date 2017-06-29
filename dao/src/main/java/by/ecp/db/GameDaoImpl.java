@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by User on 05.06.2017.
+ * Created by SystemUser on 05.06.2017.
  */
 @Repository
 @EqualsAndHashCode

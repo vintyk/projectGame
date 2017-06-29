@@ -12,7 +12,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 /**
- * Created by User on 27.06.2017.
+ * Created by SystemUser on 27.06.2017.
  */
 @Configuration
 public class InternationalizationConfig extends WebMvcConfigurerAdapter {

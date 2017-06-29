@@ -1,16 +1,16 @@
 package by.ecp.services;
 
 import by.ecp.entity.Gender;
-import by.ecp.entity.User;
+import by.ecp.entity.SystemUser;
 
 import java.util.List;
 
 /**
- * Created by User on 20.06.2017.
+ * Created by SystemUser on 20.06.2017.
  */
 public interface UserService {
 
-    User findByEmail(String name);
+    SystemUser findByEmail(String name);
 
     void saveUser(String nameUser,
                   Long privilegeId,
@@ -19,6 +19,6 @@ public interface UserService {
                   Gender gender,
                   String pass
     );
-    List<User> findAll();
-    User findById(Long id);
+    List<SystemUser> findAll();
+    SystemUser findById(Long id);
 }

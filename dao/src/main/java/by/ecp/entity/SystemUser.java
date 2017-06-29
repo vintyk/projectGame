@@ -14,7 +14,7 @@ import javax.persistence.*;
     @Table(name = "users")
     @NoArgsConstructor
     @ToString
-    public class User extends BaseEntity {
+    public class SystemUser extends BaseEntity {
     @Getter
     @Setter
     @Column(name = "name")

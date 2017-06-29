@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 /**
- * Created by User on 06.06.2017.
+ * Created by SystemUser on 06.06.2017.
  */
 @MappedSuperclass
 @ToString

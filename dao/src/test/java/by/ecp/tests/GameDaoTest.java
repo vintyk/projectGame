@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 /**
- * Created by User on 16.06.2017.
+ * Created by SystemUser on 16.06.2017.
  */
 public class GameDaoTest extends BaseTest{
     @Autowired

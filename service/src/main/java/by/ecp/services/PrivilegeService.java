@@ -5,7 +5,7 @@ import by.ecp.entity.Privilege;
 import java.util.List;
 
 /**
- * Created by User on 20.06.2017.
+ * Created by SystemUser on 20.06.2017.
  */
 public interface PrivilegeService {
 

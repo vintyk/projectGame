@@ -15,7 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Created by User on 12.06.2017.
+ * Created by SystemUser on 12.06.2017.
  */
 @Entity
 @ToString(callSuper = true)

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by User on 20.06.2017.
+ * Created by SystemUser on 20.06.2017.
  */
 public interface GameDao extends BaseDao<Game> {
 

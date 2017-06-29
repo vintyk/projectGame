@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 
 /**
- * Created by User on 09.06.2017.
+ * Created by SystemUser on 09.06.2017.
  */
 @Entity
 @Table(name = "publications")

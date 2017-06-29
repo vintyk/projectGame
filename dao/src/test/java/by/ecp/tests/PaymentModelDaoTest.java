@@ -7,7 +7,7 @@ import by.ecp.entity.PaymentModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by User on 16.06.2017.
+ * Created by SystemUser on 16.06.2017.
  */
 public class PaymentModelDaoTest extends BaseDaoTest<PaymentModel> {
     @Autowired

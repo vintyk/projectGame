@@ -1,8 +1,8 @@
 package by.ecp.services;
 
-import by.ecp.db.UserDao;
+import by.ecp.db.SystemUserDao;
 import by.ecp.entity.Gender;
-import by.ecp.entity.User;
+import by.ecp.entity.SystemUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,22 +10,22 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by User on 20.06.2017.
+ * Created by SystemUser on 20.06.2017.
  */
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    private final UserDao userDao;
+    private final SystemUserDao systemUserDao;
 
     @Autowired
-    public UserServiceImpl(UserDao userDao){
-        this.userDao = userDao;
+    public UserServiceImpl(SystemUserDao systemUserDao){
+        this.systemUserDao = systemUserDao;
     }
 
     @Override
-    public User findByEmail(String name) {
-        return userDao.findByEmail(name);
+    public SystemUser findByEmail(String name) {
+        return systemUserDao.findByEmail(name);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
             String eMail,
             Gender gender,
             String pass) {
-    userDao.saveUser(
+    systemUserDao.saveUser(
             nameUser,
             family,
             eMail,
@@ -47,12 +47,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAll() {
-        return userDao.findAll();
+    public List<SystemUser> findAll() {
+        return systemUserDao.findAll();
     }
 
     @Override
-    public User findById(Long id) {
-        return userDao.findOne(id);
+    public SystemUser findById(Long id) {
+        return systemUserDao.findOne(id);
     }
 }

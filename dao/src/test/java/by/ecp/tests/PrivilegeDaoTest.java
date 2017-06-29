@@ -7,7 +7,7 @@ import by.ecp.entity.Privilege;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by User on 16.06.2017.
+ * Created by SystemUser on 16.06.2017.
  */
 public class PrivilegeDaoTest extends BaseDaoTest<Privilege> {
     @Autowired

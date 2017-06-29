@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by User on 28.06.2017.
+ * Created by SystemUser on 28.06.2017.
  */
 @Service
 @Transactional

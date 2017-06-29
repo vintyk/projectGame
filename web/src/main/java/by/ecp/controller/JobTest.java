@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 /**
- * Created by User on 28.06.2017.
+ * Created by SystemUser on 28.06.2017.
  */
 @Controller
 public class JobTest {

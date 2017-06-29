@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Created by User on 09.06.2017.
+ * Created by SystemUser on 09.06.2017.
  */
 @Repository
 public class PublicationDaoImpl extends BaseDaoImpl<Publication> implements PublicationDao{

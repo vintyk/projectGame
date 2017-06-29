@@ -2,14 +2,14 @@ package by.ecp.db;
 
 import by.ecp.common.BaseDao;
 import by.ecp.entity.Gender;
-import by.ecp.entity.User;
+import by.ecp.entity.SystemUser;
 
 /**
- * Created by User on 20.06.2017.
+ * Created by SystemUser on 20.06.2017.
  */
-public interface UserDao extends BaseDao<User> {
+public interface SystemUserDao extends BaseDao<SystemUser> {
 
-    User findByEmail(String name);
+    SystemUser findByEmail(String name);
 
     void saveUser(String nameUser,
                   String family,

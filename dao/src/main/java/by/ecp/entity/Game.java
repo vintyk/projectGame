@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by User on 02.06.2017.
+ * Created by SystemUser on 02.06.2017.
  */
 @Entity
 @Table(name = "games")

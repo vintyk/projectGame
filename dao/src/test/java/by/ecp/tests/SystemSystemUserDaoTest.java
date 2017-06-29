@@ -1,7 +1,7 @@
 package by.ecp.tests;
 
 import by.ecp.db.PrivilegeDao;
-import by.ecp.db.UserDao;
+import by.ecp.db.SystemUserDao;
 import by.ecp.entity.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,19 +14,19 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by Vinty on 18.06.2017.
  */
-public class UserDaoTest extends BaseTest {
+public class SystemSystemUserDaoTest extends BaseTest {
 
     @Autowired
     private PrivilegeDao privilegeDao;
     @Autowired
-    private UserDao userDao;
+    private SystemUserDao systemUserDao;
 
     @Test
     public void getByEmailTest() {
 //        PrivilegeDaoImpl privilegeDao = new PrivilegeDaoImpl();
-//        UserDaoImpl userDao = new UserDaoImpl();
+//        SystemUserDaoImpl systemUserDao = new SystemUserDaoImpl();
         Privilege privilege = new Privilege();
-        User user = new User();
+        SystemUser systemUser = new SystemUser();
         Address address = new Address();
         address.setCity("Minsk");
         address.setCountry("RB");
@@ -34,24 +34,24 @@ public class UserDaoTest extends BaseTest {
         privilege.setNamePrivilege("Главный_на_районе");
         privilegeDao.save(privilege);
 
-        user.setNameUser("Vee");
-        user.setEmail("vee@gmail.com");
-        user.setFamilyUser("Loo");
-        user.setFirstAddress(address);
-        user.setGender(Gender.FEMALE);
-        user.setPasswordUser("qwerty");
-        user.setPrivilege(privilege);
-        userDao.save(user);
+        systemUser.setNameUser("Vee");
+        systemUser.setEmail("vee@gmail.com");
+        systemUser.setFamilyUser("Loo");
+        systemUser.setFirstAddress(address);
+        systemUser.setGender(Gender.FEMALE);
+        systemUser.setPasswordUser("qwerty");
+        systemUser.setPrivilege(privilege);
+        systemUserDao.save(systemUser);
 
-        User result = userDao.findByEmail("vee@gmail.com");
+        SystemUser result = systemUserDao.findByEmail("vee@gmail.com");
         System.out.println(result);
-        assertEquals(user.getEmail(), "vee@gmail.com");
+        assertEquals(systemUser.getEmail(), "vee@gmail.com");
     }
 
     @Test
     public void saveUserTest() {
         Privilege privilege = new Privilege();
-        User user = new User();
+        SystemUser systemUser = new SystemUser();
         Address address = new Address();
         address.setCity("Minsk");
         address.setCountry("RB");
@@ -59,7 +59,7 @@ public class UserDaoTest extends BaseTest {
         privilege.setNamePrivilege("Админко");
         privilegeDao.save(privilege);
 
-        userDao.saveUser(
+        systemUserDao.saveUser(
                 "MeeMo",
                 "Loo_Lee",
                 "MeeMo@gmail.com",
@@ -67,7 +67,7 @@ public class UserDaoTest extends BaseTest {
                 Gender.MALE,
                 1L
         );
-        List<User> result = userDao.findAll();
+        List<SystemUser> result = systemUserDao.findAll();
         System.out.println(result);
         assertNotNull(result);
     }

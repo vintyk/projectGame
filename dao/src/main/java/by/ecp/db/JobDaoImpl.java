@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by User on 28.06.2017.
+ * Created by SystemUser on 28.06.2017.
  */
 @Repository
 public class JobDaoImpl extends BaseDaoImpl<Job> implements JobDao {

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Created by User on 02.06.2017.
+ * Created by SystemUser on 02.06.2017.
  */
 @Repository
 public class VacancyDaoImpl extends BaseDaoImpl<Vacancy> implements VacancyDao{

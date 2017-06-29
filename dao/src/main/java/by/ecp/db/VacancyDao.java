@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import java.util.List;
 
 /**
- * Created by User on 20.06.2017.
+ * Created by SystemUser on 20.06.2017.
  */
 public interface VacancyDao extends BaseDao<Vacancy> {
 

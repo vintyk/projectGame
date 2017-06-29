@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Created by User on 21.04.2017.
+ * Created by SystemUser on 21.04.2017.
  */
 @Entity
 @Table(name = "privileges")

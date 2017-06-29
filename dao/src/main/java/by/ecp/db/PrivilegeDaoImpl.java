@@ -5,7 +5,7 @@ import by.ecp.entity.Privilege;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by User on 16.06.2017.
+ * Created by SystemUser on 16.06.2017.
  */
 @Repository
 public class PrivilegeDaoImpl extends BaseDaoImpl<Privilege> implements PrivilegeDao{

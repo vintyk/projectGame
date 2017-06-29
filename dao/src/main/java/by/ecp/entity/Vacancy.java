@@ -8,7 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 /**
- * Created by User on 02.06.2017.
+ * Created by SystemUser on 02.06.2017.
  */
 @Entity
 @Table(name = "vacancies")

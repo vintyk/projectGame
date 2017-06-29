@@ -7,18 +7,18 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by User on 02.06.2017.
+ * Created by SystemUser on 02.06.2017.
  */
 @Repository
-public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
+public class SystemUserDaoImpl extends BaseDaoImpl<SystemUser> implements SystemUserDao {
 
     @Override
-    public User findByEmail(String name){
+    public SystemUser findByEmail(String name){
         Session session = getSessionFactory().getCurrentSession();
-        QUser user = new QUser("myNewUser");
-        JPAQuery<User> query = new JPAQuery<>(session);
+        QSystemUser user = new QSystemUser("myNewUser");
+        JPAQuery<SystemUser> query = new JPAQuery<>(session);
         query.select(user).from(user).where(user.email.eq(name));
-        User result = query.fetchOne();
+        SystemUser result = query.fetchOne();
         return result;
     }
     @Override
@@ -34,13 +34,13 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
         Privilege privilege = new Privilege();
         privilege.setId(privilegeId);
 
-        User user = new User();
-        user.setNameUser(nameUser);
-        user.setPrivilege(privilege);
-        user.setFamilyUser(family);
-        user.setEmail(eMail);
-        user.setGender(gender);
-        user.setPasswordUser(pass);
-        session.save(user);
+        SystemUser systemUser = new SystemUser();
+        systemUser.setNameUser(nameUser);
+        systemUser.setPrivilege(privilege);
+        systemUser.setFamilyUser(family);
+        systemUser.setEmail(eMail);
+        systemUser.setGender(gender);
+        systemUser.setPasswordUser(pass);
+        session.save(systemUser);
     }
 }
