@@ -27,7 +27,7 @@ public class CompanyController {
         return companyService.findAll();
     }
 
-    @GetMapping("/MainPage")
+    @GetMapping("/mainPage")
     public String openMainPage(){
         return "GameProject";
     }

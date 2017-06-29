@@ -18,30 +18,22 @@
 <body>
 <div class="row">
     <div class="large-12 columns">
-        <h1>LOGIN</h1>
-        <label> Введите название Вакансии в которой хотели бы попробовать свои силы:</label>
-
-        <form th:action="@{/JobTest.html}" method="post" th:object="${job}">
-
-            <div class="row">
-                <div class="large-4 medium-4 columns">
-                    <label th:for="nameUser">Имя</label>
-                    <input type="text" th:field="*{nameUser}" placeholder="John"/>
-                </div>
-                <div class="large-4 medium-4 columns">
-                    <label th:for="familyUser">Фамилия</label>
-                    <input type="text" th:field="*{familyUser}" placeholder="Dorian"><br>
-                </div>
-                <div class="large-4 medium-4 columns">
-                    <label th:for="email">E-mail</label>
-                    <input type="text" th:field="*{email}" placeholder="JonD@gmail"><br>
-                </div>
-            </div>
+        <h1>Авторизация пользователя</h1><br>
+        <h4> Введите ваш E-mail и пароль.</h4>
+        <form th:action="@{/login}" method="post">
+            <label for="username"><strong>E-mail: </strong></label>
+            <input type="text" name="username" id="username">
+            <label for="password"><strong>Пароль: </strong></label>
+            <input type="password" name="password" id="password"><br>
+            <button type="submit" class="expanded button">ВОЙТИ</button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </form>
     </div>
 </div>
-
-    </form>
-
     <script src="/resources/js/vendor/jquery.js"></script>
     <script src="/resources/js/vendor/what-input.js"></script>
     <script src="/resources/js/vendor/foundation.js"></script>

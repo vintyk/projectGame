@@ -144,43 +144,37 @@
           <div class="row">
             <div class="large-12 columns">
               <label> Введите название компании в которой хотели бы попробовать свои силы:</label>
-
-              <select th:field="*{nameCompany}">
-                <option th:each="companies : ${companies}"
-                        th:value="${companies.id}"
-                        th:text="${#strings.capitalize(#strings.toLowerCase(company.nameCompany))}"></option>
-              </select>
-
-              <label> введите данные о вакансии</label>
-              <input type="text" placeholder="желаемая вакансия" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <label> Фамилия</label>
-              <input type="text" placeholder="Dorian" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <label> Имя</label>
-              <input type="text" placeholder="John" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <div class="row collapse">
-                <label> Почтовый ящик</label>
-                <div class="input-group">
-                  <input type="text" placeholder="JonD@gmail" class="input-group-field" />
-                  <span class="input-group-label">.com</span>
+              <form th:action="@{/JobTest.html}" method="post" th:object="${job}">
+                <select th:field="*{vacancy}">
+                  <option th:each="vacancies : ${vacancies}"
+                          th:value="${vacancies}"
+                          th:text="'Вакансия '+${vacancies.nameVacancy}+' в компании '+${vacancies.company.name}">
+                  </option>
+                </select>
+                <div class="row">
+                  <div class="large-4 medium-4 columns">
+                    <label th:for="nameUser">Имя</label>
+                    <input type="text" th:field="*{nameUser}" placeholder="John"/>
+                  </div>
+                  <div class="large-4 medium-4 columns">
+                    <label th:for="familyUser">Фамилия</label>
+                    <input type="text" th:field="*{familyUser}" placeholder="Dorian"><br>
+                  </div>
+                  <div class="large-4 medium-4 columns">
+                    <label th:for="email">E-mail</label>
+                    <input type="text" th:field="*{email}" placeholder="JonD@gmail"><br>
+                  </div>
                 </div>
-              </div>
             </div>
           </div>
+
           <div class="row">
             <div class="large-12 columns">
               <label> Род занятий</label>
               <select>
                 <option value="1">Гейм-дизайнер</option>
                 <option value="2">Программист WEB</option>
-                <option value="3">Программист на всем остальном. </option>
+                <option value="3">Программист на всем остальном.</option>
                 <option value="4">Просто люблю играться. Несерьезный я человек.</option>
               </select>
             </div>
@@ -189,8 +183,10 @@
             <div class="large-6 medium-6 columns">
               <label> Ваш пол</label>
               <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Женщина</label><br>
-              <input type="radio" name="pokemon" value="Blue" id="pokemonBlue2"><label for="pokemonBlue2">Мужчинщина</label><br>
-              <input type="radio" name="pokemon" value="Blue" id="pokemonBlue3"><label for="pokemonBlue3">В процессе выбора</label><br>
+              <input type="radio" name="pokemon" value="Blue" id="pokemonBlue2"><label
+                    for="pokemonBlue2">Мужчинщина</label><br>
+              <input type="radio" name="pokemon" value="Blue" id="pokemonBlue3"><label for="pokemonBlue3">В процессе
+              выбора</label><br>
             </div>
             <div class="large-6 medium-6 columns">
               <label> Знание английского</label>
@@ -204,9 +200,11 @@
               <textarea placeholder="Кто азм есьм..."></textarea>
             </div>
           </div>
-          <input id="checkbox3" type="checkbox"><label for="checkbox3">Практически все, что я сказал о себе правда.</label><br>
+          <input id="checkbox3" type="checkbox"><label for="checkbox3">Практически все, что я сказал о себе
+          правда.</label><br>
           <button type="submit" class="expanded button">Отправить вакансию</button>
         </form>
+
       </div>
 
       <div class="large-4 medium-4 columns">

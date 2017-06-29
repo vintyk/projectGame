@@ -2,8 +2,10 @@ package by.ecp.controller;
 
 import by.ecp.entity.Company;
 import by.ecp.entity.Job;
+import by.ecp.entity.Vacancy;
 import by.ecp.services.CompanyService;
 import by.ecp.services.JobService;
+import by.ecp.services.VacancyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,15 +18,15 @@ import java.util.List;
  * Created by SystemUser on 28.06.2017.
  */
 @Controller
-public class JobController {
+public class GameProject {
 
     private final JobService jobService;
-    private final CompanyService companyService;
+    private final VacancyService vacancyService;
 
     @Autowired
-    public JobController(JobService jobService, CompanyService companyService){
+    public GameProject(JobService jobService, VacancyService vacancyService) {
         this.jobService = jobService;
-        this.companyService = companyService;
+        this.vacancyService = vacancyService;
     }
 
     @ModelAttribute("job")
@@ -32,19 +34,18 @@ public class JobController {
         return new Job();
     }
 
-    @ModelAttribute("companies")
-    public List<Company> companies(){
-        return companyService.findAll();
+    @ModelAttribute("vacancies")
+    public List<Vacancy> vacancies() {
+        return vacancyService.findAll();
     }
 
     @GetMapping(path = "/GameProject")
-    public  String showGameProjectForm()
-    {
+    public String showGameProjectForm() {
         return "GameProject";
     }
 
     @PostMapping(path = "/GameProject")
-    public String saveJob(Job job){
+    public String saveJob(Job job) {
         jobService.save(job);
         return "/GameProject";
     }
