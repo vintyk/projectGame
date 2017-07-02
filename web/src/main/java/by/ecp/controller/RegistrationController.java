@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Vinty on 02.07.2017.
@@ -35,8 +37,8 @@ public class RegistrationController {
         return new SystemUser();
     }
     @ModelAttribute("privilege")
-    public Privilege privilege() {
-        return new Privilege();
+    public Set<Privilege> privilege() {
+        return new HashSet<>();
     }
     @ModelAttribute("privileges")
     public List<Privilege> privileges() {
@@ -56,9 +58,4 @@ public class RegistrationController {
         model.addAttribute("systemuser", systemUser);
         return "/Registration";
     }
-//    @PostMapping(path = "/registration")
-//    public String saveUser(SystemUser systemUser, Model model){
-//        model.addAttribute("systemuser", systemUser);
-//        return "/Registration";
-//    }
 }

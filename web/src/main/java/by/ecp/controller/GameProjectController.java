@@ -29,17 +29,14 @@ public class GameProjectController {
         this.jobService = jobService;
         this.vacancyService = vacancyService;
     }
-
     @ModelAttribute("job")
     public Job job() {
         return new Job();
     }
-
     @ModelAttribute("vacancies")
     public List<Vacancy> vacancies() {
         return vacancyService.findAll();
     }
-
     @ModelAttribute("genders")
     public List<Gender> genders() {
         return Arrays.asList(Gender.values());
@@ -53,7 +50,6 @@ public class GameProjectController {
     public String showGameProjectForm() {
         return "GameProject";
     }
-
     @PostMapping(path = "/GameProject")
     public String saveJob(Job job, Model model) {
         System.out.println("-------------------------------------------------"+job);
@@ -61,10 +57,4 @@ public class GameProjectController {
         System.out.println("-------------------------------------------------"+model);
         return "GameProject";
     }
-//    @PostMapping(path = "/GameProject")
-//    public String saveJob(Job job) {
-//        System.out.println("-------------------------------------------------"+job);
-//        jobService.save(job);
-//        return "GameProject";
-//    }
 }
