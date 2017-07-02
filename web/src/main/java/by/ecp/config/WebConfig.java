@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
         ThymeleafConfig.class,
         RootConfig.class,
         MvcConfig.class,
-        SecurityConfig.class})
+        })
 public class WebConfig {
 
 }
