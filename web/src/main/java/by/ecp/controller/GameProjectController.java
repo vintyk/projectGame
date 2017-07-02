@@ -53,10 +53,18 @@ public class GameProjectController {
     public String showGameProjectForm() {
         return "GameProject";
     }
+
     @PostMapping(path = "/GameProject")
-    public String saveJob(Job job) {
+    public String saveJob(Job job, Model model) {
         System.out.println("-------------------------------------------------"+job);
-        jobService.save(job);
+        model.addAttribute("job", new Job());
+        System.out.println("-------------------------------------------------"+model);
         return "GameProject";
     }
+//    @PostMapping(path = "/GameProject")
+//    public String saveJob(Job job) {
+//        System.out.println("-------------------------------------------------"+job);
+//        jobService.save(job);
+//        return "GameProject";
+//    }
 }
