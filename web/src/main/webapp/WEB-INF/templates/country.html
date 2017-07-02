@@ -25,28 +25,18 @@
 <!--</ul>-->
 <!--</form>-->
 
-<form th:action="@{/country.html}" method="post" th:object="${country}">
-    <label th:for="name" th:text="Введи новую страну">Страна</label><br>
+<form th:action="@{/country}" method="post" th:object="${country}">
     <input type="text" th:field="*{name}"><br>
-    <button type="submit" class="expanded button">Отправить вакансию</button>
+    <button type="submit">Отправить</button>
     <br/>
-
-    <select th:field="*{name}">
-        <option th:each="countries : ${countries}"
-                th:value="${countries}"
-                th:text="${#strings.capitalize(#strings.toLowerCase(countries.name))}"></option>
-    </select>
-
 </form>
+    <!--<select th:field="*{name}">-->
+        <!--<option th:each="countries : ${countries}"-->
+                <!--th:value="${countries}"-->
+                <!--th:text="${#strings.capitalize(#strings.toLowerCase(countries.name))}"></option>-->
+    <!--</select>-->
 
 
-
-<!--<select th:field="*{name}" >-->
-<!--<option th:each="name : ${countries}"-->
-<!--th:text="${#strings.capitalize(#strings.toLowerCase(name))}"-->
-<!--th:value="${name}">-->
-<!--</option>-->
-<!--</select>-->
 <script src="/resources/js/vendor/jquery.js"></script>
 <script src="/resources/js/vendor/what-input.js"></script>
 <script src="/resources/js/vendor/foundation.js"></script>

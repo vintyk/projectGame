@@ -1,30 +1,31 @@
 package by.ecp.controller;
 
-import by.ecp.entity.Company;
-import by.ecp.entity.Job;
-import by.ecp.entity.Vacancy;
+import by.ecp.entity.*;
 import by.ecp.services.CompanyService;
 import by.ecp.services.JobService;
 import by.ecp.services.VacancyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by SystemUser on 28.06.2017.
  */
 @Controller
-public class GameProject {
+public class GameProjectController {
 
     private final JobService jobService;
     private final VacancyService vacancyService;
 
     @Autowired
-    public GameProject(JobService jobService, VacancyService vacancyService) {
+    public GameProjectController(JobService jobService, VacancyService vacancyService) {
         this.jobService = jobService;
         this.vacancyService = vacancyService;
     }
@@ -39,14 +40,23 @@ public class GameProject {
         return vacancyService.findAll();
     }
 
+    @ModelAttribute("genders")
+    public List<Gender> genders() {
+        return Arrays.asList(Gender.values());
+    }
+    @ModelAttribute("englishes")
+    public List<English> englishes() {
+        return Arrays.asList(English.values());
+    }
+
     @GetMapping(path = "/GameProject")
     public String showGameProjectForm() {
         return "GameProject";
     }
-
     @PostMapping(path = "/GameProject")
     public String saveJob(Job job) {
+        System.out.println("-------------------------------------------------"+job);
         jobService.save(job);
-        return "/GameProject";
+        return "GameProject";
     }
 }

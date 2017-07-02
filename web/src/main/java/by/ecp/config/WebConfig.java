@@ -1,5 +1,6 @@
 package by.ecp.config;
 
+import by.ecp.RootConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -11,7 +12,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @ComponentScan(basePackages = "by.ecp")
 @EnableWebMvc
-@Import(value = {InternationalizationConfig.class, ThymeleafConfig.class})
+@Import(value = {
+        InternationalizationConfig.class,
+        ThymeleafConfig.class,
+        RootConfig.class,
+        MvcConfig.class,
+        SecurityConfig.class})
 public class WebConfig {
 
 }

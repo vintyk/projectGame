@@ -24,4 +24,9 @@ public class VacancyServiceImpl implements VacancyService {
     public List<Vacancy> findAll() {
         return vacancyDao.findAll();
     }
+
+    @Override
+    public Vacancy findOne(Long id) {
+        return vacancyDao.findOne(id);
+    }
 }
