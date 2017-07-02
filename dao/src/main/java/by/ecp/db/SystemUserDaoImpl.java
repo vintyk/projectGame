@@ -50,7 +50,6 @@ public class SystemUserDaoImpl extends BaseDaoImpl<SystemUser> implements System
         while (iter.hasNext()){
             Privilege privilege = session.get(Privilege.class, (Serializable) iter.next());
             privilegeSet.add(privilege);
-            privilegeSet.forEach(System.out::println);
         }
         SystemUser systemUser = new SystemUser();
         systemUser.setNameUser(nameUser);

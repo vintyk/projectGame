@@ -21,6 +21,8 @@ public interface UserService extends UserDetailsService {
                   Gender gender,
                   String pass
     );
+
     List<SystemUser> findAll();
+
     SystemUser findById(Long id);
 }

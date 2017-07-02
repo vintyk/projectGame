@@ -36,25 +36,30 @@ public class RegistrationController {
     public SystemUser systemUser() {
         return new SystemUser();
     }
-    @ModelAttribute("privilege")
-    public Set<Privilege> privilege() {
-        return new HashSet<>();
-    }
-    @ModelAttribute("privileges")
-    public List<Privilege> privileges() {
-        return privilegeService.findAll();
-    }
+
     @ModelAttribute("genders")
     public List<Gender> genders() {
         return Arrays.asList(Gender.values());
+    }
+
+    @ModelAttribute("privilegeSet")
+    Set<Long> privilegeSet() {
+        Set<Long> privilegeSet = new HashSet<>();
+        privilegeSet.add(2L);
+    return privilegeSet;
     }
 
     @GetMapping(path = "/registration")
     public  String showRegistrationForm(){
         return "Registration";
     }
+
     @PostMapping(path = "/registration")
-    public String saveUser(SystemUser systemUser, Model model){
+    public String save(SystemUser systemUser, Model model){
+        Privilege privilege = privilegeService.findOne(2L);
+        Set<Privilege> privilegeSet = new HashSet<>();
+        privilegeSet.add(privilege);
+        systemUser.setPrivilege(privilegeSet);
         model.addAttribute("systemuser", systemUser);
         return "/Registration";
     }
