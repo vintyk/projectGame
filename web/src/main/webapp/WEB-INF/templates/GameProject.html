@@ -38,8 +38,10 @@
         <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
         </div>
         <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
+            <!-- right off-canvas markup -->
         </div>
         <div class="off-canvas-content" data-off-canvas-content>
+            <!-- page content -->
         </div>
     </div>
 </div>
@@ -174,7 +176,7 @@
                 <form th:action="@{/GameProject}" method="post" th:object="${job}">
                     <select th:field="*{vacancy}">
                         <option th:each="vacancies : ${vacancies}"
-                                th:value="${vacancies}"
+                                th:value="${vacancies.id}"
                                 th:text="'Вакансия '+${vacancies.nameVacancy}+' в компании '+${vacancies.company.name}">
                         </option>
                     </select>
@@ -214,6 +216,7 @@
                             <textarea placeholder="Кто азм есьм..." th:field="*{comment}"></textarea>
                         </div>
                         <button type="submit" class="expanded button">Отправить вакансию</button>
+
                     </div>
                 </form>
             </div>

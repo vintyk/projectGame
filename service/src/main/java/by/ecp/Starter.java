@@ -1,11 +1,15 @@
 package by.ecp;
 
 import by.ecp.entity.Country;
+import by.ecp.entity.Gender;
 import by.ecp.services.CountryService;
 import by.ecp.services.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by SystemUser on 20.06.2017.
@@ -15,14 +19,16 @@ public class Starter {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(RootConfig.class);
 
 
-        //        UserService userService = context.getBean(UserService.class);
-//        userService.saveUser(
-//                "Valera",
-//                2L,
-//                "Nechay",
-//                "vn@ecp.by",
-//                Gender.MALE,
-//                "12345");
+                UserService userService = context.getBean(UserService.class);
+          Set<Long> longSet = new HashSet<>();
+          longSet.add(2L);
+        userService.saveUser(
+                "Valera",
+                longSet,
+                "Nechay",
+                "vn@ecp.by",
+                Gender.MALE,
+                "1");
 //
 //        CountryService countryService = context.getBean(CountryService.class);
 //        List<Country> countryList = countryService.findAll();

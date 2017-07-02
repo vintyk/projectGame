@@ -42,13 +42,6 @@ public class RegistrationController {
         return Arrays.asList(Gender.values());
     }
 
-    @ModelAttribute("privilegeSet")
-    Set<Long> privilegeSet() {
-        Set<Long> privilegeSet = new HashSet<>();
-        privilegeSet.add(2L);
-    return privilegeSet;
-    }
-
     @GetMapping(path = "/registration")
     public  String showRegistrationForm(){
         return "Registration";
@@ -60,6 +53,7 @@ public class RegistrationController {
         Set<Privilege> privilegeSet = new HashSet<>();
         privilegeSet.add(privilege);
         systemUser.setPrivilege(privilegeSet);
+
         model.addAttribute("systemuser", systemUser);
         return "/Registration";
     }

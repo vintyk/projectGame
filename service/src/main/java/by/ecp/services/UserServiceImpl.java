@@ -10,6 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService {
 //    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(SystemUserDao systemUserDao){
+    public UserServiceImpl(SystemUserDao systemUserDao) {
         this.systemUserDao = systemUserDao;
     }
 
@@ -42,8 +43,8 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException("Такой E-Mail не найден в Базе Данных!");
         }
         return new User(foundSystemUser.getEmail(),
-                        foundSystemUser.getPasswordUser(),
-                        getUserAuthorities(foundSystemUser));
+                foundSystemUser.getPasswordUser(),
+                getUserAuthorities(foundSystemUser));
     }
 
     private Set<GrantedAuthority> getUserAuthorities(SystemUser systemUser) {
@@ -68,14 +69,14 @@ public class UserServiceImpl implements UserService {
             String eMail,
             Gender gender,
             String pass) {
-    systemUserDao.saveUser(
-            nameUser,
-            family,
-            eMail,
-            pass,
-            gender,
-            privilegeSet
-    );
+        systemUserDao.saveUser(
+                nameUser,
+                family,
+                eMail,
+                quickPasswordEncodingGenerator(pass),
+                gender,
+                privilegeSet
+        );
     }
 
     @Override
@@ -86,5 +87,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public SystemUser findById(Long id) {
         return systemUserDao.findOne(id);
+    }
+
+    public String quickPasswordEncodingGenerator(String password) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return passwordEncoder.encode(password);
     }
 }

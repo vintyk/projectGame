@@ -29,6 +29,11 @@ public class GameProjectController {
         this.jobService = jobService;
         this.vacancyService = vacancyService;
     }
+    @ModelAttribute("vacancy")
+    public Vacancy vacancy() {
+        return new Vacancy();
+    }
+
     @ModelAttribute("job")
     public Job job() {
         return new Job();
@@ -52,9 +57,8 @@ public class GameProjectController {
     }
     @PostMapping(path = "/GameProject")
     public String saveJob(Job job, Model model) {
-        System.out.println("-------------------------------------------------"+job);
-        model.addAttribute("job", new Job());
-        System.out.println("-------------------------------------------------"+model);
+
+        jobService.save(job);
         return "GameProject";
     }
 }
