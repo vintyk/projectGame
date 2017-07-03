@@ -49,8 +49,7 @@ public class RegistrationController {
     }
 
     @GetMapping(path = "/registration")
-    public  String showRegistrationForm(Model model){
-        model.addAttribute("systemuser", new SystemUser());
+    public  String showRegistrationForm(){
         return "Registration";
     }
 

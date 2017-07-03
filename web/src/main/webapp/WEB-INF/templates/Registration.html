@@ -25,21 +25,15 @@
     <div class="callout">
       <h3>Заполните поля</h3>
       <img src= "/resources/pic/registration.jpg">
-      <h5>описание</h5>
-
       <div class="row">
           <form th:action="@{/registration}" method="post" th:object="${systemuser}">
             <div class="large-12 columns">
-
-              <label th:for="email">E-mail</label>
               <span th:text="#{email_you_login.emaillogin}">ваш login</span>
               <input type="text" th:field="*{email}" placeholder="JonD@gmail" required="required"><br>
 
-              <label th:for="password">Password</label>
               <span th:text="#{password.mypassword}">password</span>
               <input type="text" th:field="*{passwordUser}" placeholder="enter password" required="required"><br>
             </div>
-
             <div class="large-4 medium-4 columns">
               <label th:for="nameUser">Имя</label>
               <input type="text" th:field="*{nameUser}" placeholder="John"/>
@@ -48,7 +42,6 @@
               <label th:for="familyUser">Фамилия</label>
               <input type="text" th:field="*{familyUser}" placeholder="Dorian"><br>
             </div>
-
             <div class="large-6 medium-6 columns">
               <label> Гендерная принадлежность </label>
               <div class="radio" th:each="gender : ${genders}">
@@ -57,10 +50,12 @@
                   <span th:text="#{${'gender.' + #strings.capitalize(#strings.toLowerCase(gender))}}"></span>
                 </label>
               </div>
-              <button type="submit" class="expanded button">Зарегистрировать</button>
+              <button type="submit" class="expanded button">Зарегистрировать</button><br>
+              <a class="expanded button" href="/login" th:text="#{login.enter}">Вход в систему</a>
             </div>
             <br/>
           </form>
+
         </div>
       </div>
     </div>

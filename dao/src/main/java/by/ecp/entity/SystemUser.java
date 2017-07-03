@@ -1,9 +1,7 @@
 package by.ecp.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -16,6 +14,7 @@ import java.util.Set;
     @Table(name = "users")
     @NoArgsConstructor
     @ToString
+    @EqualsAndHashCode
     public class SystemUser extends BaseEntity {
     @Getter
     @Setter
@@ -27,14 +26,16 @@ import java.util.Set;
     @Column(name = "family")
     private String familyUser;
 
+    @NotEmpty
     @Getter
     @Setter
-    @Column(name = "e_mail")
+    @Column(name = "e_mail", nullable=false)
     private String email;
 
+    @NotEmpty
     @Getter
     @Setter
-    @Column(name = "password")
+    @Column(name = "password", nullable=false)
     private String passwordUser;
 
     //    @JoinColumn(name = "privilege_id", nullable = false)

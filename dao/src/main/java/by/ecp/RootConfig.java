@@ -51,13 +51,13 @@ public class RootConfig {
     @Value("${hibernate.cache.use_second_level_cache}")
     private  String useSecondLevelCache;
 
-    @Value("{hibernate.cache.use_query_cache}")
+    @Value("${hibernate.cache.use_query_cache}")
     private  String useQueryCache;
 
-//    @Value("{hibernate.cache.region.factory_class}")
-//    private String factoryClass;
+    @Value("${hibernate.cache.region.factory_class}")
+    private String factoryClass;
 
-    @Value("{net.sf.ehcache.configurationResourceName}")
+    @Value("${net.sf.ehcache.configurationResourceName}")
     private String configurationResourceName;
 
     @Bean
@@ -88,10 +88,10 @@ public class RootConfig {
         properties.setProperty("hibernate.format_sql", formatSql);
         properties.setProperty("hibernate.hbm2ddl.auto", creationPolicy);
 
-//        properties.setProperty("hibernate.cache.use_second_level_cache", useSecondLevelCache);
-//        properties.setProperty("hibernate.cache.use_query_cache", useQueryCache);
-//        properties.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
-//        properties.setProperty("net.sf.ehcache.configurationResourceName", "/ehcache-config.xml");
+        properties.setProperty("hibernate.cache.use_second_level_cache", useSecondLevelCache);
+        properties.setProperty("hibernate.cache.use_query_cache", useQueryCache);
+        properties.setProperty("hibernate.cache.region.factory_class", factoryClass);
+        properties.setProperty("net.sf.ehcache.configurationResourceName", configurationResourceName);
         return properties;
     }
     @Bean
@@ -100,4 +100,5 @@ public class RootConfig {
         transactionManager.setSessionFactory(sessionFactory);
         return transactionManager;
     }
+
 }
