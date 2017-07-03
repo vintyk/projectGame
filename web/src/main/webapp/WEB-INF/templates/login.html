@@ -18,25 +18,23 @@
 <body>
 <div class="row">
     <div class="large-12 columns">
-        <h1>Авторизация пользователя</h1>
-        <div class="switch small">
-            <input class="switch-input" id="smallSwitch" type="checkbox" name="exampleSwitch">
-            <label class="switch-paddle" for="smallSwitch">
-                <span class="show-for-sr">Small Portions Only</span>
-            </label><br>
-            <a href="?translations=ru_RU">РУС</a>  <a href="?translations=en_US">ENG</a>
-
-        </div>
+        <h1 th:text="#{login.auth}">Авторизация пользователя</h1>
+        <a href="?language=ru_RU">РУС</a>  <a href="?language=en_US">ENG</a>
+        <!--<div class="switch small">-->
+            <!--<input class="switch-input" id="smallSwitch" type="checkbox" name="exampleSwitch">-->
+            <!--<label class="switch-paddle" for="smallSwitch">-->
+                <!--<span class="show-for-sr">Small Portions Only</span>-->
+            <!--</label><br>-->
+        <!--</div>-->
         <br>
-        <h4> Введите ваш E-mail и пароль.</h4>
+        <h4 th:text="#{login.enter_login}"> Enter Login and Password </h4>
         <form th:action="@{/login}" method="post">
-            <label for="username"><strong>E-mail: </strong></label>
+            <label for="username" th:text="#{email_you_login.emaillogin}"><strong>E-mail: </strong></label>
             <input type="text" name="username" id="username">
-            <label for="password"><strong>Пароль: </strong></label>
+            <label for="password" th:text="#{login.password}"><strong>E-mail: </strong></label>
             <input type="password" name="password" id="password"><br>
             <button type="submit" class="expanded button" th:text="#{login.enter}">Enter</button>
             <br>
-
         </form>
         <a class="expanded button" href="/registration" th:text="#{login.registration}">Registration}</a>
         <br>
