@@ -14,6 +14,7 @@ import java.util.List;
 @Service
 @Transactional
 public class VacancyServiceImpl implements VacancyService {
+
     private final VacancyDao vacancyDao;
 
     @Autowired

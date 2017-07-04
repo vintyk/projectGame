@@ -19,19 +19,22 @@ public class Starter {
       public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(RootConfig.class);
 
+                JobService jobService = context.getBean(JobService.class);
+        List<Job> jobList = jobService.findAll();
+        System.out.println(jobList);
 
-          JobService jobService = context.getBean(JobService.class);
-          Job job = new Job();
-          Vacancy vacancy = new Vacancy();
-          VacancyService vacancyService = context.getBean(VacancyService.class);
-          job.setNameUser("Vital");
-          job.setFamilyUser("Ushakov");
-          job.setEmail("vinty1978@gmail.com");
-          job.setComment("я клевый!");
-          job.setGender(Gender.MALE);
-          job.setEnglish(English.EXELLENCE);
-          job.setVacancy(vacancy);
-          jobService.save(job);
+//          JobService jobService = context.getBean(JobService.class);
+//          Job job = new Job();
+//          Vacancy vacancy = new Vacancy();
+//          VacancyService vacancyService = context.getBean(VacancyService.class);
+//          job.setNameUser("Vital");
+//          job.setFamilyUser("Ushakov");
+//          job.setEmail("vinty1978@gmail.com");
+//          job.setComment("я клевый!");
+//          job.setGender(Gender.MALE);
+//          job.setEnglish(English.EXELLENCE);
+//          job.setVacancy(vacancy);
+//          jobService.save(job);
 
 //                UserService userService = context.getBean(UserService.class);
 //          Set<Long> longSet = new HashSet<>();

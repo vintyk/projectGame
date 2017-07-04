@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by SystemUser on 28.06.2017.
  */
@@ -23,5 +25,10 @@ public class JobServiceImpl implements JobService {
     @Override
     public void save(Job job) {
         jobDao.save(job);
+    }
+
+    @Override
+    public List<Job> findAll() {
+        return jobDao.findAll();
     }
 }
