@@ -19,4 +19,5 @@ public interface JobDao extends BaseDao<Job> {
             English english,
             String comment,
             Long vacancyId);
+
 }

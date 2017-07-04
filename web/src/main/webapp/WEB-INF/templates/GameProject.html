@@ -172,9 +172,9 @@
         <br>
         <div class="row">
             <div class="large-12 columns">
-                <label> Введите название компании в которой хотели бы попробовать свои силы:</label>
-                <form th:action="@{/GameProject}" method="post" th:object="${job}">
-                    <select th:field="*{vacancy}">
+                <label> Выберите компанию в которой хотели бы попробовать свои силы и открытую вакансию:</label>
+                <form th:action="@{/GameProject}" method="post" th:object="${jobVacancyDto}">
+                    <select th:field="*{vacancyId}">
                         <option th:each="vacancies : ${vacancies}"
                                 th:value="${vacancies.id}"
                                 th:text="'Вакансия '+${vacancies.nameVacancy}+' в компании '+${vacancies.company.name}">

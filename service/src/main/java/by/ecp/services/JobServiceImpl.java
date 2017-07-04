@@ -21,8 +21,7 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public Long save(Job job) {
+    public void save(Job job) {
         jobDao.save(job);
-        return job.getId();
     }
 }
