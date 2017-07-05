@@ -36,6 +36,11 @@ public class GameProjectController {
         return new JobVacancyDto();
     }
 
+    @ModelAttribute("jobs")
+    public List<Job> jobs(){
+        return jobService.findAll();
+    }
+
     @ModelAttribute("vacancies")
     public List<Vacancy> vacancies() {
         return vacancyService.findAll();
@@ -53,6 +58,12 @@ public class GameProjectController {
     public String showGameProjectForm() {
         return "GameProject";
     }
+
+//    @GetMapping(path = "/GameProject/job1")
+//    public String showGameProjectJobForm(Job job, Model modelJob) {
+//        modelJob.addAttribute("jobs", job);
+//        return "GameProject";
+//    }
 
     @PostMapping(path = "/GameProject")
     public String tempJobVacancyDto(JobVacancyDto jobVacancyDto, Model model) {

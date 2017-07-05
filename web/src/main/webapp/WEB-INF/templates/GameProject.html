@@ -263,24 +263,15 @@
 
             <img src="/resources/pic/people_soiskately.png">
             <p>Присоединяйся!</p>
-            <ul class="menu" data-smooth-scroll>
-  <li><a href="#first">First Arrival</a></li>
-  <li><a href="#second">Second Arrival</a></li>
-  <li><a href="#third">Third Arrival</a></li>
-</ul>
-<div class="sections">
-  <section id="first">First Section</section>
-  <section id="second">Second Section</section>
-  <section id="third">Third Section</section>
-</div>
-            <!--<form id="2" th:action="@{/GameProjectJob}"method="get" th:object="${jobs}">-->
-                <!--<select th:field="*{nameUser}">-->
-                    <!--<option th:each="jobs : ${jobs}"-->
-                            <!--th:value="${jobs}"-->
-                            <!--th:text="${jobs.nameUser}">-->
-                    <!--</option>-->
-                <!--</select>-->
-            <!--</form>-->
+            <ul class="menu" data-smooth-scroll th:each="jobs : ${jobs}" >
+
+                <li><a th:href="@{/GameProject}" th:value="${jobs}">First Arrival</a></li>
+
+            </ul>
+
+                <select>
+                    <option th:each="jobs : ${jobs}" th:value="${jobs}" th:text="${jobs.nameUser}+' '+${jobs.familyUser}"></option>
+                </select>
         </div>
     </div>
 </div>
