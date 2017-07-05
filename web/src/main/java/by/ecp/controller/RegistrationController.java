@@ -1,5 +1,7 @@
 package by.ecp.controller;
 
+import by.ecp.dto.JobVacancyDto;
+import by.ecp.dto.SystemUserDto;
 import by.ecp.entity.Gender;
 import by.ecp.entity.Privilege;
 import by.ecp.entity.SystemUser;
@@ -31,16 +33,9 @@ public class RegistrationController {
         this.userService = userService;
         this.privilegeService = privilegeService;
     }
-    @ModelAttribute("privilegeSet")
-    public Set<Privilege> privilegeSet() {
-        Privilege privilege = privilegeService.findOne(2L);
-        Set<Privilege> privilegeSet = new HashSet<>();
-        privilegeSet.add(privilege);
-        return privilegeSet;
-    }
-    @ModelAttribute("systemuser")
-    public SystemUser systemUser() {
-        return new SystemUser();
+    @ModelAttribute("systemUsersDto")
+    public SystemUserDto systemUsersDto() {
+        return new SystemUserDto();
     }
 
     @ModelAttribute("genders")
@@ -54,11 +49,19 @@ public class RegistrationController {
     }
 
     @PostMapping(path = "/registration")
-    public String save(@ModelAttribute SystemUser systemUser, Model model){
-        Privilege privilege = privilegeService.findOne(2L);
-        Set<Privilege> privilegeSet = new HashSet<>();
-        privilegeSet.add(privilege);
-        model.addAttribute("systemuser", systemUser);
+    public String tempSystemUsersDto(SystemUserDto systemUsersDto, Model model){
+
+        Set<Long> privilegeSet = new HashSet<>();
+        privilegeSet.add(2L);
+        userService.saveUser(
+                systemUsersDto.getNameUser(),
+                privilegeSet,
+                systemUsersDto.getFamilyUser(),
+                systemUsersDto.getEmail(),
+                systemUsersDto.getGender(),
+                systemUsersDto.getPasswordUser()
+        );
+
         return "/Registration";
     }
 }

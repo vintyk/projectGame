@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by Vinty on 18.06.2017.
  */
-public class SystemSystemUserDaoTest extends BaseTest {
+public class SystemUserDaoTest extends BaseTest {
 
     @Autowired
     private PrivilegeDao privilegeDao;

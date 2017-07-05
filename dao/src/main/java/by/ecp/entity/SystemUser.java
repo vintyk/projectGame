@@ -38,7 +38,6 @@ import java.util.Set;
     @Column(name = "password", nullable=false)
     private String passwordUser;
 
-    //    @JoinColumn(name = "privilege_id", nullable = false)
     @Getter
     @Setter
     @JoinTable(name = "users_privileges",

@@ -36,16 +36,16 @@ public class Starter {
 //          job.setVacancy(vacancy);
 //          jobService.save(job);
 
-//                UserService userService = context.getBean(UserService.class);
-//          Set<Long> longSet = new HashSet<>();
-//          longSet.add(2L);
-//        userService.saveUser(
-//                "Valera",
-//                longSet,
-//                "Nechay",
-//                "vn@ecp.by",
-//                Gender.MALE,
-//                "1");
+                UserService userService = context.getBean(UserService.class);
+          Set<Long> longSet = new HashSet<>();
+          longSet.add(2L);
+        userService.saveUser(
+                "Valera",
+                longSet,
+                "Nechay",
+                "vn@ecp.by",
+                Gender.MALE,
+                "1");
 //
 //        CountryService countryService = context.getBean(CountryService.class);
 //        List<Country> countryList = countryService.findAll();

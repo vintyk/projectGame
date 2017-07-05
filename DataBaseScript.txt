@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.18, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: projectgame
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,157 +16,51 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `jobs`
+-- Table structure for table `platforms`
 --
 
-DROP TABLE IF EXISTS `jobs`;
+DROP TABLE IF EXISTS `platforms`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `jobs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  `family` varchar(40) DEFAULT NULL,
-  `e_mail` varchar(40) DEFAULT NULL,
-  `gender` varchar(10) DEFAULT NULL,
-  `english` varchar(10) DEFAULT NULL,
-  `comment` text,
-  `vacancy_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKcuvdjv6jxlk7tit5n2ak7se8t` (`vacancy_id`),
-  CONSTRAINT `FKcuvdjv6jxlk7tit5n2ak7se8t` FOREIGN KEY (`vacancy_id`) REFERENCES `vacancies` (`id`),
-  CONSTRAINT `fk_job_vacancy_id` FOREIGN KEY (`vacancy_id`) REFERENCES `vacancies` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `jobs`
---
-
-LOCK TABLES `jobs` WRITE;
-/*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
-INSERT INTO `jobs` VALUES (1,'axc','zxc','zxczxc','MALE','EXELLENCE','zxczxc',NULL);
-/*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `releases`
---
-
-DROP TABLE IF EXISTS `releases`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `releases` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `releases`
---
-
-LOCK TABLES `releases` WRITE;
-/*!40000 ALTER TABLE `releases` DISABLE KEYS */;
-/*!40000 ALTER TABLE `releases` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `game_addition_goods`
---
-
-DROP TABLE IF EXISTS `game_addition_goods`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `game_addition_goods` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(40) DEFAULT NULL,
-  `game_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_game_addition_goods_game_id` (`game_id`),
-  CONSTRAINT `FKsv2ww7n5v8u6yqylwg2fktu70` FOREIGN KEY (`game_id`) REFERENCES `games` (`id`),
-  CONSTRAINT `fk_game_addition_goods_game_id` FOREIGN KEY (`game_id`) REFERENCES `games` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `game_addition_goods`
---
-
-LOCK TABLES `game_addition_goods` WRITE;
-/*!40000 ALTER TABLE `game_addition_goods` DISABLE KEYS */;
-/*!40000 ALTER TABLE `game_addition_goods` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `messages`
---
-
-DROP TABLE IF EXISTS `messages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `messages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `messages`
---
-
-LOCK TABLES `messages` WRITE;
-/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` VALUES (9,'Vitaly'),(10,'Vitaly');
-/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `payment_models`
---
-
-DROP TABLE IF EXISTS `payment_models`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `payment_models` (
+CREATE TABLE `platforms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `payment_models`
+-- Dumping data for table `platforms`
 --
 
-LOCK TABLES `payment_models` WRITE;
-/*!40000 ALTER TABLE `payment_models` DISABLE KEYS */;
-INSERT INTO `payment_models` VALUES (1,'Любая'),(2,'Бесплатная'),(3,'Подписка'),(4,'Разовая покупка');
-/*!40000 ALTER TABLE `payment_models` ENABLE KEYS */;
+LOCK TABLES `platforms` WRITE;
+/*!40000 ALTER TABLE `platforms` DISABLE KEYS */;
+INSERT INTO `platforms` VALUES (1,'PC'),(2,'Playstation'),(3,'Xbox'),(4,'Nintendo'),(5,'Wii'),(6,'Mobile'),(7,'Browser');
+/*!40000 ALTER TABLE `platforms` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `settings`
+-- Table structure for table `privileges`
 --
 
-DROP TABLE IF EXISTS `settings`;
+DROP TABLE IF EXISTS `privileges`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `settings` (
+CREATE TABLE `privileges` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `settings`
+-- Dumping data for table `privileges`
 --
 
-LOCK TABLES `settings` WRITE;
-/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (1,'Любой'),(2,'Фэнтези'),(3,'Фантастика'),(4,'Постапокалипсис'),(5,'История'),(6,'Наше время'),(7,'Супергерои'),(8,'Анимэ'),(9,'Спорт');
-/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+LOCK TABLES `privileges` WRITE;
+/*!40000 ALTER TABLE `privileges` DISABLE KEYS */;
+INSERT INTO `privileges` VALUES (1,'Admin'),(2,'User');
+/*!40000 ALTER TABLE `privileges` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -199,57 +93,176 @@ INSERT INTO `games_platforms` VALUES (1,1),(1,2),(1,3);
 UNLOCK TABLES;
 
 --
--- Table structure for table `platforms`
+-- Table structure for table `messages`
 --
 
-DROP TABLE IF EXISTS `platforms`;
+DROP TABLE IF EXISTS `messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `platforms` (
+CREATE TABLE `messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
+  `name` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `platforms`
+-- Dumping data for table `messages`
 --
 
-LOCK TABLES `platforms` WRITE;
-/*!40000 ALTER TABLE `platforms` DISABLE KEYS */;
-INSERT INTO `platforms` VALUES (1,'PC'),(2,'Playstation'),(3,'Xbox'),(4,'Nintendo'),(5,'Wii'),(6,'Mobile'),(7,'Browser');
-/*!40000 ALTER TABLE `platforms` ENABLE KEYS */;
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (9,'Vitaly'),(10,'Vitaly');
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `publications`
+-- Table structure for table `users_privileges`
 --
 
-DROP TABLE IF EXISTS `publications`;
+DROP TABLE IF EXISTS `users_privileges`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `publications` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `text` text,
-  `game_id` int(11) DEFAULT NULL,
-  `date_publication` date DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_publications_game_id` (`game_id`),
-  CONSTRAINT `FK6d06w5wt3ulw171fh018ft8u` FOREIGN KEY (`game_id`) REFERENCES `games` (`id`),
-  CONSTRAINT `fk_publications_game_id` FOREIGN KEY (`game_id`) REFERENCES `games` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+CREATE TABLE `users_privileges` (
+  `user_id` int(11) NOT NULL,
+  `privilege_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`,`privilege_id`),
+  KEY `FKhotv928gvdlvjj5mi1d6xt19c` (`privilege_id`),
+  CONSTRAINT `FKd4u7kg21jlshspmcju46jlte9` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `FKhotv928gvdlvjj5mi1d6xt19c` FOREIGN KEY (`privilege_id`) REFERENCES `privileges` (`id`),
+  CONSTRAINT `fk_users_privileges_privilege_id` FOREIGN KEY (`privilege_id`) REFERENCES `privileges` (`id`),
+  CONSTRAINT `fk_users_privileges_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `publications`
+-- Dumping data for table `users_privileges`
 --
 
-LOCK TABLES `publications` WRITE;
-/*!40000 ALTER TABLE `publications` DISABLE KEYS */;
-INSERT INTO `publications` VALUES (1,'dd','ss',1,'2017-06-18');
-/*!40000 ALTER TABLE `publications` ENABLE KEYS */;
+LOCK TABLES `users_privileges` WRITE;
+/*!40000 ALTER TABLE `users_privileges` DISABLE KEYS */;
+INSERT INTO `users_privileges` VALUES (4,1);
+/*!40000 ALTER TABLE `users_privileges` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `settings`
+--
+
+DROP TABLE IF EXISTS `settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `settings`
+--
+
+LOCK TABLES `settings` WRITE;
+/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
+INSERT INTO `settings` VALUES (1,'Любой'),(2,'Фэнтези'),(3,'Фантастика'),(4,'Постапокалипсис'),(5,'История'),(6,'Наше время'),(7,'Супергерои'),(8,'Анимэ'),(9,'Спорт');
+/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `game_addition_goods`
+--
+
+DROP TABLE IF EXISTS `game_addition_goods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `game_addition_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) DEFAULT NULL,
+  `game_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_game_addition_goods_game_id` (`game_id`),
+  CONSTRAINT `FKsv2ww7n5v8u6yqylwg2fktu70` FOREIGN KEY (`game_id`) REFERENCES `games` (`id`),
+  CONSTRAINT `fk_game_addition_goods_game_id` FOREIGN KEY (`game_id`) REFERENCES `games` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `game_addition_goods`
+--
+
+LOCK TABLES `game_addition_goods` WRITE;
+/*!40000 ALTER TABLE `game_addition_goods` DISABLE KEYS */;
+/*!40000 ALTER TABLE `game_addition_goods` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jobs`
+--
+
+DROP TABLE IF EXISTS `jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jobs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  `family` varchar(40) DEFAULT NULL,
+  `e_mail` varchar(40) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `english` varchar(10) DEFAULT NULL,
+  `comment` text,
+  `vacancy_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKcuvdjv6jxlk7tit5n2ak7se8t` (`vacancy_id`),
+  CONSTRAINT `FKcuvdjv6jxlk7tit5n2ak7se8t` FOREIGN KEY (`vacancy_id`) REFERENCES `vacancies` (`id`),
+  CONSTRAINT `fk_job_vacancy_id` FOREIGN KEY (`vacancy_id`) REFERENCES `vacancies` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jobs`
+--
+
+LOCK TABLES `jobs` WRITE;
+/*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
+INSERT INTO `jobs` VALUES (1,'axc','zxc','zxczxc','MALE','EXELLENCE','zxczxc',NULL),(2,'Виталий','Ушаков','vinty1978@gmail.com','MALE','EXELLENCE','Все знаю, все умею.',3);
+/*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) DEFAULT NULL,
+  `family` varchar(40) DEFAULT NULL,
+  `e_mail` varchar(40) DEFAULT NULL,
+  `gender` varchar(20) DEFAULT NULL,
+  `privilege_id` int(11) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `home_region_country` varchar(40) DEFAULT NULL,
+  `home_region_City` varchar(40) DEFAULT NULL,
+  `payment_country` varchar(40) DEFAULT NULL,
+  `payment_city` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_users_privilege_id_priveleges` (`privilege_id`),
+  CONSTRAINT `FKlqsigtdreydubi3kokcs49q4u` FOREIGN KEY (`privilege_id`) REFERENCES `privileges` (`id`),
+  CONSTRAINT `fk_users_privilege_id_priveleges` FOREIGN KEY (`privilege_id`) REFERENCES `privileges` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (4,'Vitaly','Ushakov','vinty@i.ua','MALE',1,'1',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -340,139 +353,79 @@ INSERT INTO `games` VALUES (1,'Герои адского пламени',3,2,3,2
 UNLOCK TABLES;
 
 --
--- Table structure for table `genres`
+-- Table structure for table `payment_models`
 --
 
-DROP TABLE IF EXISTS `genres`;
+DROP TABLE IF EXISTS `payment_models`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `genres` (
+CREATE TABLE `payment_models` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `genres`
---
-
-LOCK TABLES `genres` WRITE;
-/*!40000 ALTER TABLE `genres` DISABLE KEYS */;
-INSERT INTO `genres` VALUES (1,'Любой'),(2,'MMORPG'),(3,'MOBA'),(4,'Гонки'),(5,'Песочница'),(6,'Симуляторы'),(7,'Стратегии'),(8,'Шутеры'),(9,'Экшены'),(10,'gggg\r\n');
-/*!40000 ALTER TABLE `genres` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `ranks`
---
-
-DROP TABLE IF EXISTS `ranks`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ranks` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `ranks`
---
-
-LOCK TABLES `ranks` WRITE;
-/*!40000 ALTER TABLE `ranks` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ranks` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `stages_test`
---
-
-DROP TABLE IF EXISTS `stages_test`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `stages_test` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `stages_test`
---
-
-LOCK TABLES `stages_test` WRITE;
-/*!40000 ALTER TABLE `stages_test` DISABLE KEYS */;
-INSERT INTO `stages_test` VALUES (1,'Закрытый альфа-тест'),(2,'Закрытый бета-тест'),(3,'Открытый бета-тест'),(4,'Ранний доступ'),(5,'Тест для фокус-груп');
-/*!40000 ALTER TABLE `stages_test` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `users_privileges`
---
-
-DROP TABLE IF EXISTS `users_privileges`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users_privileges` (
-  `user_id` int(11) NOT NULL,
-  `privilege_id` int(11) NOT NULL,
-  PRIMARY KEY (`user_id`,`privilege_id`),
-  KEY `FKhotv928gvdlvjj5mi1d6xt19c` (`privilege_id`),
-  CONSTRAINT `FKd4u7kg21jlshspmcju46jlte9` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `FKhotv928gvdlvjj5mi1d6xt19c` FOREIGN KEY (`privilege_id`) REFERENCES `privileges` (`id`),
-  CONSTRAINT `fk_users_privileges_privilege_id` FOREIGN KEY (`privilege_id`) REFERENCES `privileges` (`id`),
-  CONSTRAINT `fk_users_privileges_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users_privileges`
---
-
-LOCK TABLES `users_privileges` WRITE;
-/*!40000 ALTER TABLE `users_privileges` DISABLE KEYS */;
-INSERT INTO `users_privileges` VALUES (4,1);
-/*!40000 ALTER TABLE `users_privileges` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(40) DEFAULT NULL,
-  `family` varchar(40) DEFAULT NULL,
-  `e_mail` varchar(40) DEFAULT NULL,
-  `gender` varchar(20) DEFAULT NULL,
-  `privilege_id` int(11) NOT NULL,
-  `password` varchar(40) DEFAULT NULL,
-  `home_region_country` varchar(40) DEFAULT NULL,
-  `home_region_City` varchar(40) DEFAULT NULL,
-  `payment_country` varchar(40) DEFAULT NULL,
-  `payment_city` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_users_privilege_id_priveleges` (`privilege_id`),
-  CONSTRAINT `FKlqsigtdreydubi3kokcs49q4u` FOREIGN KEY (`privilege_id`) REFERENCES `privileges` (`id`),
-  CONSTRAINT `fk_users_privilege_id_priveleges` FOREIGN KEY (`privilege_id`) REFERENCES `privileges` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `payment_models`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (4,'Vitaly','Ushakov','vinty@i.ua','MALE',1,'1',NULL,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `payment_models` WRITE;
+/*!40000 ALTER TABLE `payment_models` DISABLE KEYS */;
+INSERT INTO `payment_models` VALUES (1,'Любая'),(2,'Бесплатная'),(3,'Подписка'),(4,'Разовая покупка');
+/*!40000 ALTER TABLE `payment_models` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `releases`
+--
+
+DROP TABLE IF EXISTS `releases`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `releases` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `releases`
+--
+
+LOCK TABLES `releases` WRITE;
+/*!40000 ALTER TABLE `releases` DISABLE KEYS */;
+/*!40000 ALTER TABLE `releases` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `publications`
+--
+
+DROP TABLE IF EXISTS `publications`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `publications` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `text` text,
+  `game_id` int(11) DEFAULT NULL,
+  `date_publication` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_publications_game_id` (`game_id`),
+  CONSTRAINT `FK6d06w5wt3ulw171fh018ft8u` FOREIGN KEY (`game_id`) REFERENCES `games` (`id`),
+  CONSTRAINT `fk_publications_game_id` FOREIGN KEY (`game_id`) REFERENCES `games` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `publications`
+--
+
+LOCK TABLES `publications` WRITE;
+/*!40000 ALTER TABLE `publications` DISABLE KEYS */;
+INSERT INTO `publications` VALUES (1,'dd','ss',1,'2017-06-18');
+/*!40000 ALTER TABLE `publications` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -504,27 +457,51 @@ INSERT INTO `vacancies` VALUES (1,'Директор',1),(2,'Гейм-Дизай�
 UNLOCK TABLES;
 
 --
--- Table structure for table `privileges`
+-- Table structure for table `stages_test`
 --
 
-DROP TABLE IF EXISTS `privileges`;
+DROP TABLE IF EXISTS `stages_test`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `privileges` (
+CREATE TABLE `stages_test` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
+  `name` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `privileges`
+-- Dumping data for table `stages_test`
 --
 
-LOCK TABLES `privileges` WRITE;
-/*!40000 ALTER TABLE `privileges` DISABLE KEYS */;
-INSERT INTO `privileges` VALUES (1,'Admin'),(2,'User');
-/*!40000 ALTER TABLE `privileges` ENABLE KEYS */;
+LOCK TABLES `stages_test` WRITE;
+/*!40000 ALTER TABLE `stages_test` DISABLE KEYS */;
+INSERT INTO `stages_test` VALUES (1,'Закрытый альфа-тест'),(2,'Закрытый бета-тест'),(3,'Открытый бета-тест'),(4,'Ранний доступ'),(5,'Тест для фокус-груп');
+/*!40000 ALTER TABLE `stages_test` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `genres`
+--
+
+DROP TABLE IF EXISTS `genres`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `genres` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `genres`
+--
+
+LOCK TABLES `genres` WRITE;
+/*!40000 ALTER TABLE `genres` DISABLE KEYS */;
+INSERT INTO `genres` VALUES (1,'Любой'),(2,'MMORPG'),(3,'MOBA'),(4,'Гонки'),(5,'Песочница'),(6,'Симуляторы'),(7,'Стратегии'),(8,'Шутеры'),(9,'Экшены'),(10,'gggg\r\n');
+/*!40000 ALTER TABLE `genres` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -550,6 +527,29 @@ LOCK TABLES `stages` WRITE;
 INSERT INTO `stages` VALUES (1,'Любой'),(2,'Отменена'),(3,'Ранний доступ'),(4,'В разработке'),(5,'Запущена');
 /*!40000 ALTER TABLE `stages` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `ranks`
+--
+
+DROP TABLE IF EXISTS `ranks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ranks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ranks`
+--
+
+LOCK TABLES `ranks` WRITE;
+/*!40000 ALTER TABLE `ranks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ranks` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -560,4 +560,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-02 13:17:07
+-- Dump completed on 2017-07-05 10:05:35

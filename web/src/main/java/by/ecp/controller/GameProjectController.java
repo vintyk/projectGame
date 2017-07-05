@@ -58,7 +58,6 @@ public class GameProjectController {
     public String tempJobVacancyDto(JobVacancyDto jobVacancyDto, Model model) {
         Vacancy vacancy = vacancyService.findOne(jobVacancyDto.getVacancyId());
         System.out.println("---------------------------------------------"+jobVacancyDto);
-        jobVacancyDto.getNameUser();
         Job job = new Job();
         job.setVacancy(vacancy);
         job.setNameUser(jobVacancyDto.getNameUser());
