@@ -263,15 +263,16 @@
 
             <img src="/resources/pic/people_soiskately.png">
             <p>Присоединяйся!</p>
-            <ul class="menu" data-smooth-scroll th:each="jobs : ${jobs}" >
+            <!--<ul class="menu" data-smooth-scroll th:each="jobs : ${jobs}" >-->
 
-                <li><a th:href="@{/GameProject}" th:value="${jobs}">First Arrival</a></li>
+                <!--<li><a th:href="@{/GameProject}" th:value="${jobs}">First Arrival</a></li>-->
 
-            </ul>
+            <!--</ul>-->
 
                 <select>
                     <option th:each="jobs : ${jobs}" th:value="${jobs}" th:text="${jobs.nameUser}+' '+${jobs.familyUser}"></option>
                 </select>
+            <p>Уже с нами.</p>
         </div>
     </div>
 </div>
