@@ -1,5 +1,6 @@
 package by.ecp.services;
 
+import by.ecp.entity.Job;
 import by.ecp.entity.Privilege;
 import by.ecp.entity.Vacancy;
 
@@ -13,4 +14,6 @@ public interface VacancyService {
     List<Vacancy> findAll();
 
     Vacancy findOne(Long id);
+
+    void save(Vacancy vacancy);
 }

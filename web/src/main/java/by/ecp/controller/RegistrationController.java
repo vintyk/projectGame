@@ -61,7 +61,6 @@ public class RegistrationController {
                 systemUsersDto.getGender(),
                 systemUsersDto.getPasswordUser()
         );
-
         return "/Registration";
     }
 }

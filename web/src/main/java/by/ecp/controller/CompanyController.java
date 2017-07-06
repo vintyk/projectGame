@@ -22,6 +22,7 @@ public class CompanyController {
     public Company company() {
         return new Company();
     }
+
     @ModelAttribute("companies")
     public List<Company> companies() {
         return companyService.findAll();
