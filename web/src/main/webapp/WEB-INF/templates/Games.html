@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style type="text/css">
+        div {
+            background: url(resources/pic/backgrnd3.jpg)
+        }
+    </style>
+    <link rel="stylesheet" href="resources/css/foundation.css">
+    <link rel="stylesheet" href="resources/css/app.css">
+</head>
+<body>
+<nav class="hover-underline-menu" data-menu-underline-from-center>
+    <ul class="menu align-center">
+        <li><a href="#0" data-toggle="offCanvasLeft">Открыть меню</a></li>
+        <li><a href="/GameProject">Новости</a></li>
+        <li><a href="/GameView">Игры</a></li>
+        <li><a href="#">Three</a></li>
+        <li><a href="#">Four</a></li>
+        <li><input type="search" placeholder="Поиск"></li>
+        <li>
+            <button type="button" class="button">Search</button>
+        </li>
+        <li><a href="/adminTool">Администратор</a></li>
+        <li><a href="/logout">Выход</a></li>
+    </ul>
+</nav>
+<div class="row">
+    <div class="large-12 columns">
+        <h1 th:text="#{games.games}">Игры</h1>
+      
+</div>
+    <script src="/resources/js/vendor/jquery.js"></script>
+    <script src="/resources/js/vendor/what-input.js"></script>
+    <script src="/resources/js/vendor/foundation.js"></script>
+    <script src="/resources/js/app.js"></script>
+</body>
+</html>

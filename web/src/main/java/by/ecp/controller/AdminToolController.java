@@ -22,17 +22,18 @@ import java.util.List;
 @Controller
 public class AdminToolController {
 
-
     private final VacancyService vacancyService;
     private final CompanyService companyService;
     private final JobService jobService;
     @Autowired
     public AdminToolController(VacancyService vacancyService,
-                               CompanyService companyService, JobService jobService){
+                               CompanyService companyService,
+                               JobService jobService){
         this.vacancyService = vacancyService;
         this.companyService = companyService;
         this.jobService = jobService;
     }
+
     @ModelAttribute("jobs")
     public List<Job> jobs(){
         return jobService.findAll();
@@ -45,6 +46,7 @@ public class AdminToolController {
     public List<Company> companies() {
         return companyService.findAll();
     }
+
     @GetMapping("/adminTool")
     public String showLoginPage() {
         return "AdminTool";

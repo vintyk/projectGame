@@ -1,93 +1,96 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAME Analitic</title>
-  <style type="text/css">
-    div {
-      background: url(resources/pic/backgrnd3.jpg)
-    }
-  </style>
-  <link rel="stylesheet" href="resources/css/foundation.css">
-  <link rel="stylesheet" href="resources/css/app.css">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME Analitic</title>
+    <style type="text/css">
+        div {
+            background: url(resources/pic/backgrnd3.jpg)
+        }
+    </style>
+    <link rel="stylesheet" href="resources/css/foundation.css">
+    <link rel="stylesheet" href="resources/css/app.css">
 </head>
 <body>
 
 <nav class="hover-underline-menu" data-menu-underline-from-center>
-  <ul class="menu align-center">
-    <li><a href="#0" data-toggle="offCanvasLeft">Открыть меню</a></li>
-    <li><a href="/GameProject">Новости</a></li>
-    <li><a href="#">Two</a></li>
-    <li><a href="#">Three</a></li>
-    <li><a href="#">Four</a></li>
-    <li><input type="search" placeholder="Поиск"></li>
-    <li><button type="button" class="button">Search</button></li>
-    <li><a href="/adminTool">Администратор</a></li>
-    <li><a href="/logout" >Выход</a></li>
-      <input type="search" placeholder="Поиск">
-    </li>
-    <li>
-      <button type="button" class="button">Search</button>
-    </li>
-  </ul>
+    <ul class="dropdown menu" data-dropdown-menu>
+        <li><a href="/GameProject">Новости</a></li>
+        <li><a href="#">Two</a></li>
+        <li><a href="#">Three</a></li>
+        <li>
+            <a href="/adminTool">Администратор</a>
+            <ul class="menu vertical">
+                <li><a href="/adminTool">Создать вакансию</a></li>
+                <li><a href="/adminToolCreateGame">Создать Игру</a></li>
+                <li><a href="#">Создать новость</a></li>
+            </ul>
+        </li>
+        <li><a href="/logout">Выход</a></li>
+    </ul>
 </nav>
+
+
 <div class="off-canvas-wrapper">
-  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-    <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas> 
-      <!-- left off-canvas markup --> 
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+            <!-- left off-canvas markup -->
+        </div>
+        <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
+            <!-- right off-canvas markup -->
+        </div>
+        <div class="off-canvas-content" data-off-canvas-content>
+            <!-- page content -->
+        </div>
     </div>
-    <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right"> 
-      <!-- right off-canvas markup --> 
-    </div>
-    <div class="off-canvas-content" data-off-canvas-content> 
-      <!-- page content --> 
-    </div>
-  </div>
 </div>
 <div class="row">
-  <div class="large-12 columns">
-    <h1 align="center">Инструментарий Администратора</h1>
-  </div>
+    <div class="large-12 columns">
+        <h1 align="center">Инструментарий Администратора</h1>
+    </div>
 </div>
 <div class="row">
-  <div class="large-12 columns">
-    <div class="callout">
-      <h3>Справочники </h3>
-      <img src= "resources/pic/007_list.png">
-      <h5>описание</h5>
-      <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
-        <div class="medium-4 columns">
-          <div class="callout" data-equalizer-watch> Создать вакансию</div>
-          <form th:action="@{/adminTool}" method="post" th:object="${vacancyDto}">
-          	  <span th:text="#{vacancy.nameVacancy}">vacancy name</span>
-              <input type="text" th:field="*{nameVacancy}" placeholder="разработчик ПО" required="required">
-              <span th:text="#{vacancy.company}">company</span>
-              <select th:field="*{companyId}">
-                        <option th:each="companies : ${companies}"
-                                th:value="${companies.id}"
-                                th:text="${companies.name}">
-                        </option>
-                    </select><br>
-                   
-              <button type="submit" class="expanded button">Внести вакансию</button><br>
-             		<span th:text="#{vacancy.Filed_a_request}">Filed a request</span> 
-              		<select>
-                    <option th:each="jobs : ${jobs}" th:value="${jobs}" th:text="${jobs.email}"></option>
-                	</select>
-			</form>
+    <div class="large-12 columns">
+        <div class="callout">
+            <h3>Справочники </h3>
+            <img src="resources/pic/007_list.png">
+            <h5>описание</h5>
+            <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
+                <div class="medium-4 columns">
+                    <div class="callout" data-equalizer-watch> Создать вакансию</div>
+
+                    <form th:action="@{/adminTool}" method="post" th:object="${vacancyDto}">
+                        <span th:text="#{vacancy.nameVacancy}">vacancy name</span>
+
+                        <input type="text" th:field="*{nameVacancy}" placeholder="разработчик ПО" required="required">
+                        <span th:text="#{vacancy.company}">company</span>
+                        <select th:field="*{companyId}">
+                            <option th:each="companies : ${companies}"
+                                    th:value="${companies.id}"
+                                    th:text="${companies.name}">
+                            </option>
+                        </select><br>
+                        <button type="submit" class="expanded button">Внести вакансию</button>
+                        <br>
+                        <span th:text="#{vacancy.Filed_a_request}">Filed a request</span>
+                        <select>
+                            <option th:each="jobs : ${jobs}" th:value="${jobs}" th:text="${jobs.email}"></option>
+                        </select>
+                    </form>
+
+                </div>
+                <div class="medium-4 columns">
+                    <div class="callout" data-equalizer-watch></div>
+                </div>
+                <div class="medium-4 columns">
+                    <div class="callout" data-equalizer-watch></div>
+                </div>
+            </div>
+
         </div>
-        <div class="medium-4 columns">
-          <div class="callout" data-equalizer-watch> </div>
-        </div>
-        <div class="medium-4 columns">
-          <div class="callout" data-equalizer-watch> </div>
-        </div>
-      </div>
-     
     </div>
-  </div>
 </div>
 <!--
 <div class="row">
@@ -169,9 +172,9 @@
 </div>
 </div>
 -->
-<script src="/resources/js/vendor/jquery.js"></script>
-<script src="/resources/js/vendor/what-input.js"></script>
-<script src="/resources/js/vendor/foundation.js"></script>
-<script src="/resources/js/app.js"></script>
+<script src="resources/js/vendor/jquery.js"></script>
+<script src="resources/js/vendor/what-input.js"></script>
+<script src="resources/js/vendor/foundation.js"></script>
+<script src="resources/js/app.js"></script>
 </body>
 </html>
