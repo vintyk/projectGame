@@ -15,24 +15,29 @@
 </head>
 <body>
 <nav class="hover-underline-menu" data-menu-underline-from-center>
-    <ul class="menu align-center">
-        <li><a href="#0" data-toggle="offCanvasLeft">Открыть меню</a></li>
+    <ul class="dropdown menu" data-dropdown-menu>
         <li><a href="/GameProject">Новости</a></li>
-        <li><a href="/GameView">Игры</a></li>
+        <li><a href="/GameView">Two</a></li>
         <li><a href="#">Three</a></li>
-        <li><a href="#">Four</a></li>
-        <li><input type="search" placeholder="Поиск"></li>
         <li>
-            <button type="button" class="button">Search</button>
+            <a href="/adminTool">Администратор</a>
+            <ul class="menu vertical">
+                <li><a href="/adminTool">Создать вакансию</a></li>
+                <li><a href="/adminToolCreateGame">Создать Игру</a></li>
+                <li><a href="#">Создать новость</a></li>
+            </ul>
         </li>
-        <li><a href="/adminTool">Администратор</a></li>
         <li><a href="/logout">Выход</a></li>
     </ul>
 </nav>
 <div class="row">
     <div class="large-12 columns">
         <h1 th:text="#{games.games}">Игры</h1>
-      
+
+
+
+
+    </div>
 </div>
     <script src="/resources/js/vendor/jquery.js"></script>
     <script src="/resources/js/vendor/what-input.js"></script>

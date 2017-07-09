@@ -18,7 +18,7 @@
 <nav class="hover-underline-menu" data-menu-underline-from-center>
     <ul class="dropdown menu" data-dropdown-menu>
         <li><a href="/GameProject">Новости</a></li>
-        <li><a href="#">Two</a></li>
+        <li><a href="/GameView">Two</a></li>
         <li><a href="#">Three</a></li>
         <li>
             <a href="/adminTool">Администратор</a>
@@ -46,11 +46,9 @@
             <br>
             <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
                 <div class="callout" data-equalizer-watch> Создать игру</div>
+                <form th:action="@{/adminToolCreateGame}" method="post" th:object="${gameDto}">
 
-                <div class="medium-4 columns">
-
-
-                    <form th:action="@{/adminToolCreateGame}" method="post" th:object="${gameDto}">
+                    <div class="medium-4 columns">
                         <span th:text="#{games.namegame}">name Game</span>
                         <input type="text" th:field="*{nameGame}" placeholder="Дьябло 4" required="required">
 
@@ -61,58 +59,59 @@
                                     th:text="${companies.name}">
                             </option>
                         </select><br>
+                    </div>
 
-                </div>
-            <div class="medium-4 columns">
-                <span th:text="#{games.genre}">genre</span>
-                <select th:field="*{genres}">
-                    <option th:each="genres : ${genres}"
-                            th:value="${genres.id}"
-                            th:text="${genres.name}">
-                    </option>
-                </select><br>
+                    <div class="medium-4 columns">
+                        <span th:text="#{games.payment_model}">payment model</span>
+                        <select th:field="*{paymentModelId}">
+                            <option th:each="paymentModels : ${paymentModels}"
+                                    th:value="${paymentModels.id}"
+                                    th:text="${paymentModels.name}">
+                            </option>
+                        </select><br>
 
-                <span th:text="#{games.payment_model}">payment model</span>
-                <select th:field="*{paymentModels}">
-                    <option th:each="paymentModels : ${paymentModels}"
-                            th:value="${paymentModels.id}"
-                            th:text="${paymentModels.name}">
-                    </option>
-                </select><br>
-            </div>
-            <div class="medium-4 columns">
-                <span th:text="#{games.setting}">settings</span>
-                <select th:field="*{settings}">
-                    <option th:each="settings : ${settings}"
-                            th:value="${settings.id}"
-                            th:text="${settings.name}">
-                    </option>
-                </select><br>
+                        <span th:text="#{games.genre}">genre</span>
+                        <select th:field="*{genreId}">
+                            <option th:each="genres : ${genres}"
+                                    th:value="${genres.id}"
+                                    th:text="${genres.name}">
+                            </option>
+                        </select><br>
+                    </div>
+                    <div class="medium-4 columns">
+                    <span th:text="#{games.setting}">settings</span>
+                    <select th:field="*{settingId}">
+                        <option th:each="settings : ${settings}"
+                                th:value="${settings.id}"
+                                th:text="${settings.name}">
+                        </option>
+                    </select><br>
+
 
                 <span th:text="#{games.stage}">stages</span>
-                <select th:field="*{stages}">
+                <select th:field="*{stageId}">
                     <option th:each="stages : ${stages}"
                             th:value="${stages.id}"
                             th:text="${stages.name}">
                     </option>
                 </select><br>
-            </div>
 
-            <button type="submit" class="expanded button">List Games</button>
-            <br>
-            <span th:text="#{vacancy.Filed_a_request}">Filed a request</span>
-            <!--<select>-->
-            <!--<option th:each="jobs : ${jobs}" th:value="${jobs}" th:text="${jobs.email}"></option>-->
-            <!--</select>-->
             </div>
+                    <button type="submit" class="expanded button">Сохранить игру</button>
+                    <br>
+
+            </form>
+
         </div>
+    </div>
+</div>
 </div>
 </div>
 
-        </form>
-        <script src="resources/js/vendor/jquery.js"></script>
-        <script src="resources/js/vendor/what-input.js"></script>
-        <script src="resources/js/vendor/foundation.js"></script>
-        <script src="resources/js/app.js"></script>
+
+<script src="resources/js/vendor/jquery.js"></script>
+<script src="resources/js/vendor/what-input.js"></script>
+<script src="resources/js/vendor/foundation.js"></script>
+<script src="resources/js/app.js"></script>
 </body>
 </html>

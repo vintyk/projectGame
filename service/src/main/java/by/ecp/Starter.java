@@ -1,10 +1,7 @@
 package by.ecp;
 
 import by.ecp.entity.*;
-import by.ecp.services.CountryService;
-import by.ecp.services.JobService;
-import by.ecp.services.UserService;
-import by.ecp.services.VacancyService;
+import by.ecp.services.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.HashMap;
@@ -19,9 +16,25 @@ public class Starter {
       public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(RootConfig.class);
 
-                JobService jobService = context.getBean(JobService.class);
-        List<Job> jobList = jobService.findAll();
-        System.out.println(jobList);
+
+          GameService gameService = context.getBean(GameService.class);
+          Set<Long> platformSet = new HashSet<>();
+          platformSet.add(1L);
+          platformSet.add(2L);
+          platformSet.add(3L);
+          gameService.saveGameToExistingPlatform(
+                  "jjjjjjjj",
+                  1L,
+                  1L,
+                  1L,
+                  1L,
+                  1L,
+                  platformSet
+          );
+
+          //                JobService jobService = context.getBean(JobService.class);
+//        List<Job> jobList = jobService.findAll();
+//        System.out.println(jobList);
 
 //          JobService jobService = context.getBean(JobService.class);
 //          Job job = new Job();
@@ -36,16 +49,16 @@ public class Starter {
 //          job.setVacancy(vacancy);
 //          jobService.save(job);
 
-                UserService userService = context.getBean(UserService.class);
-          Set<Long> longSet = new HashSet<>();
-          longSet.add(2L);
-        userService.saveUser(
-                "Valera",
-                longSet,
-                "Nechay",
-                "vn@ecp.by",
-                Gender.MALE,
-                "1");
+//                UserService userService = context.getBean(UserService.class);
+//          Set<Long> longSet = new HashSet<>();
+//          longSet.add(2L);
+//        userService.saveUser(
+//                "Valera",
+//                longSet,
+//                "Nechay",
+//                "vn@ecp.by",
+//                Gender.MALE,
+//                "1");
 //
 //        CountryService countryService = context.getBean(CountryService.class);
 //        List<Country> countryList = countryService.findAll();
