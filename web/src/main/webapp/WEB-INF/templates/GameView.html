@@ -33,19 +33,19 @@
 <div class="row">
     <div class="large-12 columns">
         <h1 th:text="#{games.games}">Игры</h1>
-        <ul th:each="games : ${games}">
-            <div class="callout success">
-            <li><h5><a href="/GameView" th:text="${games.nameGame}">Создать вакансию</a></h5>
-                <p th:text="${'Компания разработчик: '+games.company.name}"></p>
-                <p th:text="${'Жанр: '+games.genre.name}"></p>
-                <p th:text="${'Модель оплаты: '+games.paymentModel.name}"></p>
-                <p th:text="${'Сеттинг: '+games.setting.name}"></p>
-                <p th:text="${'Стадия: '+games.stage.name}"></p>
-            </li>
-            </div>
-        </ul>
-
-
+        <div th:if="${not #lists.isEmpty(games)}">
+            <ul th:each="games : ${games}">
+                <div class="callout success">
+                    <li><h5><a href="/GameView" th:text="${games.nameGame}">Создать вакансию</a></h5>
+                        <p th:text="${'Компания разработчик: '+games.company.name}"></p>
+                        <p th:text="${'Жанр: '+games.genre.name}"></p>
+                        <p th:text="${'Модель оплаты: '+games.paymentModel.name}"></p>
+                        <p th:text="${'Сеттинг: '+games.setting.name}"></p>
+                        <p th:text="${'Стадия: '+games.stage.name}"></p>
+                    </li>
+                </div>
+            </ul>
+        </div>
     </div>
 </div>
 <script src="/resources/js/vendor/jquery.js"></script>

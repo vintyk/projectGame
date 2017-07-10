@@ -13,6 +13,8 @@ public interface GameService {
 
     List<Game> findAll();
 
+    Game findById(Long id);
+
     void saveGameToExistingPlatform(String nameGame,
               Long company,
               Long genre,

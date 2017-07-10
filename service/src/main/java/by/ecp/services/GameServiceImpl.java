@@ -29,6 +29,11 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
+    public Game findById(Long id) {
+        return gameDao.findOne(id);
+    }
+
+    @Override
     public void saveGameToExistingPlatform(
                      String nameGame,
                      Long company,
